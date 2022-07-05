@@ -45,11 +45,15 @@ body {
 #nav-hover-about:hover {
   border-bottom: 3px solid var(--secondaryYellow);
   font-weight: 600;
-  padding-left: 10px;
+  padding-left: 9.25px;
 }
 
 #nav-hover-help:hover {
   border-bottom: 3px solid var(--secondaryYellow);
   font-weight: 600;
-  padding-left: 11px;
+  padding-left: 10.75px;
+}
+
+span {
+  color: var(--primaryYellow);
 }

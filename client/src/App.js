@@ -1,6 +1,7 @@
 import './App.css';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import Terms from "./pages/TermsAndConditions";
+import About from './pages/About';
 
 
 const httpLink = createHttpLink({
@@ -16,7 +17,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div>
-        <Terms></Terms>
+        <About></About>
       </div>
     </ApolloProvider>
   );
