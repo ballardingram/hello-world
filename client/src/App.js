@@ -1,6 +1,6 @@
 import './App.css';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
-import DesktopNav from "./components/DesktopNav";
+import Terms from "./pages/TermsAndConditions";
 
 
 const httpLink = createHttpLink({
@@ -16,7 +16,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div>
-        <DesktopNav></DesktopNav>
+        <Terms></Terms>
       </div>
     </ApolloProvider>
   );
