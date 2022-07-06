@@ -25,12 +25,12 @@ function DesktopNav() {
                 </a>
                 <a
                   href="#"
-                  className="text-300 px-3 text-lg" id="nav-hover-about">
+                  className="font-light px-3 text-lg" id="nav-hover-about">
                   About
                 </a>
                 <a
                   href="#"
-                  className="text-300 px-3 text-lg" id="nav-hover-help">
+                  className="font-light px-3 text-lg" id="nav-hover-help">
                   Help
                 </a>
               </div>
