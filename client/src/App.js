@@ -34,9 +34,13 @@ function App() {
           {/* place for header if needed */}
           <div>
             <Routes>
-              <Route
+            <Route
                 path="/terms"
                 element={<Terms />}
+              />
+              <Route
+                path="/about"
+                element={<About />}
               />
             </Routes>
           </div>
