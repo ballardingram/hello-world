@@ -57,3 +57,7 @@ body {
 span {
   color: var(--primaryYellow);
 }
+
+#about-height {
+  line-height: 1.25em;
+}
