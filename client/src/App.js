@@ -1,11 +1,10 @@
-
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { setContext } from '@apollo/client/link/context';
 
 import Terms from "./pages/TermsAndConditions";
 import About from './pages/About';
-import DeskSignup from './pages/DeskSignup';
+import DeskSignup from './pages/Desktop-Signup';
 import NoMatch from './pages/NoMatch';
 
 
