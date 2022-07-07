@@ -14,22 +14,22 @@ function DesktopNav() {
             <div>
               <div className="flex justify-center items-center space-x-4">
                 <a
-                  href="#"
+                  href="/home"
                   id="nav-hover-home">
                   <Icon icon={homeIcon} height="34" className="mb-1 mr-4"/>
                 </a>
                 <a
-                  href="#"
+                  href="/profile"
                   className="px-3" id="nav-hover-user">
                   <Icon icon={accountIcon} height="29" className="mb-1 mr-5"/>
                 </a>
                 <a
-                  href="#"
+                  href="/about"
                   className="font-light px-3 text-lg" id="nav-hover-about">
                   About
                 </a>
                 <a
-                  href="#"
+                  href="/help"
                   className="font-light px-3 text-lg" id="nav-hover-help">
                   Help
                 </a>

@@ -1,10 +1,13 @@
 import React from 'react';
 import DesktopNav from '../components/DesktopNav';
 
+
 const Terms = () => {
   return (
     <div>
       <DesktopNav></DesktopNav>
+      
+      
       <div className='grid grid-cols-12 mt-12 pt-5'>
         <div className='col-start-3 col-span-8 font-bold'>
           Hello World's Terms of Service
