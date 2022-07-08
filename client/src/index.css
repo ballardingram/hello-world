@@ -15,6 +15,7 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+/* desktop navigation bar start */
 #border {
   padding-top: 5%;
   padding-bottom: .7%;
@@ -53,14 +54,18 @@ body {
   padding-left: 10.75px;
 }
 
-span {
-  color: var(--primaryYellow);
-}
-
 #about-height {
   line-height: 1.25em;
 }
+/* desktop navigation end */
 
+/* about start */
+#color-switch-pyellow {
+  color: var(--primaryYellow);
+}
+/* about end */
+
+/* login and register form start */
 input {
   border: 1px solid;
   border-color: rgba(31, 78, 121, .5);
@@ -86,4 +91,34 @@ input {
   transform: translateY(-4px);
   font-weight: 400;
 }
+/* login and register form end */
 
+/* card start */
+#card-container {
+  background-color: rgba(178, 202, 224, 0.25);
+}
+
+#card-container:hover {
+  background-color: rgba(178, 202, 224, 0.35);
+}
+/* card end */
+
+/* login page start */
+#border-login-start {
+  margin-top: 4%;
+  padding-top: .7%;
+  border-top: 5px solid var(--primaryBlue);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+  transform: skewY(-3.48deg);
+}
+
+#second-border-login-start {
+  padding-top: 3%;
+  border-top: 5px solid var(--primaryYellow);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+}
+/* login page end */
+
+/* accordion start */
+
+/* accordion end */
