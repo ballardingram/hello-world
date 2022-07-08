@@ -8,7 +8,7 @@ const typeDefs = gql`
         accountSource : String,
         frindCount : Int
     }
-    type Auth{
+    type Auth {
         token: ID!
         user: User
     }
@@ -17,8 +17,8 @@ const typeDefs = gql`
         user(username: String!) : User
       }
       type Mutation {
-        login(email: String!, password: String!): User
-        addLocalUser(fullname: String!, email: String!, password: String!): User
+        login(email: String!, password: String!): Auth
+        addLocalUser(fullname: String!, email: String!, password: String!): Auth
         addFriend(friendId: ID!): User
       }
 `;
