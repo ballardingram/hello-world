@@ -1,7 +1,13 @@
 import React from 'react';
+import RegisterForm from '../RegisterForm';
 
 
 const LoginForm = () => {
+
+  const toggleModal = () => {
+    // toggle modal
+  }
+
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
         <div className="w-full p-6 m-auto bg-white rounded-lg shadow-md max-w-xs">
@@ -46,7 +52,7 @@ const LoginForm = () => {
                 <div 
                   className='inline-block text-xs font-bold h-full content-center text-center'>
                   Need an account? 
-                  <a href='/'> Register Here!</a>
+                  <button onClick={() => toggleModal()} > Register Here!</button>
                 </div>
               </div>
             </form>

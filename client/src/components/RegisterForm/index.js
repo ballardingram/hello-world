@@ -1,7 +1,8 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { ExclamationIcon } from '@heroicons/react/outline'
+// import { ExclamationIcon } from '@heroicons/react/outline'
+import Toggle from "../Toggle"
 
 export default function RegisterForm() {
   const [open, setOpen] = useState(true)
@@ -38,13 +39,75 @@ export default function RegisterForm() {
                 <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                   <div className="sm:flex sm:items-start">
                     <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                      <ExclamationIcon className="h-6 w-6 text-red-600" aria-hidden="true" />
+                      {/* <ExclamationIcon className="h-6 w-6 text-red-600" aria-hidden="true" /> */}
                     </div>
                     <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                       <Dialog.Title as="h3" className="text-lg leading-6 font-medium text-gray-900">
-                        Deactivate account
+                        Sign Up
                       </Dialog.Title>
                       <div className="mt-2">
+                      <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
+         <div className="w-full p-6 m-auto bg-white rounded-lg shadow-md max-w-xs">
+
+             <form className='mt-6'>
+
+               <div className='mb-3'>
+                 <label
+                  for='displayName'
+                  className='block text-sm'> 
+                </label>
+                <input
+                  type='displayName'
+                  className='block text-lg w-full px-4 py-2 mt-2 bg-white border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
+                  placeholder='Display Name*'
+                  id='username'
+                />
+              </div>
+
+              <div className='mb-3'>
+                <label
+                  for='email'
+                  className='block text-sm'> 
+                </label>
+                <input
+                  type='email'
+                  className='block text-lg w-full px-4 py-2 mt-2 bg-white border rounded-lg focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
+                  placeholder='Email Address*'
+                  id='email'
+                />
+              </div>
+
+              <div className='mb-3'>
+                <label
+                  for='password'
+                  className='block text-sm'> 
+                </label>
+                <input
+                  type='password'
+                  className='block text-lg w-full px-4 py-2 mt-2 bg-white border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
+                  placeholder='Password*'
+                  id='password'
+                />
+              </div>
+
+                <div className='mt-8 flex content-center justify-between' id='terms-label'>
+                  <div className='inline-block ml-4 text-sm font-bold h-full content-center'>
+                    Agree to terms & conditions
+                  </div>
+                    <Toggle></Toggle>
+                </div>               
+
+                <div className='mt-2'>
+                    <button 
+                      className='w-full px-4 pb-1 tracking-wide text-white rounded-lg text-2xl font-thin'
+                      id='form-btn'>
+                          Create Account
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
                         <p className="text-sm text-gray-500">
                           Are you sure you want to deactivate your account? All of your data will be permanently
                           removed. This action cannot be undone.
