@@ -14,7 +14,7 @@ const About = () => {
             Coder to Coder<br></br>
             Developer to Developer<br></br>
             You to Community<br></br>
-            <span className='font-bold italic tracking-wider'>that's how it works</span>
+            <span className='font-bold italic tracking-wider' id='color-switch-pyellow'>that's how it works</span>
           </p>
           <img class="flex p-6" src={aboutImg1} alt="people creating a computer program"/>
           <img class="flex p-6" src={aboutImg2} alt="group collaboration for computer program"/>
@@ -22,7 +22,7 @@ const About = () => {
             Expand your projects<br></br>
             Fix your bugs<br></br>
             Connect the dots<br></br>
-            <span className='font-bold italic tracking-wider'>make it happen</span>
+            <span className='font-bold italic tracking-wider' id='color-switch-pyellow'>make it happen</span>
           </p>
         </div>
       </div>

@@ -6,7 +6,6 @@ import Terms from "./pages/TermsAndConditions";
 import About from './pages/About';
 import DeskSignup from './pages/Desktop-Signup';
 import DeskLogin from './pages/Desktop-Login';
-import Card from './components/Card';
 import NoMatch from './pages/NoMatch';
 
 
@@ -53,10 +52,6 @@ function App() {
               <Route
                 path="/login"
                 element={<DeskLogin />}
-              />
-              <Route
-                path="/card"
-                element={<Card />}
               />
               <Route
                 path='*'
