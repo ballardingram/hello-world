@@ -17,11 +17,11 @@ const Expand = () => {
   return (
     <Fragment>
       <Accordion open={open === 1} onClick={() => handleOpen(1)}>
-        <div className="flex text-xs mt-2"><Icon icon={circlePlusFill} height="20" />
-        <AccordionHeader><span className="ml-1 duration-200">View More</span></AccordionHeader>
+        <div className="flex text-xs items-center"><Icon icon={circlePlusFill} height="20" />
+        <AccordionHeader><span className="flex ml-1 text-sm">View More</span></AccordionHeader>
         </div>
       <AccordionBody>
-        <div className="text-sm mt-1 text-justify leading-4">
+        <div className="text-sm text-justify leading-4 py-0">
           This text will include the entire project description and will 
           not be severely limited in character count (will discuss exactly 
           what count should be in SLACK).

@@ -119,6 +119,15 @@ input {
 }
 /* login page end */
 
-/* accordion start */
+/* 404 page start */
+.caveman {
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  height: 400px;
+  background-position: center;
+}
 
-/* accordion end */
+.github:hover {
+  color: #6cc644;
+}
+/* 404 page end */
+
