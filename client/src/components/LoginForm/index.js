@@ -3,8 +3,8 @@ import React from 'react';
 
 const LoginForm = () => {
   return (
-    <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
-        <div className="w-full p-6 m-auto bg-white rounded-lg shadow-md max-w-xs">
+    <div className="relative flex flex-col justify-center overflow-hidden">
+        <div className="w-full p-6 m-auto bg-white rounded-lg shadow-md max-w-md">
 
             <form className='mt-6'>
 

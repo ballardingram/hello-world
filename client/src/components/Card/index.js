@@ -7,7 +7,9 @@ import bookmarkStar from '@iconify/icons-bi/bookmark-star';
 const Card = () => {
   return (
 
-    <div className='block p-4 max-w-sm bg-white rounded-lg shadow-md' id='card-container'>
+    <div className='grid place-items-center'>
+
+    <div className='flex flex-col inline p-4 max-w-sm bg-white rounded-lg shadow-md' id='card-container'>
       <a 
         href='/' 
         >
@@ -34,6 +36,7 @@ const Card = () => {
         <Icon icon={messageCircleOutline} color="black" height="20" />
         <Icon icon={bookmarkStar} color="black" height="20" />
       </div>
+    </div>
     </div>
 
 
