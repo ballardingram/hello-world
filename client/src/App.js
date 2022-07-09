@@ -6,8 +6,8 @@ import Terms from "./pages/TermsAndConditions";
 import About from './pages/About';
 import DeskSignup from './pages/Desktop-Signup';
 import DeskLogin from './pages/Desktop-Login';
-import Card from './components/Card';
 import NoMatch from './pages/NoMatch';
+import DeskFooter from './components/DeskFooter';
 
 
 const httpLink = createHttpLink({
@@ -55,8 +55,8 @@ function App() {
                 element={<DeskLogin />}
               />
               <Route
-                path="/card"
-                element={<Card />}
+                path="/footer"
+                element={<DeskFooter />}
               />
               <Route
                 path='*'
