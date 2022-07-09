@@ -6,8 +6,6 @@ import About from './pages/About';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
-import MobileNav from './components/MobileNav';
-
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -27,7 +25,6 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
 
 function App() {
   return (
@@ -52,10 +49,6 @@ function App() {
               <Route
                 path="/login"
                 element={<Login />}
-              />
-              <Route
-                path="/mobile"
-                element={<MobileNav />}
               />
               <Route
                 path='*'
