@@ -7,6 +7,7 @@ import About from './pages/About';
 import DeskSignup from './pages/Desktop-Signup';
 import DeskLogin from './pages/Desktop-Login';
 import NoMatch from './pages/NoMatch';
+import DeskFooter from './components/DeskFooter';
 
 
 const httpLink = createHttpLink({
@@ -52,6 +53,10 @@ function App() {
               <Route
                 path="/login"
                 element={<DeskLogin />}
+              />
+              <Route
+                path="/footer"
+                element={<DeskFooter />}
               />
               <Route
                 path='*'
