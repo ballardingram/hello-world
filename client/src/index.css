@@ -131,3 +131,13 @@ input {
 }
 /* 404 page end */
 
+/* desk footer start */
+#desk-footer {
+  background: var(--primaryBlue);
+}
+
+footer a {
+  color: var(--primaryYellow);
+}
+/* desk footer end */
+
