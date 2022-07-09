@@ -1,5 +1,5 @@
-import Toggle from '../Toggle';
 import React from 'react';
+import Switch from '../Toggle';
 
 
 const RegisterForm = () => {
@@ -47,7 +47,7 @@ const RegisterForm = () => {
                   <div className='inline-block ml-4 text-sm font-bold h-full content-center'>
                     Agree to terms & conditions
                   </div>
-                    <Toggle></Toggle>
+                    <Switch></Switch>
                 </div>               
                 <div className='mt-2'>
                     <button 
