@@ -111,7 +111,7 @@ body {
 }
 
 .github, .facebook {
-  color: var(--darkBlue);
+  color: var(--primaryBlue);
   transition: all ease 0.2s;
 }
 
