@@ -12,7 +12,7 @@ function RegisterForm() {
             <form className='mt-6'>
               <div className='mb-3'>
                 <label
-                  for='displayName'
+                  htmlFor='displayName'
                   className='block text-sm'> 
                 </label>
                 <input
@@ -24,7 +24,7 @@ function RegisterForm() {
               </div>
               <div className='mb-3'>
                 <label
-                  for='email'
+                  htmlFor='email'
                   className='block text-sm'> 
                 </label>
                 <input
@@ -36,7 +36,7 @@ function RegisterForm() {
               </div>
               <div className='mb-3'>
                 <label
-                  for='password'
+                  htmlFor='password'
                   className='block text-sm'> 
                 </label>
                 <input
