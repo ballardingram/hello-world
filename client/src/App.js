@@ -4,7 +4,7 @@ import { setContext } from '@apollo/client/link/context';
 
 import Terms from "./pages/TermsAndConditions";
 import About from './pages/About';
-import DeskSignup from './pages/Desktop-Signup';
+import Register from './pages/Register';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 
@@ -47,7 +47,7 @@ function App() {
               />
               <Route
                 path="/register"
-                element={<DeskSignup />}
+                element={<Register />}
               />
               <Route
                 path="/login"
