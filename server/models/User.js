@@ -57,13 +57,14 @@ userSchema.virtual('friendCount').get(function() {
     return this.friends.length;
   });
 
-  // set up pre-save middleware to create password
+//   set up pre-save middleware to create password
 userSchema.pre('save', async function(next) {
+    if(this.password){
     if (this.isNew || this.isModified('password')) {
       const saltRounds = 10;
       this.password = await bcrypt.hash(this.password, saltRounds);
     }
-  
+}
     next();
   });
   
