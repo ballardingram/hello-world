@@ -1,22 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RegisterForm from '../RegisterForm';
 
 
 const LoginForm = () => {
 
-  const toggleModal = () => {
-    // toggle modal
-  }
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const toggleModal = (e) => {
+    // e.preventDefault();
+    setIsModalOpen(true);
+  }
+  console.log(isModalOpen, Date.now)
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
+      {isModalOpen && <RegisterForm />}
         <div className="w-full p-6 m-auto bg-white rounded-lg shadow-md max-w-xs">
 
             <form className='mt-6'>
 
             <div className='mb-3'>
                 <label
-                  for='email'
+                  htmlFor='email'
                   className='block text-sm'> 
                 </label>
                 <input
@@ -29,7 +33,7 @@ const LoginForm = () => {
 
               <div className='mb-3'>
                 <label
-                  for='password'
+                  htmlFor='password'
                   className='block text-sm'> 
                 </label>
                 <input
@@ -52,7 +56,7 @@ const LoginForm = () => {
                 <div 
                   className='inline-block text-xs font-bold h-full content-center text-center'>
                   Need an account? 
-                  <button onClick={() => toggleModal()} > Register Here!</button>
+                  <button onClick={() => toggleModal()}> Register Here!</button>
                 </div>
               </div>
             </form>
