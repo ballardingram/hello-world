@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-import React from 'react'
-import Toggle from "../Toggle"
-=======
 import React from 'react';
 import Switch from '../Toggle';
 import { Icon } from '@iconify/react';
 import githubFill from '@iconify/icons-akar-icons/github-fill'
 import facebookIcon from '@iconify/icons-bi/facebook';
->>>>>>> 862b37f95fb81438476df3955a329fc41a507f66
 
 function RegisterForm() {
 
