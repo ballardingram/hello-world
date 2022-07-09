@@ -1,5 +1,6 @@
 import React from 'react';
 import DesktopNav from '../components/DesktopNav';
+import MobileNav from '../components/MobileNav';
 import aboutImg1 from '../../src/assets/thats-how-it-works.jpg';
 import aboutImg2 from '../../src/assets/make-it-happen.jpg';
 
@@ -7,6 +8,7 @@ const About = () => {
   return (
     <div>
       <DesktopNav></DesktopNav>
+      <MobileNav></MobileNav>
 
       <div class="container mx-auto">
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 pt-10 mt-10 font-thin">
