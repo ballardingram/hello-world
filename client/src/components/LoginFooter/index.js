@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DeskFooter = () => {
+const LoginFooter = () => {
   return (
     <footer className="sticky tracking-widest">
         <div className='text-lg font-bold text-center'>
@@ -10,4 +10,4 @@ const DeskFooter = () => {
   );
 }
 
-export default DeskFooter;
+export default LoginFooter;
