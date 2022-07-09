@@ -23,10 +23,29 @@ const DeskLogin = () => {
         </div>
       </div>
 
-      <div className='hidden lg:contents'>
-        <Card></Card>
- 
+
+      <div>
+        <div class="flex flex-col overflow-y-scroll overflow-hidden hidden lg:contents">
+          <div>
+            <Card></Card>
+          </div>
+          <div>
+            <Card></Card>
+          </div>
+          <div>
+            <Card></Card>
+          </div>
+          <div>
+            <Card></Card>
+          </div>
+          <div>
+            <Card></Card>
+          </div>
+        </div>
       </div>
+
+
+
 
     </div>
   )
