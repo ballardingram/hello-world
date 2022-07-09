@@ -15,7 +15,7 @@ const LoginForm = () => {
                 </label>
                 <input
                   type='email'
-                  className='block text-xl w-full px-4 py-4 mt-2 bg-white border rounded-xl focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
+                  className='block text-xl w-full px-4 py-3 mt-2 bg-white border rounded-xl focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
                   placeholder='Email Address'
                   id='email'
                 />
@@ -28,7 +28,7 @@ const LoginForm = () => {
                 </label>
                 <input
                   type='password'
-                  className='block text-xl w-full px-4 py-4 mt-2 bg-white border rounded-xl focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
+                  className='block text-xl w-full px-4 py-3 mt-2 bg-white border rounded-xl focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
                   placeholder='Password'
                   id='password'
                 />
@@ -36,7 +36,7 @@ const LoginForm = () => {
 
               <div className='mt-5'>
                   <button 
-                    className='w-full px-4 py-4 tracking-wide text-white rounded-xl text-3xl font-thin'
+                    className='w-full py-2 tracking-wide text-white rounded-xl text-3xl font-thin'
                     id='form-btn'>
                         Log In
                   </button>
