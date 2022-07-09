@@ -1,11 +1,13 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
 import githubFill from '@iconify/icons-akar-icons/github-fill';
+import Carousel from '../components/Carousel';
 
 const NoMatch = () => {
   return (
 
 <div className='grid h-screen place-items-center'>
+  <Carousel />
   <div className="page_404">
     <div className="container mx-auto">
       <div className="text-center">
