@@ -5,9 +5,8 @@ import { setContext } from '@apollo/client/link/context';
 import Terms from "./pages/TermsAndConditions";
 import About from './pages/About';
 import DeskSignup from './pages/Desktop-Signup';
-import DeskLogin from './pages/Desktop-Login';
+import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
-import DeskFooter from './components/DeskFooter';
 
 
 const httpLink = createHttpLink({
@@ -52,11 +51,7 @@ function App() {
               />
               <Route
                 path="/login"
-                element={<DeskLogin />}
-              />
-              <Route
-                path="/footer"
-                element={<DeskFooter />}
+                element={<Login />}
               />
               <Route
                 path='*'

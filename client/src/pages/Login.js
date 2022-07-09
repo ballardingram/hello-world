@@ -2,13 +2,12 @@ import React from 'react';
 import LoginForm from '../components/LoginForm';
 import Card from '../components/Card';
 import LogoLarge from '../components/LogoLarge';
-import DeskFooter from '../components/DeskFooter';
+import LoginFooter from '../components/LoginFooter';
 
-const DeskLogin = () => {
+const Login = () => {
   return (
 
     <div className='lg:flex justify-center'>
-
       <div className='grid h-screen place-items-center'>
         <div className='ml-2'>
           <LogoLarge></LogoLarge>
@@ -18,12 +17,10 @@ const DeskLogin = () => {
         </div>
         <div className='relative'>
           <div className='fixed bottom-0 left-0 right-0 mb-1'>
-            <DeskFooter></DeskFooter>
+            <LoginFooter></LoginFooter>
           </div>
         </div>
       </div>
-
-
       <div>
         <div class="flex flex-col overflow-y-scroll overflow-hidden hidden lg:contents">
           <div>
@@ -43,11 +40,7 @@ const DeskLogin = () => {
           </div>
         </div>
       </div>
-
-
-
-
     </div>
   )
 }
- export default DeskLogin;
+ export default Login;
