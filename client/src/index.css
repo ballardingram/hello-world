@@ -59,6 +59,12 @@ body {
 }
 /* desktop navigation end */
 
+/* mobile navigation start */
+#mobile-nav {
+  background-color: rgba(252, 170, 50, 0.25);
+}
+/* mobile navigation end */
+
 /* about start */
 #color-switch-pyellow {
   color: var(--primaryYellow);

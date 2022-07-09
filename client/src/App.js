@@ -1,12 +1,12 @@
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { setContext } from '@apollo/client/link/context';
-
 import Terms from "./pages/TermsAndConditions";
 import About from './pages/About';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
+import MobileNav from './components/MobileNav';
 
 
 const httpLink = createHttpLink({
@@ -52,6 +52,10 @@ function App() {
               <Route
                 path="/login"
                 element={<Login />}
+              />
+              <Route
+                path="/mobile"
+                element={<MobileNav />}
               />
               <Route
                 path='*'
