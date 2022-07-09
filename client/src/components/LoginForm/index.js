@@ -45,8 +45,8 @@ const LoginForm = () => {
               <div className='mt-5 flex justify-center w-full'>
                 <div 
                   className='inline-block text-md font-bold h-full content-center text-center'>
-                  Need an account? 
-                  <a href='/'> Register Here!</a>
+                  Need an account?
+                  <a href='/' className='ml-1' id='register'>Register Here!</a>
                 </div>
               </div>
             </form>
