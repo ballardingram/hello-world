@@ -40,3 +40,55 @@ export const ADD_FRIEND = gql`
     }
   }
 `;
+
+
+export const ADD_FB_USER = gql`
+  mutation addFBUser(fullname: String!, email: String!) {
+    addFBUser(fullname: $fullname, email: $email) {
+      token
+      user {
+        _id
+        fullname
+      }
+    }
+  }
+`;
+
+
+export const ADD_GOOGLE_USER = gql`
+  mutation addGoogleUser(fullname: String!, email: String!) {
+    addGoogleUser(fullname: $fullname, email: $email) {
+      token
+      user {
+        _id
+        fullname
+      }
+    }
+  }
+`;
+
+
+export const ADD_GITHUB_USER = gql`
+  mutation addGitHubUser(fullname: String!, email: String!) {
+    addGitHubUser(fullname: $fullname, email: $email) {
+      token
+      user {
+        _id
+        fullname
+      }
+    }
+  }
+`;
+
+
+export const ADD_LINKEDIN_USER = gql`
+  mutation addLinkedInUser(fullname: String!, email: String!) {
+    addLinkedInUser(fullname: $fullname, email: $email) {
+      token
+      user {
+        _id
+        fullname
+      }
+    }
+  }
+`;
