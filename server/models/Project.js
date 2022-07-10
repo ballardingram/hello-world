@@ -1,6 +1,6 @@
 const {Schema, model} = require('mongoose');
 const ProjectSchema = new Schema({
-    titel: {
+    title: {
         type : String,
         required : true
     },
@@ -50,4 +50,4 @@ const ProjectSchema = new Schema({
 });
 
 const Project = new model('Project',ProjectSchema);
-model.exports = Project;
+module.exports = Project;

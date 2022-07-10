@@ -10,7 +10,7 @@ const DonationSchema = new Schema(
             ref: 'User'
         },
         amount : {
-            type: Decimal128,
+            type: Number
         },
         donatedOn : {
             type: String
