@@ -1,8 +1,8 @@
 const { User } = require("../../models");
- async function createLocalUser(fullname, email, password) {
+ async function createLocalUser(displayName, email, password) {
     console.log('call us here before creating a user');
   const user = await User.create({
-    fullname: fullname,
+    displayName: displayName,
     email: email,
     password: password,
   });
@@ -10,10 +10,10 @@ const { User } = require("../../models");
   return user;
 };
 
-async function createGHUser(fullname, email) {
+async function createGHUser(displayName, email) {
     console.log('call us here before creating a GH user');
   const user = await User.create({
-    fullname: fullname,
+    displayName: displayName,
     email: email,
     accountSource: 'GH',
   });
@@ -24,10 +24,10 @@ async function createGHUser(fullname, email) {
 
 
 
-async function createLINUser(fullname, email) {
+async function createLINUser(displayName, email) {
     console.log('call us here before creating a LIN user');
   const user = await User.create({
-    fullname: fullname,
+    displayName: displayName,
     email: email,
     accountSource: 'LIN',
   });
@@ -37,10 +37,10 @@ async function createLINUser(fullname, email) {
 
 
 
-async function createGoogleUser(fullname, email) {
+async function createGoogleUser(displayName, email) {
     console.log('call us here before creating a google user');
   const user = await User.create({
-    fullname: fullname,
+    displayName: displayName,
     email: email,
     accountSource: 'GOOG',
   });
@@ -50,10 +50,10 @@ async function createGoogleUser(fullname, email) {
 
 
 
-async function createFBUser(fullname, email) {
+async function createFBUser(displayName, email) {
     console.log('call us here before creating a FB user');
   const user = await User.create({
-    fullname: fullname,
+    displayName: displayName,
     email: email,
     accountSource: 'FB',
   });

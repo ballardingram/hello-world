@@ -1,3 +1,5 @@
 const User = require('./User');
-
-module.exports = { User };
+const Project = require('./Project');
+const Message = require('./Message');
+const Donation = require ('./Donation');
+module.exports = { User, Project, Message, Donation };
