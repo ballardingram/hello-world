@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
 import githubFill from '@iconify/icons-akar-icons/github-fill';
-import Carousel from '../components/Carousel';
+// import Carousel from '../components/Carousel';
 
 const NoMatch = () => {
   return (

@@ -7,6 +7,8 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Account from './pages/Account';
 import NoMatch from './pages/NoMatch';
+// import Home from './pages/Home'
+import Auth from './utils/auth';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -35,6 +37,18 @@ function App() {
           {/* place for header if needed */ }
           <div>
             <Routes>
+            {Auth.loggedIn() ? (
+            <Route
+              path="/"
+              element={<About />}
+              />
+            ) : (
+            <Route
+              path="/"
+              element={<Login />}
+            />
+            )
+            }
             <Route
                 path="/terms"
                 element={<Terms />}

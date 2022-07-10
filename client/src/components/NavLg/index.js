@@ -2,9 +2,17 @@ import React from "react";
 import { Icon } from '@iconify/react';
 import accountIcon from '@iconify/icons-codicon/account';
 import homeIcon from '@iconify/icons-iconoir/home';
+import Auth from '../../utils/auth';
+import { Link } from 'react-router-dom';
 
 // NavBar for screens 768 and larger
 function NavLg() {
+
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
+
   return (
     <div className="hidden md:contents">
       <div id="border">
@@ -25,12 +33,17 @@ function NavLg() {
                     id="nav-user">
                     <Icon icon={accountIcon} height="29" className="mb-1 mr-5"/>
                   </a>
-                  <a
-                    href="/about"
-                    className="font-light px-3 text-lg" 
-                    id="nav-about">
-                    About
-                  </a>
+                  {Auth.loggedIn() ? (
+                    <>
+                      <a href="/" onClick={logout}>
+                        Logout
+                      </a>
+                    </>
+                  ) : (
+                    <>
+                      <Link to="/login">Login</Link>
+                    </>
+                  )}
                   <a
                     href="/help"
                     className="font-light px-3 text-lg" 
