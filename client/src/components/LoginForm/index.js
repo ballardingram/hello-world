@@ -1,21 +1,59 @@
 import React, { useState } from 'react';
 import RegisterForm from '../RegisterForm';
+import { useMutation } from '@apollo/client';
+import Auth from '../../utils/auth';
+import { LOGIN_USER } from '../../utils/mutations';
 
 
-const LoginForm = () => {
+const LoginForm = (props) => {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN_USER);
+
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setFormState({
+      email: '',
+      password: '',
+    });
+  };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
     setIsModalOpen(true);
   }
-  console.log(isModalOpen, Date.now)
+  
+
+
   return (
     <div className="flex flex-col overflow-hidden">
       {isModalOpen && <RegisterForm />}
         <div className="p-6 m-auto w-96">
 
-            <form className='mt-6'>
+            <form onSubmit={handleFormSubmit} className='mt-6'>
 
             <div className='mb-3'>
                 <label
@@ -27,6 +65,9 @@ const LoginForm = () => {
                   className='block text-xl w-full px-4 py-3 mt-2 bg-white border rounded-xl focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
                   placeholder='Email Address'
                   id='email'
+                  name="email"
+                  value={formState.email}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -40,6 +81,9 @@ const LoginForm = () => {
                   className='block text-xl w-full px-4 py-3 mt-2 bg-white border rounded-xl focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
                   placeholder='Password'
                   id='password'
+                  name="password"
+                  value={formState.password}
+                  onChange={handleChange}
                 />
               </div>               
 
@@ -59,7 +103,7 @@ const LoginForm = () => {
                 </div>
               </div>
             </form>
-
+            {error && <div>Login failed</div>}
         </div>
     </div>
 );

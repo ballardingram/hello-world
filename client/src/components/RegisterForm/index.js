@@ -1,15 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../../utils/mutations';
 import Switch from '../Toggle';
 import { Icon } from '@iconify/react';
 import githubFill from '@iconify/icons-akar-icons/github-fill'
 import facebookIcon from '@iconify/icons-bi/facebook';
 
+import Auth from '../../utils/auth';
+
 function RegisterForm() {
+
+  const [formState, setFormState] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
+  const [addUser, { error }] = useMutation(ADD_USER);
+
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
       <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
         <div className="w-full p-6 m-auto bg-white rounded-lg shadow-md max-w-xs">
-            <form className='mt-6'>
+            <form onSubmit={handleFormSubmit} className='mt-6'>
               <div className='mb-3'>
                 <label
                   htmlFor='displayName'
@@ -20,6 +56,9 @@ function RegisterForm() {
                   className='cursor-pointer block text-lg w-full px-4 py-2 mt-2 bg-white border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
                   placeholder='Display Name*'
                   id='displayName'
+                  name='displayName'
+                  value={formState.displayName}
+                  onChange={handleChange}
                 />
               </div>
               <div className='mb-3'>
@@ -32,6 +71,9 @@ function RegisterForm() {
                   className='cursor-pointer block text-lg w-full px-4 py-2 mt-2 bg-white border rounded-lg focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
                   placeholder='Email Address*'
                   id='email'
+                  name="email"
+                  value={formState.email}
+                  onChange={handleChange}
                 />
               </div>
               <div className='mb-3'>
@@ -44,6 +86,9 @@ function RegisterForm() {
                   className='cursor-pointer block text-lg w-full px-4 py-2 mt-2 bg-white border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
                   placeholder='Password*'
                   id='password'
+                  name="password"
+                  value={formState.password}
+                  onChange={handleChange}
                 />
               </div>
               <div className='mt-2'>
@@ -68,6 +113,7 @@ function RegisterForm() {
                  <Switch></Switch>
               </div> 
             </form>
+            {error && <div>Signup failed</div>}
         </div>
     </div>
   );

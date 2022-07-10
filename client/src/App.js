@@ -48,7 +48,7 @@ function App() {
                 element={<Register />}
               />
               <Route
-                path="/login"
+                path="/"
                 element={<Login />}
               />
               <Route
