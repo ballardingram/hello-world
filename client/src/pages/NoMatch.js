@@ -7,7 +7,7 @@ const NoMatch = () => {
   return (
 
 <div className='grid h-screen place-items-center'>
-  <Carousel />
+  {/* <Carousel /> */}
   <div className="page_404">
     <div className="container mx-auto">
       <div className="text-center">
