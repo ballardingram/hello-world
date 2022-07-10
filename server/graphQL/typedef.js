@@ -1,10 +1,30 @@
 const {gql} = require('apollo-server-express');
 const typeDefs = gql`
+    type Skill {
+      skillName : String,
+      expertiseLevel : String
+    }
+    type SocialLink {
+      socialProvider : String,
+      sociaProviderUserName : String
+    }
+    type Project {
+      title :String,
+      description : String,
+      content: String,
+      createdBy : String,
+      createdAt : String,
+      hidden : Boolean,
+      helpRequired : Boolean,
+      skillsRequiredForHelp : [String],
+      colloborators : [User]
+    }
     type User {
         _id : ID,
-        fullname: String,
+        displayName: String,
         email: String,
         friends : [User],
+        blockedUsers : [User]
         accountSource : String,
         friendCount : Int
     }
@@ -14,16 +34,17 @@ const typeDefs = gql`
     }
     type Query {
         users : [User]
-        user(username: String!) : User
+        user(email: String!) : User
       }
       type Mutation {
-        login(email: String!, password: String!): User
-        addLocalUser(fullname: String!, email: String!, password: String!): Auth
+        login(email: String!, password: String!): Auth
+        addLocalUser(displayName: String!, email: String!, password: String!): Auth
         addFriend(friendId: ID!): User
-        addFBUser(fullname: String!, email: String!): Auth
-        addGoogleUser(fullname: String!, email: String! ): Auth
-        addGitHubUser(fullname: String!, email: String! ): Auth
-        addLinkedInUser(fullname: String!, email: String!): Auth
+        addFBUser(displayName: String!, email: String!): Auth
+        addGoogleUser(displayName: String!, email: String! ): Auth
+        addGitHubUser(displayName: String!, email: String! ): Auth
+        addLinkedInUser(displayName: String!, email: String!): Auth
+        addProject(title: String, description: String, content : String, createdBy: ID, skillsRequired :[String], colloborators: [ID], helpRequired : Boolean  ) : Project
       }
 `;
 
