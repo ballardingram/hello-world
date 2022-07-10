@@ -1,8 +1,8 @@
 import React from 'react';
 import LoginForm from '../components/LoginForm';
 import Card from '../components/Card';
-import LogoLarge from '../components/LogoLarge';
-import LoginFooter from '../components/LoginFooter';
+import LogoLg from '../components/LogoLg';
+import FooterLg from '../components/FooterLg';
 
 const Login = () => {
   return (
@@ -10,14 +10,14 @@ const Login = () => {
     <div className='lg:flex justify-center'>
       <div className='grid h-screen place-items-center'>
         <div className='ml-2'>
-          <LogoLarge></LogoLarge>
+          <LogoLg></LogoLg>
         </div>
         <div>
           <LoginForm></LoginForm>
         </div>
         <div className='relative'>
           <div className='fixed bottom-0 left-0 right-0 mb-1'>
-            <LoginFooter></LoginFooter>
+            <FooterLg></FooterLg>
           </div>
         </div>
       </div>

@@ -55,7 +55,7 @@ const LoginForm = () => {
                 <div 
                   className='inline-block text-md font-bold h-full content-center text-center'>
                   Need an account?
-                  <button type='button' onClick={() => toggleModal()} className='ml-1' id='register'>Register Here!</button>
+                  <button type='button' onClick={() => toggleModal()} className='ml-1 color-pY' id='register'>Register Here!</button>
                 </div>
               </div>
             </form>

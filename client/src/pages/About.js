@@ -1,14 +1,14 @@
 import React from 'react';
-import DesktopNav from '../components/DesktopNav';
-import MobileNav from '../components/MobileNav';
+import NavLg from '../components/NavLg';
+import NavSm from '../components/NavSm';
 import aboutImg1 from '../../src/assets/thats-how-it-works.jpg';
 import aboutImg2 from '../../src/assets/make-it-happen.jpg';
 
 const About = () => {
   return (
     <div>
-      <DesktopNav></DesktopNav>
-      <MobileNav></MobileNav>
+      <NavSm></NavSm>
+      <NavLg></NavLg>
 
       <div class="container mx-auto">
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 pt-10 mt-10 font-thin">
@@ -16,7 +16,7 @@ const About = () => {
             Coder to Coder<br></br>
             Developer to Developer<br></br>
             You to Community<br></br>
-            <span className='font-bold italic tracking-wider' id='color-switch-pyellow'>that's how it works</span>
+            <span className='font-bold italic tracking-wider color-pY'>that's how it works</span>
           </p>
           <img class="flex p-6" src={aboutImg1} alt="people creating a computer program"/>
           <img class="flex p-6" src={aboutImg2} alt="group collaboration for computer program"/>
@@ -24,7 +24,7 @@ const About = () => {
             Expand your projects<br></br>
             Fix your bugs<br></br>
             Connect the dots<br></br>
-            <span className='font-bold italic tracking-wider' id='color-switch-pyellow'>make it happen</span>
+            <span className='font-bold italic tracking-wider color-pY'>make it happen</span>
           </p>
         </div>
       </div>
