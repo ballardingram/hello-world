@@ -31,6 +31,10 @@ body {
   color: var(--secondaryYellow);
 }
 
+#danger {
+  color: red;
+}
+
 /* icons start */
 .github, .facebook {
   color: var(--primaryBlue);
