@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon } from '@iconify/react';
 import messageCircleOutline from '@iconify/icons-eva/message-circle-outline';
 import bookmarkStar from '@iconify/icons-bi/bookmark-star';
-import Expand from '../Accordion';
+import ExpandProject from '../Accordian';
 
 
 const Card = () => {
@@ -21,7 +21,7 @@ const Card = () => {
           Subheader - This card will contain a project blurb of up to 200 characters. 
           Users can click the expand icon to view detailed project information.
         </h5>
-        <Expand></Expand>
+        <ExpandProject></ExpandProject>
       </div>
       <div className='mt-1'>
         <p className='text-xs font-semibold'>Current Project Needs:</p>

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const LoginFooter = () => {
+const FooterLg = () => {
   return (
-    <footer className="sticky tracking-widest">
+    <footer className="sticky tracking-widest color-pY">
         <div className='text-lg font-bold text-center'>
           <a href='/'>About HelloWorld</a>
         </div>
@@ -10,4 +10,4 @@ const LoginFooter = () => {
   );
 }
 
-export default LoginFooter;
+export default FooterLg;

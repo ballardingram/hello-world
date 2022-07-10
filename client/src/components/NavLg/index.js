@@ -4,7 +4,7 @@ import accountIcon from '@iconify/icons-codicon/account';
 import homeIcon from '@iconify/icons-iconoir/home';
 
 // NavBar for screens 768 and larger
-function DesktopNav() {
+function NavLg() {
   return (
     <div className="hidden md:contents">
       <div id="border">
@@ -16,22 +16,25 @@ function DesktopNav() {
                 <div className="flex justify-center items-center space-x-4">
                   <a
                     href="/home"
-                    id="nav-hover-home">
+                    id="nav-home">
                     <Icon icon={homeIcon} height="34" className="mb-1 mr-4"/>
                   </a>
                   <a
                     href="/profile"
-                    className="px-3" id="nav-hover-user">
+                    className="px-3" 
+                    id="nav-user">
                     <Icon icon={accountIcon} height="29" className="mb-1 mr-5"/>
                   </a>
                   <a
                     href="/about"
-                    className="font-light px-3 text-lg" id="nav-hover-about">
+                    className="font-light px-3 text-lg" 
+                    id="nav-about">
                     About
                   </a>
                   <a
                     href="/help"
-                    className="font-light px-3 text-lg" id="nav-hover-help">
+                    className="font-light px-3 text-lg" 
+                    id="nav-help">
                     Help
                   </a>
                 </div>
@@ -44,4 +47,4 @@ function DesktopNav() {
   );
 }
 
-export default DesktopNav;
+export default NavLg;

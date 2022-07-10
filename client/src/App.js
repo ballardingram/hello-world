@@ -5,6 +5,7 @@ import Terms from "./pages/TermsAndConditions";
 import About from './pages/About';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Account from './pages/Account';
 import NoMatch from './pages/NoMatch';
 
 const httpLink = createHttpLink({
@@ -49,6 +50,10 @@ function App() {
               <Route
                 path="/login"
                 element={<Login />}
+              />
+              <Route
+                path="/account"
+                element={<Account />}
               />
               <Route
                 path='*'
