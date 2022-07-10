@@ -2,7 +2,6 @@ import React from 'react';
 import NavSm from '../components/NavSm';
 import NavLg from '../components/NavLg';
 import FooterSm from '../components/FooterSm';
-import ExpandProject from '../components/ExpandProject';
 import ExpandSkills from '../components/ExpandSkills';
 import ExpandAdd from '../components/ExpandAdd';
 
@@ -86,7 +85,7 @@ const Account = () => {
           </div>
 
           <div className='flex justify-center'>
-            <div className="w-full px-6 max-w-lg">
+            <div className="w-full px-10 max-w-lg">
               <div className='w-full'>
                 <ExpandSkills></ExpandSkills>
               </div>
