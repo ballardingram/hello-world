@@ -1,14 +1,12 @@
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { setContext } from '@apollo/client/link/context';
-
 import Terms from "./pages/TermsAndConditions";
 import About from './pages/About';
-import DeskSignup from './pages/Desktop-Signup';
-import DeskLogin from './pages/Desktop-Login';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import Account from './pages/Account';
 import NoMatch from './pages/NoMatch';
-import DeskFooter from './components/DeskFooter';
-
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -29,7 +27,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -48,15 +45,15 @@ function App() {
               />
               <Route
                 path="/register"
-                element={<DeskSignup />}
+                element={<Register />}
               />
               <Route
                 path="/login"
-                element={<DeskLogin />}
+                element={<Login />}
               />
               <Route
-                path="/footer"
-                element={<DeskFooter />}
+                path="/account"
+                element={<Account />}
               />
               <Route
                 path='*'

@@ -1,10 +1,9 @@
 import React from "react";
 
-
-const LogoLarge = () => {
+const LogoLg = () => {
   return (
     <img src={require('../../assets/logo256.png')} alt="hello world logo"/>
   );
 }
 
-export default LogoLarge;
+export default LogoLg;

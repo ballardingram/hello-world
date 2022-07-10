@@ -26,17 +26,9 @@ const typeDefs = gql`
         friends : [User],
         blockedUsers : [User]
         accountSource : String,
-        frindCount : Int,
-        skills : [Skill],
-        socialLinks : [SocialLink],
-        profilePicURL : String,
-        aboutMe : String,
-        userCreatedAt : Int,
-        verified : Boolean,
-        SavedProjects : [Project],
-        projects : [Project]
+        friendCount : Int
     }
-    type Auth{
+    type Auth {
         token: ID!
         user: User
     }
