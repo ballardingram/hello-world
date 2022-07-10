@@ -6,9 +6,9 @@ const typeDefs = gql`
         email: String,
         friends : [User],
         accountSource : String,
-        frindCount : Int
+        friendCount : Int
     }
-    type Auth{
+    type Auth {
         token: ID!
         user: User
     }

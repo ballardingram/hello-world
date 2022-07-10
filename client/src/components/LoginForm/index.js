@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import RegisterForm from '../RegisterForm';
 
 
 const LoginForm = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(true);
+  }
+  console.log(isModalOpen, Date.now)
   return (
     <div className="flex flex-col overflow-hidden">
+      {isModalOpen && <RegisterForm />}
         <div className="p-6 m-auto w-96">
 
             <form className='mt-6'>
 
             <div className='mb-3'>
                 <label
-                  for='email'
+                  htmlFor='email'
                   className='block text-sm'> 
                 </label>
                 <input
@@ -23,7 +32,7 @@ const LoginForm = () => {
 
               <div className='mb-3'>
                 <label
-                  for='password'
+                  htmlFor='password'
                   className='block text-sm'> 
                 </label>
                 <input
@@ -46,7 +55,7 @@ const LoginForm = () => {
                 <div 
                   className='inline-block text-md font-bold h-full content-center text-center'>
                   Need an account?
-                  <a href='/' className='ml-1' id='register'>Register Here!</a>
+                  <button type='button' onClick={() => toggleModal()} className='ml-1 color-pY' id='register'>Register Here!</button>
                 </div>
               </div>
             </form>
