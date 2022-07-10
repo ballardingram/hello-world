@@ -1,4 +1,3 @@
-import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
 
 function ProfilePicChanger() {
