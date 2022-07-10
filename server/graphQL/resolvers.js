@@ -45,6 +45,21 @@ const resolvers = {
             const user = await registrations.createLINUser(fullname, email);
             const token = signToken(user);
             return {token, user};
+        },
+        
+        login : async(parent, args) => {
+            const user = await User.findOne({email})
+                            .select("-__v")
+                            .populate("friends");
+            if(!user){
+                throw new AuthenticationError("Incorrect credentials");
+            }
+            const correctPw = await user.isCorrectPassword(password);
+            if (!correctPw) {
+                throw new AuthenticationError("Incorrect credentials");
+              }
+            const token = signToken(user);
+            return {token, user};
         }
     }
 };

@@ -1,7 +1,26 @@
 const {Schema, model} = require('mongoose');
 const bcrypt = require('bcrypt');
+const skillSchema = new Schema({
+    skillName : {
+        type: String
+    },
+    expertiseLevel: {
+        type : String,
+        enum: ['BEGINNER', 'INTERMEDIATE', 'EXPERT'],
+        default: 'BEGINNER'
+    }
+});
+
+const socialLinkSchema = new Schema({
+    socialProvidername : {
+        type: String,
+    },
+    socialProviderUserName : {
+        type: String
+    }
+});
 const userSchema = new Schema({
-    fullname: {
+    displayName: {
         type: String,
         required: true,
         trim: true
@@ -19,32 +38,44 @@ const userSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     }],
+    blockedUsers : [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
     accountSource: {
         type : String,
         required: true,
         enum: ['LOCAL', 'FB', 'GH', 'GOOG', 'LIN'],
         default: 'LOCAL'
     },
-    // connectLinks: [
-    //     {
-    //             type: Schema.Types.ObjectId,
-    //             ref: 'ConnectLink'
-    //     }
-    // ],
-    // projects : [
-    //     {
-    //         type: Schema.Types.ObjectId,
-    //         ref: 'Project'
-    //     }
-    // ],
-    // contributions: [
-    //     {
-    //         type: Schem
-    //     }
-    // ],
-    profilePic: {
-        type: Buffer
+    profilePicURL: {
+        type: String
     },
+    projects : [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Project'
+        }
+    ],
+    savedProjects : [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Project'
+        }
+    ],
+    skills : [
+        skillSchema
+    ],
+    aboutMe : {
+        type:String
+    },
+    userCreatedAt : {
+        type: Date
+    },
+    verified : {
+        type: Boolean
+    },
+    socialLinks : [socialLinkSchema]
 },
 {
     toJSON : {
