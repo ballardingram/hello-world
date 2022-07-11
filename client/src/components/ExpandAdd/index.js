@@ -17,11 +17,11 @@ const ExpandAdd = () => {
   return (
     <Fragment>
       <Accordion open={open === 1} onClick={() => handleOpen(1)}>
-        <div className="flex items-center my-2"><Icon icon={circlePlusFill} height="25" />
-        <AccordionHeader><span className="flex ml-1 text-lg font-semibold">Add Skills</span></AccordionHeader>
+        <div className="flex items-center my-2"><Icon icon={circlePlusFill} height="20" />
+        <AccordionHeader><span className="flex ml-1 text-sm font-semibold">Add Skills</span></AccordionHeader>
         </div>
       <AccordionBody>
-        <div className="select-none flex justify-center text-lg my-1">
+        <div className="select-none flex justify-center text-sm my-1">
           <ul className="list-disc list-inside grid grid-cols-3 tracking-wide font-normal">
             <li>HTML</li>
             <li>CSS</li>
