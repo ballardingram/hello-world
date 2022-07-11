@@ -155,3 +155,9 @@ body {
 }
 /* account page end */
 
+/* profile start */
+#friends {
+  background-color: rgba(178, 202, 224, 0.25);
+}
+/* profile end */
+

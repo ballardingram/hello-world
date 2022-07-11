@@ -9,6 +9,7 @@ import Account from './pages/Account';
 import NoMatch from './pages/NoMatch';
 // import Home from './pages/Home'
 import Auth from './utils/auth';
+import Profile from './pages/Profile';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -41,11 +42,15 @@ function App() {
             <>
             <Route
               path="/"
-              element={<About />}
+              element={<About />}/* will be home route */
             />
             <Route
               path="/account"
               element={<Account />}
+            />
+            <Route
+              path="/profile"
+              element={<Profile />}
             />
             <Route
               path='*'
