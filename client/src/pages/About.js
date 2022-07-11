@@ -10,7 +10,7 @@ const About = () => {
       <NavSm></NavSm>
       <NavLg></NavLg>
 
-      <div class="container mx-auto">
+      <div class="select-none container mx-auto">
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 pt-10 mt-10 font-thin">
           <p class="p-6 xl:text-5xl lg:text-4xl md:text-2xl sm:text-xl text-4xl text-end tracking-wide" id='about-height'>
             Coder to Coder<br></br>
