@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useMutation, useQuery } from '@apollo/client';
 import NavSm from '../components/NavSm';
 import NavLg from '../components/NavLg';
 import ExpandSkills from '../components/ExpandSkills';
@@ -7,8 +8,49 @@ import FooterMenu from '../components/FooterExpand';
 import Switch from '../components/Toggle';
 import { Icon } from '@iconify/react';
 import boltIcon from '@iconify/icons-fxemoji/bolt';
+import { UPDATE_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
+import { QUERY_USER } from '../utils/queries';
+
 
 const Account = () => {
+
+  const [formState, setFormState] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
+
+  const [updateUser, { error }] = useMutation(UPDATE_USER);
+  // const { data } = useQuery(QUERY_USER);
+  console.log(useQuery(QUERY_USER))
+
+  // const loggedIn = Auth.loggedIn();
+
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+  
+    // submit form
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+  
+      try {
+        const { data } = await updateUser({
+          variables: { ...formState },
+        });
+  
+        Auth.login(data.addUser.token);
+        } catch (e) {
+        console.error(e);
+      }
+    };
   return (
 
   <div class="flex flex-col h-screen justify-start">
@@ -25,7 +67,7 @@ const Account = () => {
       <div className="w-full px-4 pt-1 sm:px-2 bg-white rounded-lg w-sm text-md">
       {/* update account form start*/}
       <h2 className='font-semibold mb-1 text-lg'>Privacy and Security</h2>
-      <form className='md:mt-2'>
+      <form onSubmit={handleFormSubmit} className='md:mt-2'>
         <div className='mb-2'>
           <label
             htmlFor='displayName'
@@ -37,6 +79,8 @@ const Account = () => {
             className='cursor-not-allowed block w-full px-4 py-2 md:py-1 mt-2 bg-white border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
             placeholder='Kevin Puggles'
             id='displayName'
+            value={formState.displayName}
+            onChange={handleChange}
             disabled/>
         </div>
         <div className='mb-2 md:mb-1'>
@@ -50,6 +94,8 @@ const Account = () => {
             className='cursor-not-allowed block w-full px-4 py-2 md:py-1 mt-2 bg-white border rounded-lg focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
             placeholder='admin@helloworld.com'
             id='email'
+            value={formState.email}
+            onChange={handleChange}
             disabled/>
         </div>
         <div className='mb-2 md:mb-1'>
@@ -73,7 +119,10 @@ const Account = () => {
             type='password'
             className='cursor-pointer block w-full px-4 py-2 md:py-1 mt-2 bg-white border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
             placeholder='New Password'
-            id='newPassword'/>
+            id='newPassword'
+            value={formState.password}
+            onChange={handleChange}
+            />
         </div>
         <div className='mt-2 md:mb-1'>
           <button 
@@ -84,6 +133,7 @@ const Account = () => {
           </button>
         </div>
       </form>
+      {error && <div>Update failed</div>}
       {/* update account form end*/}
       {/* expand skills start (only on xs and sm screen)*/}
       <div className="w-full px-1 pt-4 m-auto bg-white rounded-lg w-sm display-contents sm:hidden">

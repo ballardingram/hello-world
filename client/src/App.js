@@ -11,7 +11,7 @@ import NoMatch from './pages/NoMatch';
 import Auth from './utils/auth';
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
