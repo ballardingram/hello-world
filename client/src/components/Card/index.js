@@ -1,34 +1,27 @@
-import { Fragment, useState } from "react";
-import {
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
-} from "@material-tailwind/react";
+import React from "react";
 import { Icon } from '@iconify/react';
 import messageCircleOutline from '@iconify/icons-eva/message-circle-outline';
 import bookmarkStar from '@iconify/icons-bi/bookmark-star';
-import ExpandProject from '../Accordions/ExpandProject';
-import circlePlusFill from '@iconify/icons-akar-icons/circle-plus-fill';
+import ExpandProject from '../ExpandProject';
 
 const Card = () => {
   return (
-
-  <div className='my-2 grid place-items-center text-base'>
-    <div className='flex flex-col inline p-4 max-w-md rounded-lg shadow-md' id='card-container'> 
+    
+    <div className="p-2 mb-2 sm:px-2 rounded-lg w-md" id='card-container'> 
       <div>
-        <div className='select-none font-semibold tracking-wide text-xl mb-1'>
+        <div className='select-none font-semibold tracking-wide mb-2 text-xl'>
           Project Title
         </div>
         <div 
-          className='select-none font-light text-lg text-justify leading-5 mb-2'>
+          className='select-none font-light text-lg text-justify leading-5 mb-1'>
           Subheader - This card will contain a project blurb of up to 200 characters. 
           Users can click the expand icon to view detailed project information.
         </div>
         <ExpandProject></ExpandProject>
       </div>
       <div className='select-none mt-1'>
-        <p className='font-semibold text-base'>Current Project Needs:</p>
-        <ul className='list-disc list-inside text-base ml-3'>
+        <p className='font-semibold text-lg'>Current Project Needs:</p>
+        <ul className='list-disc list-inside text-lg ml-3'>
           <li>Tailwind</li>
           <li>Javascript</li>
           <li>NoSQL</li>
@@ -43,10 +36,6 @@ const Card = () => {
         <Icon icon={bookmarkStar} color="black" height="40" />
       </div>
     </div>
-    </div>
-
-
-
   );
 }
 
