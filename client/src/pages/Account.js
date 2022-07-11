@@ -1,8 +1,8 @@
 import React from 'react';
 import NavSm from '../components/NavSm';
 import NavLg from '../components/NavLg';
-import ExpandSkills from '../components/Accordions/ExpandSkills';
-import ExpandAdd from '../components/Accordions/ExpandAdd';
+import ExpandSkills from '../components/ExpandSkills';
+import ExpandAdd from '../components/ExpandAdd';
 import FooterMenu from '../components/FooterExpand';
 import Switch from '../components/Toggle';
 import { Icon } from '@iconify/react';
@@ -20,7 +20,7 @@ const Account = () => {
     {/* navigation header end */}
     <h1 className='font-bold mb-5 mt-5 w-screen text-2xl lg:text-3xl xl:text-4xl px-4 md:pt-0 md:text-right md:pr-9'>Account Settings</h1>
     {/* body start */}
-    <main class="sm:grid sm:grid-cols-3 sm:mx-5">
+    <main class="sm:grid sm:grid-cols-3 sm:mx-5 text-lg">
       {/*md break column 1 */}
       <div className="w-full px-4 pt-1 sm:px-2 rounded-lg w-sm">
       {/* update account form start*/}
@@ -78,8 +78,8 @@ const Account = () => {
         <div className='mt-2 md:mb-1'>
           <button 
             type='submit'
-            className='w-full py-1 mt-2 md:mt-1 tracking-wide text-white rounded-lg text-xl'
-            id='form-btn'>
+            className='form-btn w-full py-1 mt-2 md:mt-1 tracking-wide text-white rounded-lg text-xl'
+            id='updateAccount'>
               Update Account
           </button>
         </div>
@@ -119,8 +119,8 @@ const Account = () => {
         </div>
         <button 
           type='submit'
-          className='w-full py-1 mt-2 md:mt-1 tracking-wide text-white rounded-lg text-xl'
-          id='form-btn'>
+          className='form-btn w-full py-1 mt-2 md:mt-1 tracking-wide text-white rounded-lg text-xl'
+          id='requestDeposit'>
             Request Deposit
         </button>
         {/* donation center end */}
@@ -149,8 +149,8 @@ const Account = () => {
           <div className='mt-2 md:mb-1'>
             <button 
               type='submit'
-              className='w-full py-1 mt-2 md:mt-1 tracking-wide text-white rounded-lg text-xl'
-              id='form-btn'>
+              className='form-btn w-full py-1 mt-2 md:mt-1 tracking-wide text-white rounded-lg text-xl'
+              id='requestVerify'>
                 Request Verification
             </button>
           </div>
