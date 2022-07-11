@@ -4,6 +4,7 @@ import accountIcon from '@iconify/icons-codicon/account';
 import homeIcon from '@iconify/icons-iconoir/home';
 import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
+import LogoLg from "../LogoLg";
 
 // NavBar for screens 768 and larger
 function NavLg() {
@@ -17,9 +18,11 @@ function NavLg() {
     <div className="hidden md:contents">
       <div id="border">
         <nav id="second-border">
-          <div className="max-w-full mx-10 px-10" id="content">
-            <div className="flex items-center justify-between h-16">
-              <img className="object-scale-down lg:w-1/4 md:w-1/3" src={require('../../assets/logo256.png')} alt="hello world logo"/>
+          <div className="mx-5" id="content">
+            <div className="flex items-center justify-between h-10">
+              <div className="md:w-52 lg:w-64">
+                <LogoLg></LogoLg>
+              </div>
               <div>
                 <div className="flex justify-center items-center space-x-4">
                   <a

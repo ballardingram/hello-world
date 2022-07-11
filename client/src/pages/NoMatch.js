@@ -6,7 +6,7 @@ import githubFill from '@iconify/icons-akar-icons/github-fill';
 const NoMatch = () => {
   return (
 
-<div className='grid h-screen place-items-center'>
+<div className='select-none grid h-screen place-items-center'>
   {/* <Carousel /> */}
   <div className="page_404">
     <div className="container mx-auto">
