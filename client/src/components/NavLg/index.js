@@ -23,25 +23,23 @@ function NavLg() {
               <div>
                 <div className="flex justify-center items-center space-x-4">
                   <a
-                    href="/home"
+                    href="/"
                     id="nav-home">
                     <Icon icon={homeIcon} height="34" className="mb-1 mr-4"/>
                   </a>
                   <a
-                    href="/profile"
+                    href="/account"
                     className="px-3" 
                     id="nav-user">
                     <Icon icon={accountIcon} height="29" className="mb-1 mr-5"/>
                   </a>
                   {Auth.loggedIn() ? (
                     <>
-                      <a href="/" onClick={logout}>
-                        Logout
-                      </a>
+                      <Link to='/login' onClick={logout}>Logout</Link>
                     </>
                   ) : (
                     <>
-                      <Link to="/login">Login</Link>
+                      {/* <Link to="/login">Login</Link> */}
                     </>
                   )}
                   <a

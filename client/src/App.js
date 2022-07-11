@@ -38,41 +38,45 @@ function App() {
           <div>
             <Routes>
             {Auth.loggedIn() ? (
+            <>
             <Route
               path="/"
               element={<About />}
-              />
+            />
+            <Route
+              path="/account"
+              element={<Account />}
+            />
+            <Route
+              path='*'
+              element={<NoMatch />}
+            />
+            </>
             ) : (
+            <>
             <Route
               path="/"
               element={<Login />}
             />
+            <Route
+              path="/terms"
+              element={<Terms />}
+            />
+            <Route
+              path="/register"
+              element={<Register />}
+            />
+            <Route
+              path='/about'
+              element={<About />}
+            />
+            <Route
+              path='*'
+              element={<NoMatch />}
+            />
+            </>
             )
             }
-            <Route
-                path="/terms"
-                element={<Terms />}
-              />
-              <Route
-                path='/about'
-                element={<About />}
-              />
-              <Route
-                path="/register"
-                element={<Register />}
-              />
-              <Route
-                path="/login"
-                element={<Login />}
-              />
-              <Route
-                path="/account"
-                element={<Account />}
-              />
-              <Route
-                path='*'
-                element={<NoMatch />}
-              />
             </Routes>
           </div>
           {/* place for footer if needed */}
