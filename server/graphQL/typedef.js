@@ -5,29 +5,41 @@ const typeDefs = gql`
       expertiseLevel : String
     }
     type SocialLink {
-      socialProvider : String,
-      sociaProviderUserName : String
+      socialProvidername : String,
+      socialProviderUserName : String
     }
     type Project {
+      _id : ID,
       title :String,
       description : String,
       content: String,
-      createdBy : String,
+      createdBy : User,
       createdAt : String,
       hidden : Boolean,
       helpRequired : Boolean,
       skillsRequiredForHelp : [String],
       colloborators : [User]
     }
+
     type User {
-        _id : ID,
-        displayName: String,
-        email: String,
-        friends : [User],
-        blockedUsers : [User]
-        accountSource : String,
-        friendCount : Int
-    }
+      _id : ID,
+      displayName: String,
+      email: String,
+      friends : [User],
+      blockedUsers : [User]
+      accountSource : String,
+      friendCount : Int,
+      projects : [Project],
+      savedProjects : [Project],
+      aboutMe : String,
+      userCreatedAt : String,
+      skills : [Skill],
+      socialLinks : [SocialLink],
+      verified : Boolean,
+      profilePicURL : String
+  }
+    
+
     type Auth {
         token: ID!
         user: User
@@ -35,6 +47,7 @@ const typeDefs = gql`
     type Query {
         users : [User]
         user(email: String!) : User
+        project(projectID : ID!) : Project
       }
       type Mutation {
         login(email: String!, password: String!): Auth
@@ -45,6 +58,8 @@ const typeDefs = gql`
         addGitHubUser(displayName: String!, email: String! ): Auth
         addLinkedInUser(displayName: String!, email: String!): Auth
         addProject(title: String, description: String, content : String, createdBy: ID, skillsRequired :[String], colloborators: [ID], helpRequired : Boolean  ) : Project
+        updateUserProfile(userData: String) : User
+        updateProject(projectData : String): Project
       }
 `;
 
