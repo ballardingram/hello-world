@@ -132,9 +132,17 @@ const resolvers = {
       console.log(inputUser);
       return await User.findOneAndUpdate(inputUser);
     },
+    updateProject : async(parent, args) => {
+        const projectData = args;
+        const inputProjectData = formatInputProjectData(projectData);
+        console.log(inputProjectData);
+        return await Project.findOneAndUpdate(inputProjectData);
+
+    }
   },
 };
 
+// A helper funciton to validate input peojct JSON to a project model object
 const formatInputUserData = (inputData) => {
   const user = {};
   // Assuming the input data is a VALID JSON
@@ -207,5 +215,47 @@ const formatInputUserData = (inputData) => {
 
   return user;
 };
+
+
+const formatInputProjectData = (projectData) => {
+    const project = {};
+    if(typeof projectData == "string"){
+        const JSONInput = JSON.parse(projectData);
+        if(JSONInput._id){
+            project["_id"] = JSONInput._id;
+        }
+        if(JSONInput.title){
+            project["title"] = JSONInput.title;
+        }
+        if(JSONInput.description){
+            project["description"] = JSONInput.description;
+        }
+        if(JSONInput.content){
+            project["content"] = JSONInput.content;
+        }
+        if(JSONInput.updatedBy){
+            project["updatedBy"] = JSONInput.updatedBy;
+        }
+        if(JSONInput.hidden || !JSONInput.hidden ){
+            project["hidden"] = JSONInput.hidden;
+        }
+        if(JSONInput.helpRequired){
+            project["helpRequired"] = JSONInput.helpRequired;
+        }
+        if(JSONInput.skillsRequiredForHelp){
+            project["skillsRequiredForHelp"] = JSONInput.skillsRequiredForHelp;
+        }
+        if(JSONInput.colloborators){
+            const colloboratorsArray = [];
+            JSONInput.colloborators.map(userID => { 
+                colloboratorsArray.push(userID);
+            });
+            project["title"] = colloboratorsArray;
+        }
+        project["updatedAt"] = Date.now();
+    }
+
+    return project;
+}
 
 module.exports = resolvers;

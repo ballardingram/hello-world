@@ -59,6 +59,7 @@ const typeDefs = gql`
         addLinkedInUser(displayName: String!, email: String!): Auth
         addProject(title: String, description: String, content : String, createdBy: ID, skillsRequired :[String], colloborators: [ID], helpRequired : Boolean  ) : Project
         updateUserProfile(userData: String) : User
+        updateProject(projectData : String): Project
       }
 `;
 
