@@ -11,21 +11,25 @@ import boltIcon from '@iconify/icons-fxemoji/bolt';
 import { UPDATE_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { QUERY_USER } from '../utils/queries';
+// import { useParams } from 'react-router-dom';
 
 
 const Account = () => {
 
+  // const { email: userParam } = useParams();
+
   const [formState, setFormState] = useState({
-    username: '',
+    displayName: '',
     email: '',
     password: '',
   });
 
   const [updateUser, { error }] = useMutation(UPDATE_USER);
-  // const { data } = useQuery(QUERY_USER);
-  console.log(useQuery(QUERY_USER))
 
-  // const loggedIn = Auth.loggedIn();
+  const { data: userData } = useQuery(QUERY_USER, {
+    variables: { email: "test@test.com" }
+  });
+
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -52,8 +56,9 @@ const Account = () => {
       }
     };
   return (
-
-  <div class="flex flex-col h-screen justify-start">
+    <>
+    {userData && (
+  <div className="flex flex-col h-screen justify-start">
     {/* navigation header start */}
     <header>
       <NavLg></NavLg>
@@ -62,7 +67,7 @@ const Account = () => {
     {/* navigation header end */}
     <h1 className='font-bold mb-1 text-xl md:text-lg lg:text-xl px-4 pt-4 md:pt-0 w-screen md:text-right md:pr-9 lg:pb-5'>Account Settings</h1>
     {/* body start */}
-    <main class="sm:grid sm:grid-cols-3 sm:mx-5">
+    <main className="sm:grid sm:grid-cols-3 sm:mx-5">
       {/*md break column 1 */}
       <div className="w-full px-4 pt-1 sm:px-2 bg-white rounded-lg w-sm text-md">
       {/* update account form start*/}
@@ -75,13 +80,14 @@ const Account = () => {
             Display Name
           </label>
           <input
+            name="displayName"
             type='text'
-            className='cursor-not-allowed block w-full px-4 py-2 md:py-1 mt-2 bg-white border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
-            placeholder='Kevin Puggles'
+            className='block w-full px-4 py-2 md:py-1 mt-2 bg-white border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
+            placeholder={userData.user.displayName}
             id='displayName'
             value={formState.displayName}
             onChange={handleChange}
-            disabled/>
+            />
         </div>
         <div className='mb-2 md:mb-1'>
           <label
@@ -90,13 +96,14 @@ const Account = () => {
             Email
           </label>
           <input
+            name="email"
             type='email'
-            className='cursor-not-allowed block w-full px-4 py-2 md:py-1 mt-2 bg-white border rounded-lg focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
-            placeholder='admin@helloworld.com'
+            className='block w-full px-4 py-2 md:py-1 mt-2 bg-white border rounded-lg focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
+            placeholder={userData.user.email}
             id='email'
             value={formState.email}
             onChange={handleChange}
-            disabled/>
+            />
         </div>
         <div className='mb-2 md:mb-1'>
           <label
@@ -105,6 +112,7 @@ const Account = () => {
             Password*
           </label>
           <input
+            name="password"
             type='password'
             className='cursor-pointer block w-full px-4 py-2 md:py-1 mt-2 bg-white border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
             placeholder='**********'
@@ -127,13 +135,13 @@ const Account = () => {
         <div className='mt-2 md:mb-1'>
           <button 
             type='submit'
-            className='w-full py-1 mt-2 md:mt-1 tracking-wide text-white rounded-lg text-xl'
-            id='form-btn'>
+            className='w-full py-1 mt-2 md:mt-1 tracking-wide text-white rounded-lg text-xl form-btn'
+            id='updateAccount'>
               Update Account
           </button>
         </div>
       </form>
-      {error && <div>Update failed</div>}
+      {/* {error && <div>Update failed</div>} */}
       {/* update account form end*/}
       {/* expand skills start (only on xs and sm screen)*/}
       <div className="w-full px-1 pt-4 m-auto bg-white rounded-lg w-sm display-contents sm:hidden">
@@ -190,12 +198,13 @@ const Account = () => {
           <div className='mt-2 md:mb-1'>
             <button 
               type='submit'
-              className='w-full py-1 mt-2 md:mt-1 tracking-wide text-white rounded-lg text-xl'
-              id='form-btn'>
+              className='w-full py-1 mt-2 md:mt-1 tracking-wide text-white rounded-lg text-xl form-btn'
+              id='requestVerify'>
                 Request Verification
             </button>
           </div>
         </form>
+        {error && <div>Update failed</div>}
         {/* verification form end*/}
         </div>
       </div>
@@ -229,16 +238,17 @@ const Account = () => {
         <ExpandAdd></ExpandAdd>
       </div>
       </div>
-
     </main>
     {/* body end */}
 
     {/* footer start */}
-    <footer class="fixed bottom-0 display-contents">
+    <footer className="fixed bottom-0 display-contents">
         <FooterMenu></FooterMenu>
     </footer>
     {/* footer end */}
   </div>
+    )}
+    </>
   );
 }
 
