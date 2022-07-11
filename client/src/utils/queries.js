@@ -1,16 +1,37 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_USER = gql`
-  query user($username: String!) {
-    user(username: $username) {
+  query user($email: String!){
+    user(email: $email) {
       _id
-      fullname
+      displayName
       email
       friendCount
       friends {
         _id
-        fullname
+        displayName
       }
     }
   }
 `;
+
+
+// export const QUERY_ME = gql`
+//   {
+//     me {
+//       _id
+//       displayName
+//       email
+//       friendCount
+//       friends {
+//         _id
+//         displayName
+//       }
+//       blockedUsers {
+//         _id
+//         displayName
+//       }
+//       accountSource
+//     }
+//   }
+// `
