@@ -7,7 +7,7 @@ export const LOGIN_USER = gql`
       token
       user {
         _id
-        fullname
+        displayName
       }
     }
   }
@@ -15,12 +15,12 @@ export const LOGIN_USER = gql`
 
 
 export const ADD_USER = gql`
-  mutation addLocalUser($fullname: String!, $email: String!, $password: String!) {
-    addLocalUser(fullname: $fullname, email: $email, password: $password) {
+  mutation addLocalUser($displayName: String!, $email: String!, $password: String!) {
+    addLocalUser(displayName: $displayName, email: $email, password: $password) {
       token
       user {
         _id
-        fullname
+        displayName
       }
     }
   }
@@ -31,64 +31,64 @@ export const ADD_FRIEND = gql`
   mutation addFriend($id: ID!) {
     addFriend(friendId: $id) {
       _id
-      username
+      displayName
       friendCount
       friends {
         _id
-        username
+        displayName
       }
     }
   }
 `;
 
 
-export const ADD_FB_USER = gql`
-  mutation addFBUser(fullname: String!, email: String!) {
-    addFBUser(fullname: $fullname, email: $email) {
-      token
-      user {
-        _id
-        fullname
-      }
-    }
-  }
-`;
+// export const ADD_FB_USER = gql`
+//   mutation addFBUser(displayName: String!, email: String!) {
+//     addFBUser(displayName: $displayName, email: $email) {
+//       token
+//       user {
+//         _id
+//         displayName
+//       }
+//     }
+//   }
+// `;
 
 
-export const ADD_GOOGLE_USER = gql`
-  mutation addGoogleUser(fullname: String!, email: String!) {
-    addGoogleUser(fullname: $fullname, email: $email) {
-      token
-      user {
-        _id
-        fullname
-      }
-    }
-  }
-`;
+// export const ADD_GOOGLE_USER = gql`
+//   mutation addGoogleUser(displayName: String!, email: String!) {
+//     addGoogleUser(displayName: $displayName, email: $email) {
+//       token
+//       user {
+//         _id
+//         displayName
+//       }
+//     }
+//   }
+// `;
 
 
-export const ADD_GITHUB_USER = gql`
-  mutation addGitHubUser(fullname: String!, email: String!) {
-    addGitHubUser(fullname: $fullname, email: $email) {
-      token
-      user {
-        _id
-        fullname
-      }
-    }
-  }
-`;
+// export const ADD_GITHUB_USER = gql`
+//   mutation addGitHubUser(displayName: String!, email: String!) {
+//     addGitHubUser(displayName: $displayName, email: $email) {
+//       token
+//       user {
+//         _id
+//         displayName
+//       }
+//     }
+//   }
+// `;
 
 
-export const ADD_LINKEDIN_USER = gql`
-  mutation addLinkedInUser(fullname: String!, email: String!) {
-    addLinkedInUser(fullname: $fullname, email: $email) {
-      token
-      user {
-        _id
-        fullname
-      }
-    }
-  }
-`;
+// export const ADD_LINKEDIN_USER = gql`
+//   mutation addLinkedInUser(displayName: String!, email: String!) {
+//     addLinkedInUser(displayName: $displayName, email: $email) {
+//       token
+//       user {
+//         _id
+//         displayName
+//       }
+//     }
+//   }
+// `;
