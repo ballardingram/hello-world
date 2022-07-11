@@ -1,6 +1,7 @@
 const registrations = require('../userAuthentication/registration/userRegistration');
 const {User, Project} = require('../models');
 const {signToken} = require('../utils/auth');
+var validator = require('is-my-json-valid')
 const resolvers = {
     Query : {
         users : async () => {
@@ -93,8 +94,86 @@ const resolvers = {
             // Need to update colloborations
             return project;
             
+        },
+        updateUserProfile : async(parent, args) => {
+            const {userData} = args;
+            const inputUser = formatInputUserData(userData);
+            console.log(inputUser);
+            return await User.findOneAndUpdate(inputUser);
         }
     }
 };
+
+const formatInputUserData = (inputData) => {
+    const user = {};
+    // Assuming the input data is a VALID JSON
+    if(typeof inputData == "string" ){
+        const JSONInput = JSON.parse(inputData);
+        if(JSONInput._id){
+            user["_id"] = JSONInput._id;
+        }
+        if(JSONInput.displayName){
+            user["displayName"] = JSONInput.displayName;
+        }
+        if(JSONInput.email){
+            user["email"] = JSONInput.email;
+        }
+        if(JSONInput.friends){
+        if(JSONInput.friends.length>0){
+            user["friends"] = JSONInput.friends;
+        }
+        }
+        if(JSONInput.blockedUsers){
+        if(JSONInput.blockedUsers){
+            user["blockedUsers"] = JSONInput.blockedUsers;
+        }
+        }
+        if(JSONInput.projects){
+        if(JSONInput.projects.lenght>0){
+            user["projects"] = JSONInput.projects;
+        }
+        }
+        if(JSONInput.savedProjects){
+        if(JSONInput.savedProjects.length>0){
+            user["savedProjects"] = JSONInput.savedProjects;
+        }
+    }
+    if(JSONInput.skills){
+        if(JSONInput.skills.length>0){
+            const skillSet = [];
+            for(let i=0; i<JSONInput.skills.length; i++){
+                const tempSkill = JSONInput.skills[i];
+                const skillName = tempSkill.skillName;
+                const skillLevel = tempSkill.expertiseLevel;
+                skillSet.push({"skillName": skillName, "expertiseLevel":skillLevel});
+            }
+            user["skills"] = skillSet;
+        }
+    }
+    if(JSONInput.socialLinks){
+        if(JSONInput.socialLinks.length>0){
+            const socialLinksSet = [];
+            for(let i=0; i<JSONInput.socialLinks.length; i++){
+                const tempSLink = JSONInput.socialLinks[i];
+                const socialProvidername = tempSLink.socialProvidername;
+                const socialProviderUserName = tempSLink.socialProviderUserName;
+                socialLinksSet.push({"socialProvidername": socialProvidername, "socialProviderUserName":socialProviderUserName});
+            }
+            user["socialLinks"] = socialLinksSet;
+        }
+    }
+
+        if(JSONInput.aboutMe){
+            user["aboutMe"] = JSONInput.aboutMe;
+        }
+        if(JSONInput.verified || !JSON.verfied){
+            user["verified"] = JSONInput.verfied;
+        }
+        
+        
+    }
+
+    return user;
+}
 
 module.exports = resolvers;
