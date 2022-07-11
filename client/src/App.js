@@ -7,6 +7,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Account from './pages/Account';
 import NoMatch from './pages/NoMatch';
+import Profile from './pages/Profile';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -54,6 +55,10 @@ function App() {
               <Route
                 path="/account"
                 element={<Account />}
+              />
+              <Route
+                path="/profile"
+                element={<Profile />}
               />
               <Route
                 path='*'
