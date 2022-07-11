@@ -36,6 +36,22 @@ const resolvers = {
         .populate("colloborators");
       return project;
     },
+    projects: async () => {
+      const project = await Project.find()
+        .select("-__v")
+        .populate("createdBy")
+        .populate("colloborators");
+      return project;
+    },
+    skillProjects: async (parent, args) => {
+      const {skillName} = args;
+      const project = await Project.find({skillsRequiredForHelp: skillName})
+        .select("-__v")
+        .populate("createdBy")
+        .populate("colloborators");
+      return project;
+    },
+
   },
   Mutation: {
     addLocalUser: async (parent, args) => {
@@ -129,15 +145,20 @@ const resolvers = {
     updateUserProfile: async (parent, args) => {
       const { userData } = args;
       const inputUser = formatInputUserData(userData);
+      const userID = inputUser._id;
+      delete inputUser._id;
       console.log(inputUser);
-      return await User.findOneAndUpdate(inputUser);
+      return await User.findOneAndUpdate({_id:userID},inputUser, {new: true});
     },
     updateProject : async(parent, args) => {
-        const projectData = args;
+        const {projectData} = args;
         const inputProjectData = formatInputProjectData(projectData);
+        const projectID = inputProjectData._id;
+        delete inputProjectData._id;
         console.log(inputProjectData);
-        return await Project.findOneAndUpdate(inputProjectData);
-
+        console.log(projectID);
+        return await Project.findOneAndUpdate({_id: projectID},inputProjectData, {
+          new: true});
     }
   },
 };
@@ -219,6 +240,8 @@ const formatInputUserData = (inputData) => {
 
 const formatInputProjectData = (projectData) => {
     const project = {};
+    console.log("we are here");
+    console.log(typeof projectData);
     if(typeof projectData == "string"){
         const JSONInput = JSON.parse(projectData);
         if(JSONInput._id){
@@ -242,8 +265,12 @@ const formatInputProjectData = (projectData) => {
         if(JSONInput.helpRequired){
             project["helpRequired"] = JSONInput.helpRequired;
         }
+        console.log("we are here ");
         if(JSONInput.skillsRequiredForHelp){
+          console.log("we are here ");
+          if(JSONInput.skillsRequiredForHelp.length>0){
             project["skillsRequiredForHelp"] = JSONInput.skillsRequiredForHelp;
+          }
         }
         if(JSONInput.colloborators){
             const colloboratorsArray = [];
