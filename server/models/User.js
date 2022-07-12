@@ -70,7 +70,8 @@ const userSchema = new Schema({
         type:String
     },
     userCreatedAt : {
-        type: Date
+        type: Date,
+        default: Date.now
     },
     verified : {
         type: Boolean

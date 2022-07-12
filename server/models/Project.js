@@ -16,10 +16,12 @@ const ProjectSchema = new Schema({
         ref: 'User'
     },
     createdAt: {
-        type: Date
+        type: Date,
+        default: Date.now
     },
     updatedAt : {
         type: Date,
+        default: Date.now
     },
     updatedBy : {
         type: Schema.Types.ObjectId,
@@ -49,5 +51,5 @@ const ProjectSchema = new Schema({
     }
 });
 
-const Project = new model('Project',ProjectSchema);
+const Project = model('Project', ProjectSchema);
 module.exports = Project;
