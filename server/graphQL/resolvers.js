@@ -1,6 +1,8 @@
 const registrations = require("../userAuthentication/registration/userRegistration");
-const { User, Project } = require("../models");
+const { User, Project, Donation } = require("../models");
 const { signToken, authToken } = require("../utils/auth");
+const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+
 // var validator = require("is-my-json-valid");
 const resolvers = {
   Query: {
@@ -62,6 +64,40 @@ const resolvers = {
         .populate("colloborators");
       return project;
     },
+    checkout: async (parent, args, context) => {
+      const url = new URL(context.headers.referer).orgin;
+      const donation = new Donation ({ donations: args.donations });
+      const line_itmes = [];
+
+      const { donations } = await donation.populate('users');
+
+      for(let i = 0; i < donations.length; i++) {
+        const donation = await stripe.products.create({
+          name: user[i].name
+        });
+
+        const price = await stripe.prices.create({
+          user: user.id,
+          unit_amount: donations[i].price * 100,
+          currency: 'usd',
+        });
+
+        line-items.push({
+          price: price.id,
+          quantity: 1
+        });
+      }
+
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items,
+        mode: 'payment',
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}/`
+      });
+
+      return { session: session.id };
+    }
 
   },
   Mutation: {
