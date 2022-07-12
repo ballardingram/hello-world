@@ -15,8 +15,7 @@ import { QUERY_USER } from '../utils/queries';
 
 
 const Account = () => {
-
-  // const { email: userParam } = useParams();
+  
 
   const [formState, setFormState] = useState({
     displayName: '',
@@ -25,11 +24,10 @@ const Account = () => {
   });
 
   const [updateUser, { error }] = useMutation(UPDATE_USER);
+ 
+  const {  data } = useQuery(QUERY_USER, {  variables: { email: Auth.getUserEmail() }});
 
-  const { data: userData } = useQuery(QUERY_USER, {
-    variables: { email: "test@test.com" }
-  });
-
+  const userData = data;
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -49,11 +47,13 @@ const Account = () => {
         const { data } = await updateUser({
           variables: { ...formState },
         });
+        console.log(formState)
   
-        Auth.login(data.addUser.token);
+        Auth.updateUser(data.updateUser);
         } catch (e) {
         console.error(e);
       }
+      
     };
   return (
     <>
