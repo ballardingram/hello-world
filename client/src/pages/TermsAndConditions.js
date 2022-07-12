@@ -1,11 +1,10 @@
 import React from 'react';
 import NavSm from '../components/NavSm';
 import NavLg from '../components/NavLg';
-import FooterMenu from '../components/FooterExpand';
 
 const Terms = () => {
   return (
-    <div>
+    <div id='close'>
       <NavSm></NavSm>
       <NavLg></NavLg>
       <div className='grid grid-cols-12 mt-12 pt-5'>
@@ -72,7 +71,6 @@ const Terms = () => {
           sed risus ultricies tristique. Amet luctus venenatis lectus magna fringilla urna porttitor. 
         </p>
       </div>
-      <FooterMenu></FooterMenu>
     </div>
   );
 };

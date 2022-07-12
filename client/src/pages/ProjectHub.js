@@ -1,13 +1,13 @@
 import React from 'react';
 import NavLg from '../components/NavLg';
 import NavSm from '../components/NavSm';
-import FooterSticky from '../components/FooterSticky';
 import Card from '../components/Card';
+import FooterSticky from '../components/FooterSticky';
 import FooterBody from '../components/FooterBody';
 
 const ProjectHub = () => {
   return (
-  <div className="flex flex-col h-screen justify-start text-lg">
+  <div className="flex flex-col h-screen justify-start text-lg" id='close'>
   {/* navigation header start */}
   <header>
     <NavLg></NavLg>
@@ -74,7 +74,6 @@ const ProjectHub = () => {
         <Card></Card>
         <Card></Card>
       </div>
-
     </div>
 
     {/*md break column 3 */}
@@ -86,10 +85,9 @@ const ProjectHub = () => {
 
   </main>
   {/* body end */}
-  <FooterBody></FooterBody>
-
   {/* footer start */}
-    <FooterSticky></FooterSticky>
+  <FooterBody></FooterBody>
+  <FooterSticky></FooterSticky>
   {/* footer end */}
   </div>
 );
