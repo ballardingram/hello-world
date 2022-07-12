@@ -6,6 +6,7 @@ import About from './pages/About';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Account from './pages/Account';
+import ProjectHub from './pages/ProjectHub';
 import NoMatch from './pages/NoMatch';
 import RedirectFederate from './pages/RedirectFederate'
 // import Home from './pages/Home'
@@ -55,6 +56,10 @@ function App() {
             <Route
               path="/profile"
               element={<Profile />}
+            />
+            <Route
+              path='/projecthub'
+              element={<ProjectHub />}
             />
             <Route
               path='*'

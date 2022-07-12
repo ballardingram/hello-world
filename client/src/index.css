@@ -98,6 +98,10 @@ body {
   border: 1px solid;
   border-color: rgba(31, 78, 121, .5);
 }
+input, textarea {
+  background-color: rgba(178, 202, 224, 0.25);
+  font-weight: 400;
+}
 
 .form-btn {
   background-color: var(--primaryBlue);
@@ -136,12 +140,6 @@ body {
 /* 404 page end */
 
 /* account page start */
-#snooze-btn {
-  background-color: var(--secondaryYellow);
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
-  transition: all ease 0.2s;
-}
-
 #delete-btn {
   background-color: #bb0a1e;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
@@ -160,4 +158,6 @@ body {
   background-color: rgba(178, 202, 224, 0.25);
 }
 /* profile end */
+
+
 
