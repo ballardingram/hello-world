@@ -136,12 +136,6 @@ body {
 /* 404 page end */
 
 /* account page start */
-#snooze-btn {
-  background-color: var(--secondaryYellow);
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
-  transition: all ease 0.2s;
-}
-
 #delete-btn {
   background-color: #bb0a1e;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);

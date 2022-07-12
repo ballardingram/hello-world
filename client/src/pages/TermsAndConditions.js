@@ -3,7 +3,6 @@ import NavSm from '../components/NavSm';
 import NavLg from '../components/NavLg';
 import FooterMenu from '../components/FooterExpand';
 
-
 const Terms = () => {
   return (
     <div>
