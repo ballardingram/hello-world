@@ -98,6 +98,10 @@ body {
   border: 1px solid;
   border-color: rgba(31, 78, 121, .5);
 }
+input, textarea {
+  background-color: rgba(178, 202, 224, 0.25);
+  font-weight: 400;
+}
 
 .form-btn {
   background-color: var(--primaryBlue);
@@ -154,4 +158,6 @@ body {
   background-color: rgba(178, 202, 224, 0.25);
 }
 /* profile end */
+
+
 

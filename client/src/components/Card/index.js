@@ -7,7 +7,7 @@ import ExpandProject from '../ExpandProject';
 const Card = () => {
   return (
     
-    <div className="p-2 mb-2 sm:px-2 rounded-lg w-md" id='card-container'> 
+    <div className="p-2 mb-5 rounded-lg" id='card-container'> 
       <div>
         <div className='select-none font-semibold tracking-wide mb-2 text-xl'>
           Project Title

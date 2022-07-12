@@ -12,26 +12,26 @@ const Example = () => {
     <NavSm></NavSm>
   </header>
   {/* navigation header end */}
-  <div className='w-screen px-5 my-5 md:pt-0 md:pr-9 font-bold text-2xl lg:text-3xl xl:text-4xl md:text-right'>
-    Submit a Project
+  <div className='w-screen px-5 my-5 md:pt-0 md:pr-7 font-bold text-2xl lg:text-3xl 2xl:text-4xl md:text-right'>
+    Example Body Layout with Mobile Functionality
   </div>
 
   {/* body start */}
-  <main class="sm:grid sm:grid-cols-2 md:grid-cols-3 mb-10">
+  <main class="sm:grid sm:grid-cols-2 lg:grid-cols-3 mb-12 pb-12">
 
     {/*md break column 1 */}
-    <div className="grid content-center px-5">
-      <h2 className='font-semibold mb-2 text-xl'>Column 1 Header</h2>
+    <div className="grid content-start px-5 mb-5">
+      <div className='font-semibold mb-2 text-xl'>Column 1 Header</div>
     </div>
 
     {/*md break column 2 */}
-    <div className="grid content-center px-5">
-      <h2 className='font-semibold mb-2 text-xl'>Column 2 Header</h2>
+    <div className="grid content-start px-5 mb-5">
+      <div className='font-semibold mb-2 text-xl'>Column 2 Header</div>
     </div>
 
     {/*md break column 3 */}
-    <div className="grid content-center px-5">
-      <h2 className='font-semibold mb-2 text-xl'>Column 3 Header</h2>
+    <div className="grid content-start px-5 mb-5">
+      <div className='font-semibold mb-2 text-xl'>Column 3 Header</div>
     </div>
 
   </main>
