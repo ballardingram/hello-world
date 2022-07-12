@@ -13,7 +13,6 @@ import Auth from '../utils/auth';
 import { QUERY_USER } from '../utils/queries';
 // import { useParams } from 'react-router-dom';
 
-
 const Account = () => {
   
 

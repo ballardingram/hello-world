@@ -1,6 +1,7 @@
 import React from 'react';
 import NavSm from '../components/NavSm';
 import NavLg from '../components/NavLg';
+import FooterMenu from '../components/FooterExpand';
 
 
 const Terms = () => {
@@ -72,6 +73,7 @@ const Terms = () => {
           sed risus ultricies tristique. Amet luctus venenatis lectus magna fringilla urna porttitor. 
         </p>
       </div>
+      <FooterMenu></FooterMenu>
     </div>
   );
 };

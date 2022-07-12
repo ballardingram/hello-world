@@ -1,6 +1,7 @@
 import React from 'react';
 import NavLg from '../components/NavLg';
 import NavSm from '../components/NavSm';
+import FooterMenu from '../components/FooterExpand';
 import aboutImg1 from '../../src/assets/thats-how-it-works.jpg';
 import aboutImg2 from '../../src/assets/make-it-happen.jpg';
 
@@ -28,6 +29,7 @@ const About = () => {
           </p>
         </div>
       </div>
+      <FooterMenu></FooterMenu>
     </div>
   );
 };
