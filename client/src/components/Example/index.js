@@ -3,7 +3,7 @@ import NavLg from '../components/NavLg';
 import NavSm from '../components/NavSm';
 import FooterMenu from '../components/FooterExpand';
 
-const CreateProject = () => {
+const Example = () => {
   return (
   <div className="flex flex-col h-screen justify-start text-lg">
   {/* navigation header start */}
@@ -17,21 +17,21 @@ const CreateProject = () => {
   </div>
 
   {/* body start */}
-  <main class="sm:grid sm:grid-cols-2 lg:grid-cols-3 mb-12 pb-12">
+  <main class="sm:grid sm:grid-cols-2 md:grid-cols-3 mb-10">
 
     {/*md break column 1 */}
     <div className="grid content-center px-5">
-      <div className='font-semibold mb-2 text-xl'>Column 1 Header</div>
+      <h2 className='font-semibold mb-2 text-xl'>Column 1 Header</h2>
     </div>
 
     {/*md break column 2 */}
     <div className="grid content-center px-5">
-      <div className='font-semibold mb-2 text-xl'>Column 2 Header</div>
+      <h2 className='font-semibold mb-2 text-xl'>Column 2 Header</h2>
     </div>
 
     {/*md break column 3 */}
     <div className="grid content-center px-5">
-      <div className='font-semibold mb-2 text-xl'>Column 3 Header</div>
+      <h2 className='font-semibold mb-2 text-xl'>Column 3 Header</h2>
     </div>
 
   </main>
@@ -46,4 +46,4 @@ const CreateProject = () => {
   </div>
 );
 }
-export default CreateProject
+export default Example;
