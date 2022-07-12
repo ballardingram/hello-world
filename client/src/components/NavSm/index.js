@@ -8,7 +8,7 @@ import boltIcon from '@iconify/icons-fxemoji/bolt';
 const NavSm = () => {
   return (
     <div className="h-36 rounded-b-2xl display-contents md:hidden" id="mobile-nav">
-      <div className="flex justify-between h-36">
+      <div className="flex justify-between h-36" id="close">
         <div className="flex justify-start font-semibold">
           <div className="my-5 ml-5 object-center h-28 w-28">
             <UserImage></UserImage>
