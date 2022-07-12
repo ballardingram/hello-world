@@ -4,7 +4,7 @@ import NavSm from '../components/NavSm';
 import FooterMenu from '../components/FooterExpand';
 import Card from '../components/Card';
 
-const CreateProject = () => {
+const ProjectHub = () => {
   return (
   <div className="flex flex-col h-screen justify-start text-lg">
   {/* navigation header start */}
@@ -95,4 +95,4 @@ const CreateProject = () => {
   </div>
 );
 }
-export default CreateProject
+export default ProjectHub;

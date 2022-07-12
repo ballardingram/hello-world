@@ -6,7 +6,7 @@ import About from './pages/About';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Account from './pages/Account';
-import CreateProject from './pages/CreateProject';
+import ProjectHub from './pages/ProjectHub';
 import NoMatch from './pages/NoMatch';
 // import Home from './pages/Home'
 import Auth from './utils/auth';
@@ -54,6 +54,10 @@ function App() {
               element={<Profile />}
             />
             <Route
+              path='/projecthub'
+              element={<ProjectHub />}
+            />
+            <Route
               path='*'
               element={<NoMatch />}
             />
@@ -75,10 +79,6 @@ function App() {
             <Route
               path='/about'
               element={<About />}
-            />
-            <Route
-              path='/createproject'
-              element={<CreateProject />}
             />
             <Route
               path='*'
