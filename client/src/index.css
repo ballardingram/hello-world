@@ -1,13 +1,163 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primaryBlue: #1f4e79;
+  --secondaryBlue: #00045f;
+  --primaryYellow: #fcaa32;
+  --secondaryYellow: #ffc700;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  color: var(--secondaryBlue);
+  font-family: 'Inter', sans-serif;
 }
+
+.color-pB {
+  color: var(--primaryBlue);
+}
+
+.color-sB {
+  color: var(--secondaryBlue);
+}
+
+.color-pY {
+  color: var(--primaryYellow);
+}
+
+.color-sY {
+  color: var(--secondaryYellow);
+}
+
+/* icons start */
+.github, .facebook {
+  color: var(--primaryBlue);
+  transition: all ease 0.2s;
+}
+
+.github:hover,
+.facebook:hover {
+  color: var(--secondaryYellow);
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  border-radius: 50%;
+}
+/* icons end */
+
+/* desktop navigation bar start */
+#border {
+  padding-top: 5%;
+  padding-bottom: .7%;
+  border-bottom: 5px solid var(--primaryYellow);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transform: skewY(-3.48deg);
+}
+
+#second-border {
+  padding-bottom: 3%;
+  border-bottom: 5px solid var(--primaryBlue);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#content {
+  transform: skewY(3.48deg);
+}
+
+#nav-home:hover,
+#nav-user:hover {
+  color: var(--secondaryYellow);
+}
+
+#nav-about:hover {
+  border-bottom: 3px solid var(--secondaryYellow);
+  font-weight: 600;
+  padding-left: 9.25px;
+}
+
+#nav-help:hover {
+  border-bottom: 3px solid var(--secondaryYellow);
+  font-weight: 600;
+  padding-left: 10.75px;
+}
+
+#about-height {
+  line-height: 1.25em;
+}
+/* desktop navigation end */
+
+/* mobile navigation start */
+#mobile-nav {
+  background-color: rgba(252, 170, 50, 0.25);
+}
+/* mobile navigation end */
+
+/* form start */
+#displayName, #email, #password, #newPassword, #githubVerify {
+  border: 1px solid;
+  border-color: rgba(31, 78, 121, .5);
+}
+
+.form-btn {
+  background-color: var(--primaryBlue);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
+  transition: all ease 0.2s;
+  font-weight: 400;
+}
+
+.form-btn:hover {
+  background-color: var(--secondaryYellow);
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
+}
+
+#register:hover {
+  color: var(--primaryBlue);
+}
+/* login and register form end */
+
+/* card start */
+#card-container {
+  background-color: rgba(178, 202, 224, 0.25);
+}
+
+#card-container:hover {
+  background-color: rgba(178, 202, 224, 0.35);
+}
+/* card end */
+
+/* 404 page start */
+.caveman {
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  height: 400px;
+  background-position: center;
+}
+/* 404 page end */
+
+/* account page start */
+#snooze-btn {
+  background-color: var(--secondaryYellow);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
+  transition: all ease 0.2s;
+}
+
+#delete-btn {
+  background-color: #bb0a1e;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
+  transition: all ease 0.2s;
+}
+
+#snooze-btn:hover, #delete-btn:hover {
+  background-color: #474747;
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
+}
+/* account page end */
+
+/* profile start */
+#friends {
+  background-color: rgba(178, 202, 224, 0.25);
+}
+/* profile end */
+
