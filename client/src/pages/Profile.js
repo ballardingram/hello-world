@@ -1,7 +1,8 @@
 import React from 'react';
 import NavSm from '../components/NavSm';
 import NavLg from '../components/NavLg';
-import FooterMenu from '../components/FooterExpand';
+import FooterSticky from '../components/FooterSticky';
+import FooterBody from '../components/FooterBody';
 import Card from '../components/Card';
 import Will from '../assets/willGit.png'
 import Robert from '../assets/robertGit.png'
@@ -13,7 +14,7 @@ import Cass from '../assets/cassGit.png'
 const Profile = () => {
   return (
 
-  <div class="flex flex-col h-screen justify-start">
+  <div class="flex flex-col h-screen justify-start" id='close'>
     {/* navigation header start */}
     <header>
       <NavLg></NavLg>
@@ -73,11 +74,10 @@ const Profile = () => {
   </main>
     {/* body end */}
 
-    {/* footer start */}
-    <footer class="fixed bottom-0 display-contents">
-      <FooterMenu></FooterMenu>
-    </footer>
-    {/* footer end */}
+  {/* footer start */}
+  <FooterBody></FooterBody>
+  <FooterSticky></FooterSticky>
+  {/* footer end */}
   </div>
   );
 }

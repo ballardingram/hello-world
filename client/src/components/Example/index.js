@@ -5,7 +5,7 @@ import FooterMenu from '../components/FooterExpand';
 
 const Example = () => {
   return (
-  <div className="flex flex-col h-screen justify-start text-lg">
+  <div className="flex flex-col h-screen justify-start text-lg" id='close'>
   {/* navigation header start */}
   <header>
     <NavLg></NavLg>
