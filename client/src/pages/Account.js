@@ -4,7 +4,8 @@ import NavSm from '../components/NavSm';
 import NavLg from '../components/NavLg';
 import ExpandSkills from '../components/ExpandSkills';
 import ExpandAdd from '../components/ExpandAdd';
-import FooterMenu from '../components/FooterExpand';
+import FooterSticky from '../components/FooterSticky';
+import FooterBody from '../components/FooterBody';
 import Switch from '../components/Toggle';
 import { Icon } from '@iconify/react';
 import boltIcon from '@iconify/icons-fxemoji/bolt';
@@ -24,7 +25,7 @@ const Account = () => {
 
   const [updateUser, { error }] = useMutation(UPDATE_USER);
  
-  const {  data } = useQuery(QUERY_USER, {  variables: { email: Auth.getUserEmail() }});
+  const { data } = useQuery(QUERY_USER, {  variables: { email: Auth.getUserEmail() }});
 
   const userData = data;
 
@@ -44,9 +45,8 @@ const Account = () => {
   
       try {
         const { data } = await updateUser({
-          variables: { ...formState },
+          variables: { userData: JSON.stringify(formState) },
         });
-        console.log(formState)
   
         Auth.updateUser(data.updateUser);
         } catch (e) {
@@ -57,7 +57,7 @@ const Account = () => {
   return (
     <>
     {userData && (
-  <div className="flex flex-col h-screen justify-start text-lg">
+  <div className="flex flex-col h-screen justify-start text-lg" id='close'>
     {/* navigation header start */}
     <header>
       <NavLg></NavLg>
@@ -68,7 +68,7 @@ const Account = () => {
       Account Settings
     </div>
     {/* body start */}
-    <main class="sm:grid sm:grid-cols-2 lg:grid-cols-3 mb-12 pb-12">
+    <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 mb-12 pb-12">
       {/*md break column 1 */}
       <div className="grid content-center px-5">
       {/* update account form start*/}
@@ -241,11 +241,10 @@ const Account = () => {
     </main>
     {/* body end */}
 
-    {/* footer start */}
-    <footer className="fixed bottom-0 display-contents">
-        <FooterMenu></FooterMenu>
-    </footer>
-    {/* footer end */}
+  {/* footer start */}
+  <FooterBody></FooterBody>
+  <FooterSticky></FooterSticky>
+  {/* footer end */}
   </div>
     )}
     </>

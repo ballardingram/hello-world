@@ -61,7 +61,7 @@ const typeDefs = gql`
         addGitHubUser(displayName: String!, email: String! ): Auth
         addLinkedInUser(displayName: String!, email: String!): Auth
         addProject(title: String, description: String, content : String, createdBy: ID, skillsRequired :[String], colloborators: [ID], helpRequired : Boolean  ) : Project
-        updateUserProfile(displayName: String, email: String, password: String) : User
+        updateUserProfile(userData: String) : User
         updateProject(projectData : String): Project
       }
 `;
