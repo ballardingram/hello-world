@@ -22,6 +22,7 @@ export const QUERY_USER_WITH_TOKEN = gql`
       user {
         _id
         displayName
+        email
       }
     }
   }

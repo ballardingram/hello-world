@@ -140,6 +140,7 @@ router.get('/api/auth/facebook/callback',passport.authenticate('facebook', { ses
             
             const path = "http://localhost:3000/redirectFederateUser/?idtoken="+req.user.token;
             res.redirect(path);
+            // res.JSON(JSON.stringify(req.user));
         }
         else {
             res.status(403);

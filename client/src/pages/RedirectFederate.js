@@ -16,9 +16,6 @@ const RedirectFederate = () => {
     //   }));
     console.log(userData);
     Auth.login(userData);
-
-    
-    
     return (<Account/>);
 }
 
