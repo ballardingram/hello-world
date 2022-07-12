@@ -42,15 +42,19 @@ function App() {
             {Auth.loggedIn() ? (
             <>
             <Route
-              path="/"
-              element={<About />}/* will be home route */
+              path="/about"
+              element={<About />}
             />
             <Route
               path="/account"
               element={<Account />}
             />
             <Route
-              path="/profile"
+              path="/terms"
+              element={<Terms />}
+            />
+            <Route
+              path="/"
               element={<Profile />}
             />
             <Route

@@ -24,7 +24,7 @@ const Account = () => {
 
   const [updateUser, { error }] = useMutation(UPDATE_USER);
  
-  const {  data } = useQuery(QUERY_USER, {  variables: { email: Auth.getUserEmail() }});
+  const { data } = useQuery(QUERY_USER, {  variables: { email: Auth.getUserEmail() }});
 
   const userData = data;
 
@@ -44,9 +44,8 @@ const Account = () => {
   
       try {
         const { data } = await updateUser({
-          variables: { ...formState },
+          variables: { userData: JSON.stringify(formState) },
         });
-        console.log(formState)
   
         Auth.updateUser(data.updateUser);
         } catch (e) {
@@ -68,7 +67,7 @@ const Account = () => {
       Account Settings
     </div>
     {/* body start */}
-    <main class="sm:grid sm:grid-cols-2 lg:grid-cols-3 mb-12 pb-12">
+    <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 mb-12 pb-12">
       {/*md break column 1 */}
       <div className="grid content-center px-5">
       {/* update account form start*/}

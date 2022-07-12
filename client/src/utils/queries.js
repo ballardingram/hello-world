@@ -7,9 +7,11 @@ export const QUERY_USER = gql`
       displayName
       email
       friendCount
+      profilePicURL
       friends {
         _id
         displayName
+        profilePicURL
       }
     }
   }

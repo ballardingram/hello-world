@@ -44,8 +44,8 @@ export const ADD_FRIEND = gql`
 
 
 export const UPDATE_USER = gql`
-  mutation updateUserProfile($displayName: String, $email: String, $password: String) {
-    updateUserProfile(_set: {displayName: $displayName, email: $email, password: $password}) {
+  mutation updateUserProfile($userData: String) {
+    updateUserProfile(userData: $userData) {
       displayName
       email
     }
