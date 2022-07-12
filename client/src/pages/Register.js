@@ -104,7 +104,7 @@ const Register = () => {
               <div className='mt-2'>
                 <p className="text-sm mr-2 font-semibold text-center mb-2 tracking-wider">Sign up with:</p>
                 <div className='flex justify-center'>
-                  <a href='/' className='facebook mx-3'><Icon icon={facebookIcon} height="30" /></a>
+                  <a href='http://localhost:3001/api/auth/facebook' className='facebook mx-3'><Icon icon={facebookIcon} height="30" /></a>
                   <a href='/' className='github mx-3'><Icon icon={githubFill} height="30" /></a>
                 </div>
               </div>

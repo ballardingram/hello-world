@@ -15,6 +15,19 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_USER_WITH_TOKEN = gql`
+  query userFromToken($idtoken: String!){
+    userFromToken(idtoken: $idtoken) {
+      token
+      user {
+        _id
+        displayName
+        email
+      }
+    }
+  }
+`;
+
 
 // export const QUERY_ME = gql`
 //   {

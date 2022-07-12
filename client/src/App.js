@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Account from './pages/Account';
 import ProjectHub from './pages/ProjectHub';
 import NoMatch from './pages/NoMatch';
+import RedirectFederate from './pages/RedirectFederate'
 // import Home from './pages/Home'
 import Auth from './utils/auth';
 import Profile from './pages/Profile';
@@ -27,12 +28,15 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link: httpLink,
   cache: new InMemoryCache(),
 });
 
+
+
 function App() {
-  return (
+  
+    return (
     <ApolloProvider client={client}>
       <Router>
         <div>
@@ -46,7 +50,7 @@ function App() {
               element={<About />}/* will be home route */
             />
             <Route
-              path="/account"
+              path="/account/"
               element={<Account />}
             />
             <Route
@@ -81,9 +85,14 @@ function App() {
               element={<About />}
             />
             <Route
+              path='/redirectFederateUser'
+              element={<RedirectFederate />}
+            />
+            <Route
               path='*'
               element={<NoMatch />}
             />
+
             </>
             )
             }
