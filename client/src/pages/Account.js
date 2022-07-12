@@ -13,7 +13,6 @@ import Auth from '../utils/auth';
 import { QUERY_USER } from '../utils/queries';
 // import { useParams } from 'react-router-dom';
 
-
 const Account = () => {
 
   // const { email: userParam } = useParams();
@@ -27,7 +26,7 @@ const Account = () => {
   const [updateUser, { error }] = useMutation(UPDATE_USER);
 
   const { data: userData } = useQuery(QUERY_USER, {
-    variables: { email: "test@test.com" }
+    variables: { email: "cass@test.com" }
   });
 
 

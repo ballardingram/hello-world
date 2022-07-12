@@ -89,8 +89,8 @@ const Login = () => {
 
               <div className='mt-5'>
                   <button 
-                    className='w-full py-2 tracking-wide text-white rounded-xl text-3xl font-thin'
-                    id='form-btn' type='submit'>
+                    className='form-btn w-full py-2 tracking-wide text-white rounded-xl text-3xl font-thin'
+                    id='login-btn' type='submit'>
                         Log In
                   </button>
               </div>
