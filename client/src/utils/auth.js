@@ -36,7 +36,6 @@ class AuthService {
     localStorage.setItem('hw-userDisplayName', JSON.stringify(oldDisplayName));
   }
 
-
   getUserEmail (){
     const userData = localStorage.getItem('hw-userEmail');
     return userData;
