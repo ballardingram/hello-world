@@ -1,8 +1,9 @@
 import React from 'react';
 import NavLg from '../components/NavLg';
 import NavSm from '../components/NavSm';
-import FooterMenu from '../components/FooterExpand';
+import FooterSticky from '../components/FooterSticky';
 import Card from '../components/Card';
+import FooterBody from '../components/FooterBody';
 
 const ProjectHub = () => {
   return (
@@ -18,7 +19,7 @@ const ProjectHub = () => {
   </div>
 
   {/* body start */}
-  <main class="sm:grid sm:grid-cols-2 lg:grid-cols-3 mb-12 pb-12">
+  <main class="sm:grid sm:grid-cols-2 lg:grid-cols-3">
 
     {/*md break column 1 */}
     <div className="grid content-start px-5 mb-5">
@@ -85,12 +86,10 @@ const ProjectHub = () => {
 
   </main>
   {/* body end */}
-
+  <FooterBody></FooterBody>
 
   {/* footer start */}
-  <footer className="fixed bottom-0 display-contents">
-  <FooterMenu></FooterMenu>
-  </footer>
+    <FooterSticky></FooterSticky>
   {/* footer end */}
   </div>
 );
