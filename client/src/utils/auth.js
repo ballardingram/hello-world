@@ -24,20 +24,41 @@ class AuthService {
 
   getToken() {
     // Retrieves the user token from localStorage
-    return localStorage.getItem('id_token');
+    const userData = localStorage.getItem('hw-token');
+    return userData;
   }
 
-  login(idToken) {
-    // Saves user token to localStorage
-    localStorage.setItem('id_token', idToken);
+  updateUser() {
+    const oldEmail = localStorage.getItem('hw-userEmail')
+    const oldDisplayName = localStorage.getItem('hw-userDisplayName')
+    localStorage.setItem('hw-userEmail', JSON.stringify(oldEmail));
+    localStorage.setItem('hw-userDisplayName', JSON.stringify(oldDisplayName));
+  }
 
+
+  getUserEmail (){
+    const userData = localStorage.getItem('hw-userEmail');
+    return userData;
+  }
+  login(authData) {
+    // Saves user token to localStorage
+    console.log(JSON.stringify(authData));
+    localStorage.setItem('hw-token',authData.token);
+    localStorage.setItem('hw-userID', authData.user._id);
+    localStorage.setItem('hw-userEmail', authData.user.email);
+    localStorage.setItem('hw-userDisplayName', authData.user.displayName);
     window.location.assign('/');
   }
+
+
 
   logout() {
     // Clear user token and profile data from localStorage
     // axios.defaults.headers.common["Authorization"] = null;
-    localStorage.removeItem('id_token');
+    localStorage.removeItem('hw-token');
+    localStorage.removeItem('hw-userID');
+    localStorage.removeItem('hw-userEmail');
+    localStorage.removeItem('hw-userDisplayName');
     // this will reload the page and reset the state of the application
     window.location.assign('/');
   }

@@ -95,8 +95,8 @@ const Register = () => {
               </div>
               <div className='mt-2'>
                   <button 
-                    className='w-full py-1 mt-2 tracking-wide text-white rounded-lg text-2xl font-thin'
-                    id='form-btn' type='submit'>
+                    className='form-btn w-full py-1 mt-2 tracking-wide text-white rounded-lg text-2xl font-thin'
+                    id='create-account' type='submit'>
                         Create Account
                   </button>
               </div>
