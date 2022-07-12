@@ -1,7 +1,8 @@
 import React from 'react';
 import NavSm from '../components/NavSm';
 import NavLg from '../components/NavLg';
-import FooterMenu from '../components/FooterExpand';
+import FooterSticky from '../components/FooterSticky';
+import FooterBody from '../components/FooterBody';
 import Card from '../components/Card';
 import { QUERY_USER } from '../utils/queries';
 import { useQuery } from '@apollo/client';
@@ -66,11 +67,10 @@ const Profile = () => {
   </main>
     {/* body end */}
 
-    {/* footer start */}
-    <footer className="fixed bottom-0 display-contents">
-      <FooterMenu></FooterMenu>
-    </footer>
-    {/* footer end */}
+  {/* footer start */}
+  <FooterBody></FooterBody>
+  <FooterSticky></FooterSticky>
+  {/* footer end */}
   </div>
     )}
     </>

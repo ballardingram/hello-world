@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import NavLg from '../components/NavLg';
 import NavSm from '../components/NavSm';
-import FooterSticky from '../components/FooterSticky';
 import Card from '../components/Card';
 import { useMutation } from '@apollo/client';
+import FooterSticky from '../components/FooterSticky';
 import FooterBody from '../components/FooterBody';
 // import Auth from '../utils/auth';
 import { ADD_PROJECT } from '../utils/mutations';
@@ -57,7 +57,7 @@ const ProjectHub = (props) => {
 
 
   return (
-  <div className="flex flex-col h-screen justify-start text-lg">
+  <div className="flex flex-col h-screen justify-start text-lg" id='close'>
   {/* navigation header start */}
   <header>
     <NavLg></NavLg>
@@ -137,7 +137,6 @@ const ProjectHub = (props) => {
         <Card></Card>
         <Card></Card>
       </div>
-
     </div>
 
     {/*md break column 3 */}
@@ -149,10 +148,9 @@ const ProjectHub = (props) => {
 
   </main>
   {/* body end */}
-  <FooterBody></FooterBody>
-
   {/* footer start */}
-    <FooterSticky></FooterSticky>
+  <FooterBody></FooterBody>
+  <FooterSticky></FooterSticky>
   {/* footer end */}
   </div>
 );

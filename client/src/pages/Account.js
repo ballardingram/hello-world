@@ -4,7 +4,8 @@ import NavSm from '../components/NavSm';
 import NavLg from '../components/NavLg';
 import ExpandSkills from '../components/ExpandSkills';
 import ExpandAdd from '../components/ExpandAdd';
-import FooterMenu from '../components/FooterExpand';
+import FooterSticky from '../components/FooterSticky';
+import FooterBody from '../components/FooterBody';
 import Switch from '../components/Toggle';
 import { Icon } from '@iconify/react';
 import boltIcon from '@iconify/icons-fxemoji/bolt';
@@ -56,7 +57,7 @@ const Account = () => {
   return (
     <>
     {userData && (
-  <div className="flex flex-col h-screen justify-start text-lg">
+  <div className="flex flex-col h-screen justify-start text-lg" id='close'>
     {/* navigation header start */}
     <header>
       <NavLg></NavLg>
@@ -240,11 +241,10 @@ const Account = () => {
     </main>
     {/* body end */}
 
-    {/* footer start */}
-    <footer className="fixed bottom-0 display-contents">
-        <FooterMenu></FooterMenu>
-    </footer>
-    {/* footer end */}
+  {/* footer start */}
+  <FooterBody></FooterBody>
+  <FooterSticky></FooterSticky>
+  {/* footer end */}
   </div>
     )}
     </>
