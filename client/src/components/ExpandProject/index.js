@@ -21,7 +21,7 @@ const ExpandProject = () => {
         <AccordionHeader><span className="flex ml-1 text-lg">View More</span></AccordionHeader>
         </div>
       <AccordionBody>
-        <div className="text-justify py-0 mb-2 text-base">
+        <div className="text-justify py-0 mb-2 text-lg">
           This text will include the entire project description and will 
           not be severely limited in character count (will discuss exactly 
           what count should be in SLACK).

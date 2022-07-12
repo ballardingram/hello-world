@@ -58,11 +58,11 @@ const Login = () => {
             <div className='mb-3'>
                 <label
                   htmlFor='email'
-                  className='block text-sm'> 
+                  className='block'> 
                 </label>
                 <input
                   type='email'
-                  className='block text-xl w-full px-4 py-3 mt-2 bg-white border rounded-xl focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
+                  className='block text-xl w-full px-4 py-3 mt-2 border rounded-lg focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
                   placeholder='Email Address'
                   id='email'
                   name="email"
@@ -74,11 +74,11 @@ const Login = () => {
               <div className='mb-3'>
                 <label
                   htmlFor='password'
-                  className='block text-sm'> 
+                  className='block'> 
                 </label>
                 <input
                   type='password'
-                  className='block text-xl w-full px-4 py-3 mt-2 bg-white border rounded-xl focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
+                  className='block text-xl w-full px-4 py-3 mt-2 border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
                   placeholder='Password'
                   id='password'
                   name="password"
@@ -89,7 +89,7 @@ const Login = () => {
 
               <div className='mt-5'>
                   <button 
-                    className='form-btn w-full py-2 tracking-wide text-white rounded-xl text-3xl font-thin'
+                    className='form-btn w-full py-2 tracking-wide text-white rounded-lg text-2xl'
                     id='login-btn' type='submit'>
                         Log In
                   </button>
@@ -97,7 +97,7 @@ const Login = () => {
 
               <div className='mt-5 flex justify-center w-full'>
                 <div 
-                  className='inline-block text-md font-bold h-full content-center text-center'>
+                  className='inline-block text-lg font-bold h-full content-center text-center'>
                   Need an account?
                   <a href='/register' className='ml-1 color-pY' id='register'>Register Here!</a>
                 </div>
