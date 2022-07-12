@@ -47,6 +47,7 @@ const typeDefs = gql`
     type Query {
         users : [User]
         user(email: String!) : User
+        userFromToken(idtoken: String!) : Auth
         project(projectID : ID!) : Project
         projects : [Project]
         skillProjects(skillName: String!) : [Project]

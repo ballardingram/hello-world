@@ -88,7 +88,7 @@ const fbStrategy = new FBStrategy({
         'timezone', 'updated_time', 'verified', 'displayName']
 },
     async (req, accessToken, refreshToken, profile, cb) => {
-        if(!profile || !accessToken || !refreshToken){
+        if(!profile){
             return cb(null, false, { message: "User Not authenticated" });
         }
         
@@ -136,8 +136,10 @@ router.get('/api/auth/facebook', passport.authenticate('facebook', { scope: ['pu
 router.get('/api/auth/facebook/callback',passport.authenticate('facebook', { session: false }),  (req,res) => {
     console.log("callback after authentication came here");
         if (req.user) {
-            console.log('Authenticated : ' + req.user.user.fullname + ' :  ' + req.user.token);
-            res.json(JSON.stringify(req.user));
+            console.log('Authenticated : ' + req.user.user.displayName + ' :  ' + req.user.token);
+            
+            const path = "http://localhost:3000/redirectFederateUser/?idtoken="+req.user.token;
+            res.redirect(path);
         }
         else {
             res.status(403);

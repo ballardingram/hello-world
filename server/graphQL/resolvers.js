@@ -1,6 +1,6 @@
 const registrations = require("../userAuthentication/registration/userRegistration");
 const { User, Project } = require("../models");
-const { signToken } = require("../utils/auth");
+const { signToken, authToken } = require("../utils/auth");
 // var validator = require("is-my-json-valid");
 const resolvers = {
   Query: {
@@ -27,6 +27,17 @@ const resolvers = {
         .populate("socialLinks");
       console.log(user);
       return user;
+    },
+    userFromToken : async(parent, args) => {
+      const {idtoken} = args;
+      console.log("we are in resolvers");
+      const user = authToken(idtoken);
+      const token = signToken(user);
+      console.log("what we are returning here as token : ");
+      console.log(token);
+      console.log("what we are returning here as user: ");
+      console.log(user)
+      return {token, user}
     },
     project: async (parent, args) => {
       const { projectID } = args;

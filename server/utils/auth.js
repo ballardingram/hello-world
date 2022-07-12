@@ -37,4 +37,36 @@ module.exports = {
     // return updated request object
     return req;
   }
+,
+
+
+
+authToken :function (tokenString) {
+  // allows token to be sent via req.body, req.query, or headers
+  console.log("we came to decode token String");
+  // separate "Bearer" from "<tokenvalue>"
+    let token = tokenString
+      .split(' ')
+      .pop()
+      .trim();
+  // if no token, return request object as is
+  if (!token) {
+    return false;
+  }
+  try {
+    console.log("decoding")
+    // decode and attach user data to request object
+    const { data } = jwt.verify(token, secret, { maxAge: expiration });
+    console.log("The data we are returning");
+    console.log(data);
+    return data;
+  } catch {
+    console.log('Invalid token');
+    return false;
+  }
+
+  // return updated request object
+
+}
+
 };

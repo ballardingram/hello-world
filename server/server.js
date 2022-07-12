@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require("express");
+const passport = require("passport");
 const { ApolloServer } = require("apollo-server-express");
 const {
   ApolloServerPluginLandingPageGraphQLPlayground,
@@ -16,10 +17,11 @@ const server = new ApolloServer({
 });
 
 const app = express();
-
+const cors = require('cors');
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-// app.use(passport.initialize());
+app.use(passport.initialize());
 app.use(routes);
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
