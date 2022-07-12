@@ -13,28 +13,21 @@ db.once('open', async () => {
 
     for (let i = 0; i < 50; i++) {
         const displayName = faker.internet.userName();
-        const email = faker.internet.email(username);
+        const email = faker.internet.email(displayName);
         const aboutMe = faker.lorem.words(Math.round(Math.random() * 20) + 1);
-        const verified = faker.datatype.boolean();
+        const friends = [];
+        // const verified = faker.datatype.boolean()
 
-        userData.push({ displayName, email, aboutMe, verified });
-    }
-    
-    const createdUsers = await User.collection.insertMany(userData);
+        // create friends *sorry for the nested for loop*
+        for (let i = 0; i < Math.round(Math.random() * 20) + 1; i++) {
+            const firstName = faker.name.firstName();
+            const lastName = faker.name.lastName();
 
-    // create friends
-    for (let i = 0; i < 30; i++) {
-        const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-        const { _id: userId } = createdUsers.ops[randomUserIndex];
-
-        let friendId = userId;
-
-        while (friendId === userId) {
-            const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-            friendId = createdUsers.ops[randomUserIndex];
+            friends.push({ firstName, lastName });
         }
 
-        await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
+        userData.push({ displayName, email, aboutMe, friends });
+        User.collection.insertMany(userData)
     }
 
     // create projects
@@ -44,14 +37,15 @@ db.once('open', async () => {
         const title = faker.lorem.words(Math.round(Math.random() * 20) + 1);
         const description = faker.lorem.words(Math.round(Math.random() * 20) + 1);
         const content = faker.lorem.words(Math.round(Math.random() * 20) + 1);
-        const hidden = faker.datatype.boolean();
-        const helpRequired = faker.datatype.boolean();
+        // const hidden = faker.datatype.boolean();
+        // const helpRequired = faker.datatype.boolean();
         const skillsRequiredForHelp = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+        const createdBy = {
+            firstName: faker.name.firstName,
+            lastName: faker.name.lastName
+        }
 
-        const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-        const { createdBy, _id: userId } = createdUsers.ops[randomUserIndex];
-
-        const createdProject = await Project.create({ title, description, content, hidden, helpRequired, skillsRequiredForHelp, createdBy });
+        const createdProject = await Project.create({ title, description, content, skillsRequiredForHelp, createdBy });
 
         const updatedUser = await User.updateOne(
             {_id: userId},
@@ -60,5 +54,9 @@ db.once('open', async () => {
 
         createdProjects.push(createdProject)
     }
+
+
+    console.log('all done!');
+    process.exit(0);
 
 })
