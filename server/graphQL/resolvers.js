@@ -1,7 +1,7 @@
 const registrations = require("../userAuthentication/registration/userRegistration");
 const { User, Project } = require("../models");
 const { signToken } = require("../utils/auth");
-var validator = require("is-my-json-valid");
+// var validator = require("is-my-json-valid");
 const resolvers = {
   Query: {
     users: async () => {

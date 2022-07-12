@@ -7,9 +7,12 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Account from './pages/Account';
 import NoMatch from './pages/NoMatch';
+// import Home from './pages/Home'
+import Auth from './utils/auth';
+import Profile from './pages/Profile';
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -35,30 +38,50 @@ function App() {
           {/* place for header if needed */ }
           <div>
             <Routes>
+            {Auth.loggedIn() ? (
+            <>
             <Route
-                path="/terms"
-                element={<Terms />}
-              />
-              <Route
-                path='/about'
-                element={<About />}
-              />
-              <Route
-                path="/register"
-                element={<Register />}
-              />
-              <Route
-                path="/login"
-                element={<Login />}
-              />
-              <Route
-                path="/account"
-                element={<Account />}
-              />
-              <Route
-                path='*'
-                element={<NoMatch />}
-              />
+              path="/"
+              element={<About />}/* will be home route */
+            />
+            <Route
+              path="/account"
+              element={<Account />}
+            />
+            <Route
+              path="/profile"
+              element={<Profile />}
+            />
+            <Route
+              path='*'
+              element={<NoMatch />}
+            />
+            </>
+            ) : (
+            <>
+            <Route
+              path="/"
+              element={<Login />}
+            />
+            <Route
+              path="/terms"
+              element={<Terms />}
+            />
+            <Route
+              path="/register"
+              element={<Register />}
+            />
+            <Route
+              path='/about'
+              element={<About />}
+            />
+            <Route
+              path='*'
+              element={<NoMatch />}
+            />
+            </>
+            )
+            }
             </Routes>
           </div>
           {/* place for footer if needed */}

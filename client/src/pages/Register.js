@@ -6,6 +6,7 @@ import { Icon } from '@iconify/react';
 import githubFill from '@iconify/icons-akar-icons/github-fill'
 import facebookIcon from '@iconify/icons-bi/facebook';
 import Auth from '../utils/auth';
+import { Link } from 'react-router-dom';
 
 
 const Register = () => {
@@ -15,6 +16,8 @@ const Register = () => {
     password: '',
   });
   const [addUser, { error }] = useMutation(ADD_USER);
+
+
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -107,7 +110,7 @@ const Register = () => {
               </div>
               <div className='mt-10 flex content-center justify-between' id='terms-label'>
                 <div className='inline-block ml-4 text-sm h-full content-center'>
-                  Agree to terms & conditions
+                  Agree to<Link to='/terms'> terms & conditions</Link>
                 </div>
                  <Switch></Switch>
               </div> 
