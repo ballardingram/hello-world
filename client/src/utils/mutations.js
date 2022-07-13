@@ -49,6 +49,9 @@ export const UPDATE_USER = gql`
       _id
       displayName
       email
+      skills {
+        skillName
+      }
     }
   }
 `;

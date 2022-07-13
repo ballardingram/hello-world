@@ -12,7 +12,6 @@ import boltIcon from "@iconify/icons-fxemoji/bolt";
 import { UPDATE_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { QUERY_USER } from "../utils/queries";
-// import { useParams } from 'react-router-dom';
 
 const Account = () => {
   const [formState, setFormState] = useState({
@@ -57,7 +56,7 @@ const Account = () => {
       console.error(e);
     }
   };
-
+  console.log(userData)
   // update initial user data to formstate
   return (
     <>
@@ -130,6 +129,7 @@ const Account = () => {
                     className="block w-full px-4 py-2 border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40"
                     placeholder="**********"
                     id="password"
+                    disabled
                   />
                 </div>
                 <div className="mb-3">
@@ -162,8 +162,12 @@ const Account = () => {
                 <div className="font-semibold text-xl">
                   Update Proficiencies:
                 </div>
-                <ExpandSkills></ExpandSkills>
-                <ExpandAdd></ExpandAdd>
+                <ExpandSkills
+                skills={userData.skills}
+                ></ExpandSkills>
+                <ExpandAdd
+                skills={userData.skills}
+                ></ExpandAdd>
               </div>
               {/* expand skills end*/}
             </div>
@@ -252,8 +256,12 @@ const Account = () => {
                 <div className="font-semibold text-xl">
                   Update Proficiencies:
                 </div>
-                <ExpandSkills></ExpandSkills>
-                <ExpandAdd></ExpandAdd>
+                <ExpandSkills
+                skills={userData.skills}
+                ></ExpandSkills>
+                <ExpandAdd
+                skills={userData.skills}
+                ></ExpandAdd>
               </div>
               {/* delete or snooze account start */}
               <div className="font-semibold mb-1 mt-1 text-xl">

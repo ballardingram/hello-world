@@ -13,6 +13,9 @@ export const QUERY_USER = gql`
         displayName
         profilePicURL
       }
+      skills {
+        skillName
+      }
     }
   }
 `;
