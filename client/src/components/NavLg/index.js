@@ -15,7 +15,7 @@ function NavLg() {
   };
 
   return (
-    <div className="hidden md:contents">
+    <div className="hidden">
       <div id="border">
         <nav id="second-border">
           <div className="mx-5" id="content">

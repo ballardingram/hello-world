@@ -1,12 +1,10 @@
 import React from 'react';
-import NavSm from '../components/NavSm';
-import NavLg from '../components/NavLg';
+import Navigation from '../components/Navigation';
 
 const Terms = () => {
   return (
     <div id='close'>
-      <NavSm></NavSm>
-      <NavLg></NavLg>
+      <Navigation></Navigation>
       <div className='grid grid-cols-12 mt-12 pt-5'>
         <div className='col-start-3 col-span-8 font-bold'>
           Hello World's Terms of Service

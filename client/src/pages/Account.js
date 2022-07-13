@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import NavSm from '../components/NavSm';
-import NavLg from '../components/NavLg';
 import ExpandSkills from '../components/ExpandSkills';
 import ExpandAdd from '../components/ExpandAdd';
 import FooterSticky from '../components/FooterSticky';
@@ -12,6 +10,7 @@ import boltIcon from '@iconify/icons-fxemoji/bolt';
 import { UPDATE_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { QUERY_USER } from '../utils/queries';
+import Navigation from '../components/Navigation';
 // import { useParams } from 'react-router-dom';
 
 const Account = () => {
@@ -60,8 +59,7 @@ const Account = () => {
   <div className="flex flex-col h-screen justify-start text-lg" id='close'>
     {/* navigation header start */}
     <header>
-      <NavLg></NavLg>
-      <NavSm></NavSm>
+      <Navigation></Navigation>
     </header>
     {/* navigation header end */}
     <div className='w-screen px-5 my-5 md:pt-0 md:pr-7 font-bold text-2xl lg:text-3xl 2xl:text-4xl md:text-right'>
