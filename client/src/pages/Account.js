@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import ExpandSkills from '../components/ExpandSkills';
 import ExpandAdd from '../components/ExpandAdd';
-import FooterSticky from '../components/FooterSticky';
-import FooterBody from '../components/FooterBody';
 import Switch from '../components/Toggle';
 import { Icon } from '@iconify/react';
 import boltIcon from '@iconify/icons-fxemoji/bolt';
