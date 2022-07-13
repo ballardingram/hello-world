@@ -15,7 +15,7 @@ import { QUERY_USER } from "../utils/queries";
 // import { useParams } from 'react-router-dom';
 
 const Account = () => {
-  const [userData, setUserData] = useState({
+  const [formState, setFormState] = useState({
     _id: "",
     displayName: "",
     email: "",
@@ -23,47 +23,36 @@ const Account = () => {
   });
 
   const [updateUser, { error }] = useMutation(UPDATE_USER);
-  
-  
   const { data } = useQuery(QUERY_USER, {
     variables: { email: Auth.getUserEmail() },
   });
-
-  
-  // useEffect(()=>{
-  //   data&&setUserData({
-  //     _id:data.user._id,
-  //     displayName:data.user.displayName,
-  //     email:data.user.email
-  //   });
-
-  // })
-
-   console.log(userData);
+  const userData = data ? data.user : "";
+  useEffect(() => {
+    if (userData) {
+      setFormState({
+        _id: userData._id,
+        displayName: userData.displayName,
+        email: userData.email,
+      });
+    }
+  }, [userData]);
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
-    
-    setUserData({
-      ...userData,
+    setFormState({
+      ...formState,
       [name]: value,
     });
-    console.log(userData);
   };
 
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await updateUser({
-        variables: { userData: JSON.stringify(userData) },
+      const { data: updateUserProfile } = await updateUser({
+        variables: { userData: JSON.stringify(formState) },
       });
-      console.log('after updating user data is');
-      data&&setUserData({_id:data.updateUserProfile._id, displayName:data.updateUserProfile.displayName, email:data.updateUserProfile.email });
-      console.log(userData);
-      
-      Auth.updateUser(userData);
-      console.log("we came here what");
+      Auth.updateUser(updateUserProfile);
     } catch (e) {
       console.error(e);
     }
@@ -71,10 +60,9 @@ const Account = () => {
 
   // update initial user data to formstate
   return (
-    
-    <>{console.log(userData)}
-    {/* <> */}
-      {userData&& (
+    <>
+      {/* <> */}
+      {formState && (
         <div
           className="flex flex-col h-screen justify-start text-lg"
           id="close"
@@ -110,7 +98,7 @@ const Account = () => {
                     className="block w-full px-4 py-2 border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40"
                     // placeholder={formState.displayName}
                     id="displayName"
-                    value={userData.displayName}
+                    value={formState.displayName}
                     onChange={handleChange}
                   />
                 </div>
@@ -124,8 +112,9 @@ const Account = () => {
                     className="block w-full px-4 py-2 border rounded-lg focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                     // placeholder={formState.email}
                     id="email"
-                    value={userData.displayName}
+                    value={formState.email}
                     onChange={handleChange}
+                    disabled
                   />
                 </div>
                 <div className="mb-3">
@@ -153,7 +142,6 @@ const Account = () => {
                     className="block w-full px-4 py-2 border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40"
                     placeholder="New Password"
                     id="newPassword"
-                    value={userData.password}
                     onChange={handleChange}
                   />
                 </div>

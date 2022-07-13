@@ -30,11 +30,8 @@ class AuthService {
   }
 
   updateUser(newUserInfo) {
-    console.log("came to update local storage");
-    const oldEmail = localStorage.getItem('hw-userEmail')
-    const oldDisplayName = localStorage.getItem('hw-userDisplayName')
-    localStorage.setItem('hw-userEmail', JSON.stringify(newUserInfo.email));
-    localStorage.setItem('hw-userDisplayName', JSON.stringify(newUserInfo.displayName));
+    localStorage.setItem('hw-userEmail', newUserInfo.updateUserProfile.email);
+    localStorage.setItem('hw-userDisplayName', newUserInfo.updateUserProfile.displayName);
   }
 
   getUserEmail (){
