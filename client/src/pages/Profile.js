@@ -9,8 +9,6 @@ import defaultPic from '../assets/orange-pug-256.png'
 import Navigation from '../components/Navigation';
 
 
-
-
 const Profile = () => {
 
   const { data } = useQuery(QUERY_USER, {  variables: { email: Auth.getUserEmail() }});
@@ -24,9 +22,9 @@ const Profile = () => {
     {userData && (
   <div className="flex flex-col justify-start">
     {/* navigation header start */}
-    <header>
-      <Navigation></Navigation>
-    </header>
+  
+      
+ 
     {/* navigation header end */}
 
     

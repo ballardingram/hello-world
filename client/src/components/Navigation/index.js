@@ -13,7 +13,7 @@ const Navigation = () => {
         <div className="flex justify-center font-semibold">
 
           {/* USER IMAGE AND CONTENT ROUTES HERE */}
-          <div className="my-2 ml-5 object-center overflow-visible h-40 w-40 sm:h-44 sm:w-44">
+          <div className="my-2 ml-5 object-center overflow-visible h-40 w-40 sm:h-44 sm:w-44 md:h-48 md:w-48">
             {/* IMAGE */}
             <UserImage></UserImage>
           </div>

@@ -11,6 +11,7 @@ import NoMatch from './pages/NoMatch';
 // import Home from './pages/Home'
 import Auth from './utils/auth';
 import Profile from './pages/Profile';
+import Navigation from './components/Navigation';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -36,7 +37,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          {/* place for header if needed */ }
+          <Navigation></Navigation>
           <div>
             <Routes>
             {Auth.loggedIn() ? (
