@@ -12,6 +12,7 @@ import NoMatch from './pages/NoMatch';
 import Auth from './utils/auth';
 import Profile from './pages/Profile';
 import Navigation from './components/Navigation';
+import FooterSticky from './components/FooterSticky';
 
 
 const httpLink = createHttpLink({
@@ -96,8 +97,8 @@ function App() {
             )
             }
             </Routes>
+            <FooterSticky></FooterSticky>
           </div>
-          
         </div>
       </Router>
     </ApolloProvider>

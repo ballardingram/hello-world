@@ -56,17 +56,8 @@ const Account = () => {
   return (
     <>
     {userData && (
-  <div className="flex flex-col h-screen justify-start text-lg" id='close'>
-    {/* navigation header start */}
-    <header>
-      <Navigation></Navigation>
-    </header>
-    {/* navigation header end */}
-    <div className='w-screen px-5 my-5 md:pt-0 md:pr-7 font-bold text-2xl lg:text-3xl 2xl:text-4xl md:text-right'>
-      Account Settings
-    </div>
-    {/* body start */}
-    <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 mb-12 pb-12">
+
+    <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3">
       {/*md break column 1 */}
       <div className="grid content-start px-5">
       {/* update account form start*/}
@@ -237,13 +228,6 @@ const Account = () => {
         </div>
       </div>
     </main>
-    {/* body end */}
-
-  {/* footer start */}
-  <FooterBody></FooterBody>
-  <FooterSticky></FooterSticky>
-  {/* footer end */}
-  </div>
     )}
     </>
   );

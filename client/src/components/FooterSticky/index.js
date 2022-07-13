@@ -9,7 +9,7 @@ import searchLoading from '@iconify/icons-gg/search-loading';
 const FooterSticky = () => {
   return (
     
-    <footer className="h-16 w-full bg-gray-300 rounded-t-xl display-contents lg:hidden">
+    <footer className="h-16 w-full bg-gray-300 rounded-t-xl">
       <div className='flex flex-row justify-around items-center py-2'>
         <a href='/profile'><Icon icon={homeIcon} height="42" /></a>
         <a href='/'><Icon icon={searchLoading} height="42" className='invisible sm:visible'/></a>
