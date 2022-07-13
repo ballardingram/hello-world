@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "faker": "^4.1.0",
+    "@faker-js/faker": "^7.3.0",
     "concurrently": "^7.2.2"
   },
   "name": "hello-world",
@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/CassDoes/hello-world/issues"
   },
-  "homepage": "https://github.com/CassDoes/hello-world#readme"
+  "homepage": "https://github.com/CassDoes/hello-world#readme",
+  "dependencies": {
+    "bson": "^4.6.5"
+  }
 }

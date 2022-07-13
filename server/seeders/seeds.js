@@ -1,5 +1,8 @@
-const faker = require('faker');
+const { faker } = require('@faker-js/faker');
+const { mongoose } = require('mongoose');
+const bson = require('bson');
 
+// const faker = require('faker');
 const db = require('../config/connection');
 
 const { Project, User } = require('../models');
@@ -16,19 +19,17 @@ db.once('open', async () => {
         const email = faker.internet.email(displayName);
         const aboutMe = faker.lorem.words(Math.round(Math.random() * 20) + 1);
         const friends = [];
-        // const verified = faker.datatype.boolean()
 
         // create friends *sorry for the nested for loop*
         for (let i = 0; i < Math.round(Math.random() * 20) + 1; i++) {
-            const firstName = faker.name.firstName();
-            const lastName = faker.name.lastName();
-
-            friends.push({ firstName, lastName });
+            const friendId = Math.round(Math.random() * 1000) + 1
+            
+            friends.push(friendId)
         }
-
         userData.push({ displayName, email, aboutMe, friends });
-        User.collection.insertMany(userData)
     }
+
+    await User.collection.insertMany(userData)
 
     // create projects
     let createdProjects = [];
@@ -37,26 +38,15 @@ db.once('open', async () => {
         const title = faker.lorem.words(Math.round(Math.random() * 20) + 1);
         const description = faker.lorem.words(Math.round(Math.random() * 20) + 1);
         const content = faker.lorem.words(Math.round(Math.random() * 20) + 1);
-        // const hidden = faker.datatype.boolean();
-        // const helpRequired = faker.datatype.boolean();
         const skillsRequiredForHelp = faker.lorem.words(Math.round(Math.random() * 20) + 1);
-        const createdBy = {
-            firstName: faker.name.firstName,
-            lastName: faker.name.lastName
-        }
+        const createdBy = new bson.ObjectId();
 
-        const createdProject = await Project.create({ title, description, content, skillsRequiredForHelp, createdBy });
 
-        const updatedUser = await User.updateOne(
-            {_id: userId},
-            {$push: { projects: createdProject._id } }
-        );
-
+        const createdProject = await Project.create({ title, description, content, skillsRequiredForHelp, createdBy});
         createdProjects.push(createdProject)
     }
 
 
     console.log('all done!');
     process.exit(0);
-
 })

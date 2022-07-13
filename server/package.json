@@ -23,9 +23,10 @@
     "passport-facebook": "^3.0.0",
     "passport-github2": "^0.1.12",
     "passport-local": "^1.0.0",
-    "faker": "^4.1.0"
+    "bson": "^4.6.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.3",
+    "@faker-js/faker": "^7.3.0"
   }
 }
