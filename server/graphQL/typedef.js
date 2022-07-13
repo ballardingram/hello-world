@@ -51,6 +51,7 @@ const typeDefs = gql`
         project(projectID : ID!) : Project
         projects : [Project]
         skillProjects(skillName: String!) : [Project]
+        checkout(inputString:String!): User
       }
       type Mutation {
         login(email: String!, password: String!): Auth
