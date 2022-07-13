@@ -13,6 +13,7 @@ import Auth from './utils/auth';
 import Profile from './pages/Profile';
 import Navigation from './components/Navigation';
 
+
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
 });
@@ -36,8 +37,10 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <div class="flex flex-col h-screen justify-between">
           <Navigation></Navigation>
+              {/* NEED TO RENDER BASED ON PAGE */}
+              <h1 className='font-bold text-center lg:mx-5 mt-2 text-2xl lg:text-3xl lg:mt-36'>Page</h1>
           <div>
             <Routes>
             {Auth.loggedIn() ? (
@@ -94,7 +97,7 @@ function App() {
             }
             </Routes>
           </div>
-          {/* place for footer if needed */}
+          
         </div>
       </Router>
     </ApolloProvider>

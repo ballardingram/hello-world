@@ -15,7 +15,7 @@ const Navigation = () => {
           {/* USER IMAGE AND CONTENT ROUTES HERE */}
           <div className="my-2 ml-5 object-center overflow-visible h-40 w-40 sm:h-44 sm:w-44 md:h-48 md:w-48">
             {/* IMAGE */}
-            <UserImage></UserImage>
+            <a href="/profile"><UserImage></UserImage></a>
           </div>
           <div className="flex flex-col justify-end ml-2 mb-3 text-lg">
             <div className="flex">
