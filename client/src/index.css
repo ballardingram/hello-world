@@ -70,20 +70,19 @@ body {
 }
 
 #nav-home:hover,
-#nav-user:hover {
+#nav-account:hover,
+#nav-projects:hover {
   color: var(--secondaryYellow);
 }
 
-#nav-about:hover {
-  border-bottom: 3px solid var(--secondaryYellow);
-  font-weight: 600;
-  padding-left: 9.25px;
+#nav-about,
+#nav-terms {
+  font-weight: 300;
 }
-
-#nav-help:hover {
+#nav-about:hover,
+#nav-terms:hover {
   border-bottom: 3px solid var(--secondaryYellow);
-  font-weight: 600;
-  padding-left: 10.75px;
+  font-weight: 500;
 }
 
 #about-height {
@@ -93,7 +92,12 @@ body {
 
 /* mobile navigation start */
 #mobile-nav {
-  background-color: rgba(252, 170, 50, 0.25);
+  background: rgb(254,234,207);
+  background: radial-gradient(circle, rgba(254,234,207,0.9808517156862745) 0%, rgba(253,213,151,1) 100%);
+}
+
+#logout {
+  background-color: rgba(252, 170, 50, 0.7);
 }
 /* mobile navigation end */
 
@@ -111,7 +115,6 @@ input, textarea {
   background-color: var(--primaryBlue);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
   transition: all ease 0.2s;
-  font-weight: 400;
 }
 
 .form-btn:hover {

@@ -16,7 +16,7 @@ const ExpandProject = () => {
  
   return (
     <Fragment>
-      <Accordion open={open === 1} onClick={() => handleOpen(0)}>
+      <Accordion open={open === 1} onClick={() => handleOpen(1)}>
         <div className="flex items-center my-2"><Icon icon={circlePlusFill} height="28" />
         <AccordionHeader><span className="flex ml-1 text-lg">View More</span></AccordionHeader>
         </div>
