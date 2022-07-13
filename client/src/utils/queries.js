@@ -6,12 +6,40 @@ export const QUERY_USER = gql`
       _id
       displayName
       email
-      friendCount
-      profilePicURL
-      friends {
-        _id
-        displayName
-        profilePicURL
+      friends {_id, displayName}
+      projects {
+        _id,
+        title,
+        description,
+        content,
+        skillsRequiredForHelp,
+        helpRequired,
+        createdAt
+        createdBy {
+          _id,
+          displayName
+        },
+        colloborators {
+          _id,
+          displayName
+        }
+      }
+      savedProjects {
+        _id,
+        title,
+        description,
+        content,
+        skillsRequiredForHelp,
+        helpRequired,
+        createdAt
+        createdBy {
+          _id,
+          displayName
+        },
+        colloborators {
+          _id,
+          displayName
+        }
       }
       skills {
         skillName

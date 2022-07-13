@@ -170,24 +170,44 @@ const resolvers = {
         colloborators,
         helpRequired,
       } = args;
-      const project = await Project.create({
+      const newProject = await Project.create({
         title: title,
         description: description,
         content: content,
         createdBy: createdBy,
-        skillsRequired: skillsRequired,
+        skillsRequiredForHelp: [...skillsRequired],
         colloborators: colloborators,
         helpRequired: helpRequired,
         createdAt: Date.now(),
       });
+      console.log(newProject);
+      
+      if(!newProject){
+        return "";
+      }
       //updating own project
       await User.findByIdAndUpdate(
         { _id: createdBy },
-        { $push: { projects: project._id } },
+        { $push: { projects: newProject._id } },
         { new: true }
       );
+      if(colloborators){
+      colloborators.map(async (colloborator) => {
+        if(colloborator != createdBy ){
+        await User.findByIdAndUpdate(
+          { _id: colloborator },
+          { $push: { projects: newProject._id } },
+          { new: true }
+        );
+        }
+      });
+    }
       // Need to update colloborations
-      return project;
+      const updatedProject = await Project.findOne({_id: newProject._id})
+        .select("-__v")
+        .populate("createdBy")
+        .populate("colloborators");
+      return updatedProject;
     },
     updateUserProfile: async (parent, args) => {
       const { userData } = args;
