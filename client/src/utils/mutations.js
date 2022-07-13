@@ -64,12 +64,17 @@ export const ADD_PROJECT = gql`
       description
       content
       createdBy{
+        _id
         displayName
       }
       createdAt
       hidden
       helpRequired
       skillsRequiredForHelp
+      colloborators {
+        _id,
+        displayName
+      }
      
     }
 

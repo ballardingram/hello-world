@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavLg from '../components/NavLg';
 import NavSm from '../components/NavSm';
 import Card from '../components/Card';
-import { useMutation } from '@apollo/client';
+import { useMutation,useQuery } from '@apollo/client';
 import FooterSticky from '../components/FooterSticky';
 import FooterBody from '../components/FooterBody';
 import Auth from '../utils/auth';
-// import Auth from '../utils/auth';
 import { ADD_PROJECT } from '../utils/mutations';
-// import { QUERY_USER } from '../utils/queries';
+import { QUERY_USER } from '../utils/queries';
 
 
 
 const ProjectHub = (props) => {
-
-
   const [formState, setFormState] = useState({
     projectTitle: '',
     projectSub: '',
@@ -24,6 +21,22 @@ const ProjectHub = (props) => {
   });
 
   const [addProject, { error }] = useMutation(ADD_PROJECT);
+
+  const [projects, setProjects] = useState([]);
+  const [savedProjects, setsavedProjects] = useState([]);
+  const { data } = useQuery(QUERY_USER, {
+    variables: { email: Auth.getUserEmail() },
+  });
+  
+  const userData = data ? data.user : "";
+  useEffect(() => {
+    if (userData) {
+      console.log("setting user projects");
+      setProjects([...userData.projects]);
+      setsavedProjects([...userData.savedProjects])
+    }
+  }, [userData]);
+
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -48,7 +61,13 @@ const ProjectHub = (props) => {
            createdBy: Auth.getUserID(),
            colloborators: [Auth.getUserID()]},
       });
-      console.log(data)
+
+      // if(data){
+        
+      //   const newProject = data.addProject;
+      //   console.log(newProject);
+      //   setProjects([...projects, newProject])
+      // }
 
       // return data;
     } catch (e) {
@@ -172,16 +191,30 @@ const ProjectHub = (props) => {
     <div className="grid content-start md:grid-col-2 px-3 pb-5">
       <div>
         <div className='font-semibold mb-2 text-xl px-2'>My Projects:</div>
-        <Card></Card>
-        <Card></Card>
+       {projects.length>0?projects.map(project => {return <div id={project._id}> <Card projectContent={project}/></div>}):<h2>There are no projects</h2>}
       </div>
     </div>
 
     {/*md break column 3 */}
     <div className="grid content-start px-3 pb-5">
       <div className='font-semibold mb-2 text-xl px-2'>My Collaborations:</div>
-      <Card></Card>
-      <Card></Card>
+      {
+          projects.map(project => {
+            return project.colloborators.map((colloborator) => {
+              if(colloborator._id === userData._id && userData._id !== project.createdBy._id){
+                return <div id={"collob"+project._id}> <Card projectContent={project}/></div>
+              }
+            })
+          })
+      }
+      <div>
+        <div className='font-semibold mb-2 text-xl px-2'>My Projects:</div>
+        {console.log("saved projects are "+JSON.stringify(savedProjects))}
+        {savedProjects.length>0?savedProjects.map(project => {return <div id={"saved"+project._id}> <Card projectContent={project}/></div>}):
+        <h3>
+          there are no saved projects</h3>}
+      </div>
+
     </div>
 
   </main>

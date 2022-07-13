@@ -7,7 +7,7 @@ import {
 import { Icon } from '@iconify/react';
 import circlePlusFill from '@iconify/icons-akar-icons/circle-plus-fill';
  
-const ExpandProject = () => {
+const ExpandProject = ({projectContentBody}) => {
   const [open, setOpen] = useState(0);
  
   const handleOpen = (value) => {
@@ -22,14 +22,7 @@ const ExpandProject = () => {
         </div>
       <AccordionBody>
         <div className="text-justify py-0 mb-2 text-lg">
-          This text will include the entire project description and will 
-          not be severely limited in character count (will discuss exactly 
-          what count should be in SLACK).
-
-          lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-          sequi neque animi quo cupiditate commodi saepe culpa sed 
-          itaque velit maiores optio dolorem excepturi aperiam dolores, 
-          voluptatibus suscipit amet quis repellat!
+         {projectContentBody}
         </div>
       </AccordionBody>
       </Accordion>
