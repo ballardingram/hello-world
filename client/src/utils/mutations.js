@@ -54,22 +54,23 @@ export const UPDATE_USER = gql`
 `;
 
 export const ADD_PROJECT = gql`
-  mutation addProject($title: String, $description: String, $content : String, $createdBy: ID, $skillsRequired :[String], $colloborators: [ID], $helpRequired : Boolean  ) {
+  mutation addProject($title: String, $description: String, 
+    $content : String, 
+    $createdBy: ID,
+     $skillsRequired :[String], $colloborators: [ID], $helpRequired : Boolean  ) {
     addProject(title: $title, description: $description, content: $content, createdBy: $createdBy, skillsRequired: $skillsRequired, colloborators: $colloborators, helpRequired: $helpRequired) {
       _id
       title
       description
       content
-      createdBy
+      createdBy{
+        displayName
+      }
       createdAt
       hidden
       helpRequired
       skillsRequiredForHelp
-      colloborators {
-        id
-        displayName
-        profilePicURL
-      }
+     
     }
 
   }
