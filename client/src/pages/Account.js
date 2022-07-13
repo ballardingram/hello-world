@@ -70,7 +70,7 @@ const Account = () => {
     {/* body start */}
     <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 mb-12 pb-12">
       {/*md break column 1 */}
-      <div className="grid content-center px-5">
+      <div className="grid content-start px-5">
       {/* update account form start*/}
       <div className='font-semibold mb-2 text-xl'>Privacy and Security</div>
       <form onSubmit={handleFormSubmit}>
@@ -99,12 +99,12 @@ const Account = () => {
           <input
             name="email"
             type='email'
-            className='block w-full px-4 py-2 border rounded-lg focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
+            className='cursor-not-allowed block w-full px-4 py-2 border rounded-lg focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
             placeholder={userData.user.email}
             id='email'
             value={formState.email}
             onChange={handleChange}
-            />
+            disabled/>
         </div>
         <div className='mb-3'>
           <label
