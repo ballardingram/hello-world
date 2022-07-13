@@ -1,70 +1,147 @@
-# Getting Started with Create React App
+# Hello World
+<pre>
+</pre>
+## Overview
+---
+This is our third group project for Challenge 24: Interactive MERN SPA.
+<pre>
+</pre>
+#
+# Table of Contents
+---
+1. [Authors](#Authors)
+2. [Challenge](#Challenge)
+3. [Concept](#Concept)
+4. [User Story](#User-Story)
+5. [Process and Roles](#Process-and-Roles)
+6. [Technology Library](#Technology-Library)
+7. [Wins and Opportunities](#Wins-and-Opportunities)
+8. [Application Demo](#Application-Demo)
+9. [Future Dev](#Future-Dev)
+10. [Heroku](#Heroku)
+<pre>
+</pre>  
+# <a name="Authors"> Authors </a>
+---
+- [Cassandra Hardin](https://github.com/cassdoes)
+- [Ramu Makkena](https://github.com/ramumakkena)
+- [Will Stock](https://github.com/Wist118)
+- [Robert D. Gonzales](https://github.com/SabotageCat)
+- [Stephen Fike](https://github.com/StephenFike)
+- [Ballard Ingram](https://github.com/ballardingram)
+<pre>
+</pre>
+# <a name="Challenge"> Challenge </a>
+---  
+The requirements for this project ask you to use the skills and technologies you've learned over the entire Bootcamp with emphasis on the last five (5) weeks. This includes: MongoDB, Express.js, React, Node.js GraphQL, Atlas, Stripe, and State.
+<pre>
+</pre>
+# <a name="Concept"> Concept </a>
+---
+In 2020, the world learned to embrace technology. We went home. We made our spaces our own.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Not every new developer is going to work for the big guys. Or even the little guys. Big tech or new tech, you will need real methods that work practically. Online research can only take you so far.
 
-## Available Scripts
+If we’ve learned anything in the last few years, its that WE need be a part of the world.
 
-In the project directory, you can run:
+There is a new collaboration site that isn’t like anything before, but everything ahead. Developers can create a profile and highlight their skills, collaborate on projects, and work through challenges with other Developers.
 
-### `npm start`
+No more copying and pasting code from an online forum and hoping it works. No more hours of endless research on concepts that don’t fit your projects.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Connect with a developer that knows what you’re trying to accomplish. They have the skills; you have the need. Real online guidance from the people that know the code.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Developers need a team, they need collaboration. And it all begins when you say…
 
-### `npm test`
+hello world.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Team Note**
+>This is a social media site for Developers, the idea is that USERS will have access to experts beyond an online forum. They can directly connect with other Developers. If someone that is new to this community would try to create collaboration opportunities they would have to reach out to total strangers on five (5) different websites and hope someone can help. 'hello world' makes it possible for USERS to have one (1) central location to start their collaboration opportunities.
+<pre>
+</pre>
+# <a name="User-Story"> User Story </a>
+---
+**AS A** new Developer,<br>
+**I WANT TO** post and review collaboration opportunities,<br>
+**SO THAT** I can meet with and learn from other Developers.
+<pre>
+</pre>
+# <a name="Process-and-Roles"> Process and Roles </a>
+---
+Our team "hit the ground running" very early on. We started with a design concept then split the roles into FRONT-END and BACK-END. We set up a lot of meetings to ensure that we were passing information back-and-forth between teams. Here is the breakdown of our roles and responsibilities:
 
-### `npm run build`
+**Front-End Roles**
+- Wireframe Desktop and App - **Ballard**
+- React Components, Manifest, Navigation - **Will**
+- React Components & Server - **Cassandra**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Back-End Roles**
+- Authentication, Login, Register, GraphQL Models - **Ramu**
+- Data Objects, Stripe, and Image Hosting - **Ballard**
+- PWA and Apollo - **Robert**
+- FakerJS - **Stephen**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Teamwork Note:**
+>The roles assigned above are associated with the listed owners, but a lot of what we've done was collaborative. Example: Instead of just building a react component on its own, we would collaborate on what the react component does, impacts the back-end, and how it will be used on the front-end.
+<pre>
+</pre>
+# <a name="Technology-Library"> Technology Library </a>
+This bootcamp challenge required that we use some existing technology, but also incorporate technology that we have not went over in class. Here is the comprehensive list of what we used to build our application:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Required Technology**
+- MongoDB
+- Express.JS
+- ReactJS
+- Node.JS
+- GraphQL
+- Heroku
+- JWT
 
-### `npm run eject`
+**Extra Technology**
+- Stripe
+- Bcrypt
+- Passport
+- Passport Facebook
+- Passport Github
+- Passport Local
+- Iconify
+- AutoPreFixer
+- Post CSS
+- Tailwind CSS
+- Web Vitals
+- React Easy Swipe
+- React Icons
+- Figma
+<pre>
+</pre>
+# <a name="Wins-and-Opportunities"> Wins and Opportunities </a>
+---
+This challenge presented a few opportunities for us, but we dove in headfirst and came out with several wins. What made this possible was our Agile workflow. We checked in each other frequently and collaborated well.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### **Wins**
+Lead Time
+- Early start on the project allowed for more collaboration, planning, and execution.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Self-Challenging
+- Each team member got to work on something that was challenging to them with support from the rest of the team.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Components
+- Nearly twenty (20) components to create the site. We took on a difficult task.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Holistic Approach
+- Avoided having a narrow scope for the sake of completion, but a holistic approach for a quality product.
+<pre>
+</pre>
+### **Challenges**
+Project Scale
+- Too big even with lead time.
 
-## Learn More
+Components
+- Each component had a range of medium to high complexity because of its functionality requirements.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Flow
+- Creating a polished UX/UI that met the needs and wants of the entire group.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
