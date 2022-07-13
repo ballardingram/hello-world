@@ -42,6 +42,7 @@ const Login = () => {
       
 
     } catch (e) {
+      console.log("We got error in login handle form submit");
       console.error(e);
     }
 

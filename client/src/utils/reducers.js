@@ -1,22 +1,16 @@
 import { useReducer } from "react";
-import { GET_USER, ADD_USER } from "./actions";
+import { ADD_USER } from "./actions";
 export const reducer = (state, action) => {
     switch (action.type) {
         case ADD_USER:{
-            return [...state, { 
+            return {...state, user: { 
                 token: action.token,
                 currentUser: action.currentUser
                
-            }];
+            }};
         }
-        case GET_USER:{
-        const user = {...action.payload}
-        return {...state,
-            user : user
-        };
-    }
-    default:
-      return {...state};
+    default: 
+      return state;
     }
 }
 

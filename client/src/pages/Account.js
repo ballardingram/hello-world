@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState, useReducer, useEffect } from 'react';
 
 import { useMutation, useQuery } from '@apollo/client';
 import NavSm from '../components/NavSm';
@@ -14,13 +14,14 @@ import Auth from '../utils/auth';
 import { QUERY_USER } from '../utils/queries';
 import { useStoreContext } from '../utils/GlobalSotre';
 import {reducer} from  '../utils/reducers';
+import {ADD_USER} from '../utils/actions';
 
 const Account = () => {
   const [state, dispatch] = useStoreContext();
   
  
 
-  console.log(state);
+
 
 // have some props to set the User Object, so we can use it here. No Passwords
   const [formState, setFormState] = useState({
@@ -31,8 +32,19 @@ const Account = () => {
 
   const [updateUser, { error }] = useMutation(UPDATE_USER);
  
-  const {  data } = useQuery(QUERY_USER, {  variables: { email: Auth.getUserEmail() }});
+  const { data  } = useQuery(QUERY_USER, {  variables: { email: Auth.getUserEmail() }});
 
+  useEffect(() => {
+    if (data) {
+      dispatch({
+        type: ADD_USER,
+        token: data.user.token,
+        currentUser : data.user.user
+      });
+    }
+  }, [data, dispatch]);
+
+  console.log(state);
 const userData = data;
 
   // update state based on form input changes
