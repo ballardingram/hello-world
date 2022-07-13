@@ -1,7 +1,8 @@
 import React from 'react';
 import NavLg from '../components/NavLg';
 import NavSm from '../components/NavSm';
-import FooterMenu from '../components/FooterExpand';
+import FooterSticky from '../components/FooterSticky';
+import FooterBody from '../components/FooterBody';
 
 const Example = () => {
   return (
@@ -39,9 +40,8 @@ const Example = () => {
 
 
   {/* footer start */}
-  <footer className="fixed bottom-0 display-contents">
-  <FooterMenu></FooterMenu>
-  </footer>
+  <FooterBody></FooterBody>
+  <FooterSticky></FooterSticky>
   {/* footer end */}
   </div>
 );
