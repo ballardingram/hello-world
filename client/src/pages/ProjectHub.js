@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Card from '../components/Card';
 import { useMutation } from '@apollo/client';
-import FooterSticky from '../components/FooterSticky';
-import FooterBody from '../components/FooterBody';
 // import Auth from '../utils/auth';
 import { ADD_PROJECT } from '../utils/mutations';
 import Navigation from '../components/Navigation';
