@@ -24,10 +24,10 @@ const ExpandSkills = ({ skills }) => {
     <Fragment>
       <Accordion open={open === 1} onClick={() => handleOpen(1)}>
         <div className="flex items-center my-2"><Icon icon={circlePlusFill} height="20" />
-        <AccordionHeader><span className="flex ml-1 text-sm md:text-lg font-semibold">View Skills</span></AccordionHeader>
+        <AccordionHeader><span className="flex ml-1 font-semibold">View Skills</span></AccordionHeader>
         </div>
       <AccordionBody>
-        <div className="select-none flex justify-center text-sm md:text-lg my-1">
+        <div className="select-none flex justify-center my-1">
           <ul className="list-disc list-outside grid grid-cols-3 font-normal">
             {/* {!skills ? skills.map(userSkills => {
               return <li>{userSkills.skillName}</li>

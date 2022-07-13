@@ -12,6 +12,9 @@ import RedirectFederate from './pages/RedirectFederate'
 // import Home from './pages/Home'
 import Auth from './utils/auth';
 import Profile from './pages/Profile';
+import Navigation from './components/Navigation';
+import FooterSticky from './components/FooterSticky';
+
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -39,8 +42,10 @@ function App() {
     return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
-          {/* place for header if needed */ }
+        <div class="flex flex-col h-screen justify-between">
+          <Navigation></Navigation>
+              {/* NEED TO RENDER BASED ON PAGE */}
+              <h1 className='font-bold text-center lg:mx-5 mt-2 text-2xl lg:text-3xl lg:mt-36'>Page</h1>
           <div>
             <Routes>
             {Auth.loggedIn() ? (
@@ -101,8 +106,8 @@ function App() {
             )
             }
             </Routes>
+            <FooterSticky></FooterSticky>
           </div>
-          {/* place for footer if needed */}
         </div>
       </Router>
     </ApolloProvider>
