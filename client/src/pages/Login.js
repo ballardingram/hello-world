@@ -5,16 +5,17 @@ import FooterLg from '../components/FooterLg';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { LOGIN_USER } from '../utils/mutations';
+import { useStoreContext } from '../utils/GlobalSotre';
+import {ADD_USER} from '../utils/actions';
 
 const Login = () => {
-
+    const [state, dispatch] = useStoreContext();
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN_USER);
-
+  
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     setFormState({
       ...formState,
       [name]: value,
@@ -29,8 +30,17 @@ const Login = () => {
       const { data } = await login({
         variables: { ...formState },
       });
-
+      console.log(data.login.user);
+      dispatch({
+        type: ADD_USER,
+        token: data.login.token,
+        currentUser: data.login.user
+      });
+      console.log("Now setting Auth");
       Auth.login(data.login);
+      console.log("firing up dispatch")
+      
+
     } catch (e) {
       console.error(e);
     }

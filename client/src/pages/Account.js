@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
+
 import { useMutation, useQuery } from '@apollo/client';
 import NavSm from '../components/NavSm';
 import NavLg from '../components/NavLg';
@@ -11,11 +12,17 @@ import boltIcon from '@iconify/icons-fxemoji/bolt';
 import { UPDATE_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { QUERY_USER } from '../utils/queries';
-// import { useParams } from 'react-router-dom';
+import { useStoreContext } from '../utils/GlobalSotre';
+import {reducer} from  '../utils/reducers';
 
 const Account = () => {
+  const [state, dispatch] = useStoreContext();
   
+ 
 
+  console.log(state);
+
+// have some props to set the User Object, so we can use it here. No Passwords
   const [formState, setFormState] = useState({
     displayName: '',
     email: '',
@@ -26,7 +33,7 @@ const Account = () => {
  
   const {  data } = useQuery(QUERY_USER, {  variables: { email: Auth.getUserEmail() }});
 
-  const userData = data;
+const userData = data;
 
   // update state based on form input changes
   const handleChange = (event) => {

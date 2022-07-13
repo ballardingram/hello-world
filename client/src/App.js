@@ -8,10 +8,11 @@ import Login from './pages/Login';
 import Account from './pages/Account';
 import ProjectHub from './pages/ProjectHub';
 import NoMatch from './pages/NoMatch';
-import RedirectFederate from './pages/RedirectFederate'
+import RedirectFederate from './pages/RedirectFederate';
 // import Home from './pages/Home'
 import Auth from './utils/auth';
 import Profile from './pages/Profile';
+import { StoreProvider } from './utils/GlobalSotre';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -36,17 +37,21 @@ const client = new ApolloClient({
 
 function App() {
   
+  
     return (
+     
     <ApolloProvider client={client}>
+      
       <Router>
         <div>
+        <StoreProvider>
           {/* place for header if needed */ }
           <div>
             <Routes>
             {Auth.loggedIn() ? (
             <>
             <Route
-              path="/"
+              path="/" 
               element={<About />}/* will be home route */
             />
             <Route
@@ -99,8 +104,11 @@ function App() {
             </Routes>
           </div>
           {/* place for footer if needed */}
+          </StoreProvider>
         </div>
+        
       </Router>
+
     </ApolloProvider>
   );
 }
