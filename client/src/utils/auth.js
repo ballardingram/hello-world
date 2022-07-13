@@ -1,5 +1,6 @@
 import decode from 'jwt-decode';
 
+
 class AuthService {
   getProfile() {
     return decode(this.getToken());
@@ -35,11 +36,11 @@ class AuthService {
     localStorage.setItem('hw-userDisplayName', JSON.stringify(oldDisplayName));
   }
 
-
   getUserEmail (){
     const userData = localStorage.getItem('hw-userEmail');
     return userData;
   }
+
   login(authData) {
     // Saves user token to localStorage
     console.log(JSON.stringify(authData));

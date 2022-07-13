@@ -1,12 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavLg from '../components/NavLg';
 import NavSm from '../components/NavSm';
-import FooterMenu from '../components/FooterExpand';
 import Card from '../components/Card';
+import { useMutation } from '@apollo/client';
+import FooterSticky from '../components/FooterSticky';
+import FooterBody from '../components/FooterBody';
+// import Auth from '../utils/auth';
+import { ADD_PROJECT } from '../utils/mutations';
+// import { QUERY_USER } from '../utils/queries';
 
-const ProjectHub = () => {
+
+
+const ProjectHub = (props) => {
+
+
+  const [formState, setFormState] = useState({
+    projectTitle: '',
+    projectSub: '',
+    projectDetails: '',
+  });
+
+  const [addProject, { error }] = useMutation(ADD_PROJECT);
+
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await addProject({
+        variables: { title: formState.projectTitle, description: formState.projectSub, content: formState.projectDetails },
+      });
+      console.log(data)
+
+      // return data;
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setFormState({
+      projectTitle: '',
+      projectSub: '',
+      projectDetails: '',
+    });
+  }
+
+
   return (
-  <div className="flex flex-col h-screen justify-start text-lg">
+  <div className="flex flex-col h-screen justify-start text-lg" id='close'>
   {/* navigation header start */}
   <header>
     <NavLg></NavLg>
@@ -18,52 +69,65 @@ const ProjectHub = () => {
   </div>
 
   {/* body start */}
-  <main class="sm:grid sm:grid-cols-2 lg:grid-cols-3 mb-12 pb-12">
+  <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3">
 
     {/*md break column 1 */}
     <div className="grid content-start px-5 mb-5">
       {/* submit project form start */}
       <div className='font-semibold mb-2 text-xl'>Submit a New Project:</div>
-      <form>
+      <form onSubmit={handleFormSubmit}>
         <label
           htmlFor='projectTitle'
           className='block'>
         </label>
         <input
+          name='projectTitle'
           type='text'
           className='block w-full px-2 py-2 mb-2 border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
           placeholder='Project Title'
           id='projectTitle'
+          value={formState.projectTitle}
+          onChange={handleChange}
           />
         <label
           htmlFor='projectSub'
           className='block'>
         </label>
         <input
+          name='projectSub'
           type='text'
           className='block w-full px-2 py-2 mb-2 border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
           placeholder='Brief Description'
           id='projectSub'
+          value={formState.projectSub}
+          onChange={handleChange}
           />
         <label
           htmlFor='projectDetails'
           className='block'>
         </label>
-        <textarea 
-          class="w-full h-40 px-2 py-2 border rounded-lg focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40"
+        <textarea
+          name='projectDetails' 
+          className="w-full h-40 px-2 py-2 border rounded-lg focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40"
           placeholder='Detailed Project Information'
-          id='projectDetails'>
+          id='projectDetails'
+          value={formState.projectDetails}
+          onChange={handleChange}>
         </textarea>
         <div className='mt-2'>
-          <button 
+          <button
+              type='submit' 
               className='form-btn w-full py-2 mb-2 text-white tracking-wide rounded-lg text-xl'
               id='projectSubmit'>
               Submit Project
           </button>
         </div>
+        {/* <div>
+          {data.projectTitle}
+        </div> */}
       </form>
       {/* submit project form end */}
-
+    {error && <div>something went wrong</div>}
     </div>
 
     {/*md break column 2 */}
@@ -73,7 +137,6 @@ const ProjectHub = () => {
         <Card></Card>
         <Card></Card>
       </div>
-
     </div>
 
     {/*md break column 3 */}
@@ -85,14 +148,12 @@ const ProjectHub = () => {
 
   </main>
   {/* body end */}
-
-
   {/* footer start */}
-  <footer className="fixed bottom-0 display-contents">
-  <FooterMenu></FooterMenu>
-  </footer>
+  <FooterBody></FooterBody>
+  <FooterSticky></FooterSticky>
   {/* footer end */}
   </div>
 );
 }
+
 export default ProjectHub;
