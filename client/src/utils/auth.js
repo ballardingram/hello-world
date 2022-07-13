@@ -39,6 +39,11 @@ class AuthService {
     return userData;
   }
 
+  getUserID (){
+    const userID = localStorage.getItem('hw-userID');
+    return userID;
+  }
+
   login(authData) {
     // Saves user token to localStorage
     console.log(JSON.stringify(authData));
