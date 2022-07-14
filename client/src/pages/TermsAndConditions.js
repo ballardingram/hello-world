@@ -3,7 +3,7 @@ import React from 'react';
 const Terms = () => {
   return (
 
-  <div className='grid grid-cols-12 mt-12 pt-5'>
+  <div className='grid grid-cols-12 md:mt-10 lg:mt-40 mb-20'>
     <div className='col-start-3 col-span-8 font-bold'>
       Hello World's Terms of Service
     </div>
