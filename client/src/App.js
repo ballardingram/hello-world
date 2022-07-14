@@ -15,9 +15,13 @@ import Profile from './pages/Profile';
 import PublicProfile from './pages/PublicProfile';
 
 
+const uri = process.env.graphQLServer ? process.env.graphQLServer: "http://localhost";
+const uriport = process.env.port ?process.env.port : 3001
+const graphQLURL = uri+":"+uriport+"/graphql"
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri:  graphQLURL,
 });
+
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
