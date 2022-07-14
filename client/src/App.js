@@ -12,8 +12,7 @@ import RedirectFederate from './pages/RedirectFederate'
 // import Home from './pages/Home'
 import Auth from './utils/auth';
 import Profile from './pages/Profile';
-import Navigation from './components/Navigation';
-import FooterSticky from './components/FooterSticky';
+import PublicProfile from './pages/PublicProfile';
 
 
 const httpLink = createHttpLink({
@@ -35,8 +34,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
-
 function App() {
   
     return (
@@ -44,17 +41,17 @@ function App() {
         <>
         {Auth.loggedIn() ? (
           <Router>
-            <div className="flex flex-col h-screen">
-            <Navigation></Navigation>
-              {/* NEED TO RENDER BASED ON PAGE */}
-              {/* <h1 className='font-bold text-center lg:mx-5 mt-2 text-2xl lg:text-3xl lg:mt-36'>Page</h1> */}
-              <div>
                 <Routes>
 
                   <Route
                     path="/about"
                     element={<About />}
                   />
+                  <Route
+                    path="/publicprofile"
+                    element={<PublicProfile />}
+                  />
+
                   <Route 
                     path="/account"
                     element={<Account />}
@@ -76,15 +73,10 @@ function App() {
                     element={<NoMatch />}
                   />
                 </Routes>
-                <FooterSticky></FooterSticky>
-              </div>
-            </div>
           </Router>
         ) : (
           <Router>
-            {/* <div className="flex flex-col h-screen justify-between">
-            <h1 className='font-bold text-center lg:mx-5 mt-2 text-2xl lg:text-3xl lg:mt-36'>Page</h1>
-            </div> */}
+          
             <Routes>
 
             <Route

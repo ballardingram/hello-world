@@ -48,6 +48,8 @@ body {
   transform: translateY(-3px);
   border-radius: 50%;
 }
+
+
 /* icons end */
 
 /* desktop navigation bar start */
@@ -66,7 +68,10 @@ body {
 }
 
 #content {
-  transform: skewY(3.48deg);
+  transform: skewY(-3.48deg);
+}
+#delete-btn:hover {
+  background-color: black;
 }
 
 #nav-home:hover,
@@ -79,10 +84,15 @@ body {
 #nav-terms {
   font-weight: 300;
 }
+
 #nav-about:hover,
 #nav-terms:hover {
   border-bottom: 3px solid var(--secondaryYellow);
   font-weight: 500;
+}
+
+#terms:hover, #about:hover {
+  color: var(--primaryBlue);
 }
 
 #about-height {
@@ -98,6 +108,9 @@ body {
 
 #logout {
   background-color: rgba(252, 170, 50, 0.7);
+}
+#logout:hover {
+  background-color: var(--secondaryYellow);
 }
 /* mobile navigation end */
 
@@ -144,6 +157,17 @@ input, textarea {
   height: 400px;
   background-position: center;
 }
+
+.safety {
+  background-color: var(--primaryYellow);
+  color: white;
+  margin-top: 25px;
+  padding: 2px;
+}
+
+.safety:hover {
+  background-color: var(--secondaryBlue);
+}
 /* 404 page end */
 
 /* account page start */
@@ -160,7 +184,21 @@ input, textarea {
 }
 /* profile end */
 
+/* footer nav large */
+#footer-img {
+  background-color: white;
+}
 
 
+#border-btn {
+  padding-top: .5%;
+  border-top: 2px solid var(--primaryYellow);
+  transform: skewY(-14deg);
+}
+
+/* #borderY {
+  padding-bottom: 5%;
+  border-top: 2px solid var(--primaryBlue);
+} */
 
 

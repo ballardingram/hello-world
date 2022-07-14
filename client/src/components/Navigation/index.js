@@ -22,42 +22,33 @@ const Navigation = () => {
   };
 
   return (
-    <div className="h-36 rounded-b-2xl lg:w-full text-lg lg:fixed mb-10" id="mobile-nav">
+    <div className="h-36 rounded-b-2xl lg:w-full text-lg lg:fixed z-50" id="mobile-nav">
       <div className="flex justify-between w-full h-36">
         <div className="flex justify-center font-semibold">
 
           {/* USER IMAGE AND CONTENT ROUTES HERE */}
-          <div className="my-2 ml-2 object-center overflow-visible h-40 w-40 sm:h-44 sm:w-44 md:h-48 md:w-48">
+          <div className="my-2 ml-2 object-center overflow-visible h-40 w-40 sm:h-44 sm:w-44 md:h-48 md:w-48 lg:h-52 lg:w-52 xl:h-60 xl:w-60">
             {/* IMAGE */}
-            <a href="/profile"><UserImage></UserImage></a>
+            <a href="/"><UserImage></UserImage></a>
           </div>
-          <div className="flex flex-col justify-end ml-2 mb-3 text-lg">
-            <div className="flex">
+          <div className="flex flex-col justify-end ml-2 mb-1 text-lg tracking-wide overflow-visible">
+            <div className="flex items-center mb-2">
               {/* DISPLAY NAME */}
-              <div className="font-bold text-xl md:text-2xl">{userData ? userData.user.displayName : 'user'}</div>
+              <div className="font-bold text-3xl lg:text-4xl">{userData ? userData.user.displayName : 'user'}</div>
               {/* VERIFICATION ICON */}
-              <div className="ml-1"><Icon icon={boltIcon} height="22"/></div>
+              <div className="ml-1"><Icon icon={boltIcon} height="32"/></div>
             </div>
-            <div className="flex flex-col flex-wrap text-base">
-              {/* ACCOUNT CREATED */}
-              <div className="mr-1">Connected: July 2022</div>
+            <div className="flex flex-col flex-nowrap">
               {/* VERIFICATION STATUS */}
-              <div className="italic">Verified Member</div>
-            </div>
-            <div className="flex mt-2">
-              <button
-                  type="submit"
-                  onClick={logout}
-                  className="form-btn px-2 rounded-md w-3/4"
-                  id="logout">
-                  Log Out
-              </button>
+              <div className="italic text-base md:text-xl lg:text-xl">Verified Member</div>
+              {/* ACCOUNT CREATED */}
+              <div className="text-base pb-1 flex-nowrap lg:text-lg xl:text-2xl">Connected: July 2022</div>
             </div>
           </div>
         </div>
 
         {/* Dashboard RIGHT content, some content visible at small but all large breakpoint */}
-        <div className="hidden md:contents">
+        <div className="hidden sm:contents">
           <div className="grid grid-cols-5 text-2xl justify-items-center content-end w-1/2 lg:w-2/5 xl:w-1/3 mb-1">
             <a href="/about" id="nav-about" className="invisible lg:visible grid content-end px-1">About</a>
             <a href="/terms" id="nav-terms" className="invisible lg:visible grid content-end px-1">Terms</a>

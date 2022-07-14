@@ -19,10 +19,11 @@ const NoMatch = () => {
           <p className='mt-2 text-lg'>Our website!</p>
           <p className='text-lg'>It's BrOkEn!</p>
         </div>
-        <div className='flex mt-10'>
+        <div className='flex mt-5'>
           <p className="grid content-center text-md mr-2 font-semibold">Want to help us fix it?</p>
-          <a href='/' className='github'><Icon icon={githubFill} height="30" /></a>
+          <a href='https://github.com/CassDoes/hello-world' className='github'><Icon icon={githubFill} height="30" /></a>
         </div>
+        <div className='safety rounded-xl mt-5 font-semibold'><a href='/'>Back to Safety</a></div>
       </div>
     </div>
   </div>

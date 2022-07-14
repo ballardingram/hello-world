@@ -1,9 +1,11 @@
 import React from 'react';
+import Layout from '../components/Layout';
 
 const Terms = () => {
   return (
+    <Layout>
 
-  <div className='grid grid-cols-12 mt-12 pt-5'>
+  <div className='grid grid-cols-12 mt-10 md:mt-12 lg:mt-48 mb-20'>
     <div className='col-start-3 col-span-8 font-bold'>
       Hello World's Terms of Service
     </div>
@@ -67,6 +69,7 @@ const Terms = () => {
       sed risus ultricies tristique. Amet luctus venenatis lectus magna fringilla urna porttitor. 
     </p>
   </div>
+  </Layout>
 );
 };
 
