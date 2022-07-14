@@ -48,6 +48,8 @@ body {
   transform: translateY(-3px);
   border-radius: 50%;
 }
+
+
 /* icons end */
 
 /* desktop navigation bar start */
@@ -68,6 +70,9 @@ body {
 #content {
   transform: skewY(-3.48deg);
 }
+#delete-btn:hover {
+  background-color: black;
+}
 
 #nav-home:hover,
 #nav-account:hover,
@@ -79,6 +84,7 @@ body {
 #nav-terms {
   font-weight: 300;
 }
+
 #nav-about:hover,
 #nav-terms:hover {
   border-bottom: 3px solid var(--secondaryYellow);
@@ -151,6 +157,17 @@ input, textarea {
   height: 400px;
   background-position: center;
 }
+
+.safety {
+  background-color: var(--primaryYellow);
+  color: white;
+  margin-top: 25px;
+  padding: 2px;
+}
+
+.safety:hover {
+  background-color: var(--secondaryBlue);
+}
 /* 404 page end */
 
 /* account page start */
@@ -173,6 +190,15 @@ input, textarea {
 }
 
 
+#border-btn {
+  padding-top: .5%;
+  border-top: 2px solid var(--primaryYellow);
+  transform: skewY(-14deg);
+}
 
+/* #borderY {
+  padding-bottom: 5%;
+  border-top: 2px solid var(--primaryBlue);
+} */
 
 

@@ -63,11 +63,11 @@ const Account = () => {
       {formState && (
 
         <Layout>
-          <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 lg:mt-56 mt-10 mb-8 md:mt-16 xl:mt-64">
+          <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 lg:mt-56 mt-10 mb-8 md:mt-16 xl:mt-64 text-xl">
             {/*md break column 1 */}
             <div className="grid content-start px-5">
               {/* update account form start*/}
-              <div className="font-semibold mb-2 text-xl">
+              <div className="font-semibold mb-2 text-2xl">
                 Privacy and Security
               </div>
               <form onSubmit={handleFormSubmit}>
@@ -135,7 +135,7 @@ const Account = () => {
                 <div className="mb-5">
                   <button
                     type="submit"
-                    className="form-btn w-full py-2 tracking-wide text-white rounded-lg text-xl"
+                    className="form-btn w-full py-2 tracking-wide text-white rounded-lg text-2xl"
                     id="updateAccount"
                   >
                     Update Account
@@ -146,7 +146,7 @@ const Account = () => {
               {/* update account form end*/}
               {/* expand skills start (only on xs and sm screen)*/}
               <div className="px-1 display-contents sm:hidden">
-                <div className="font-semibold text-xl">
+                <div className="font-semibold text-2xl">
                   Update Proficiencies:
                 </div>
                 <ExpandSkills
@@ -161,8 +161,8 @@ const Account = () => {
             </div>
 
             {/*md break column 2 */}
-            <div className="grid content-start px-5">
-              <div className="font-semibold mb-1 mt-2 sm:mt-0 text-xl">
+            <div className="grid content-start px-5 font-semibold text-xl ">
+              <div className="font-semibold mb-1 mt-2 sm:mt-0 text-2xl">
                 Donation Center
               </div>
               {/* donation center start */}
@@ -185,7 +185,7 @@ const Account = () => {
 
               <button
                 type="submit"
-                className="form-btn py-2 mb-2 tracking-wide text-white rounded-lg text-xl"
+                className="form-btn py-3 mb-5 tracking-wide text-white rounded-lg text-2xl"
                 id="requestDeposit"
               >
                 Request Deposit
@@ -194,18 +194,18 @@ const Account = () => {
               <div>
                 {/* verification form start*/}
                 <div className="flex justify-between mt-4 sm:mt-2">
-                  <div className="font-semibold mb-2 text-xl ">
+                  <div className="font-semibold mb-3 text-2xl ">
                     Verification:
                   </div>
                   <div className="flex">
-                    <h2 className="mt-1 mr-1 text-xl">Verified</h2>
+                    <h2 className="mt-1 mr-1 text-2xl">Verified</h2>
                     <div className="grid content-center mr-1">
-                      <Icon icon={boltIcon} height="20" />
+                      <Icon icon={boltIcon} height="24" />
                     </div>
                   </div>
                 </div>
                 <form>
-                  <div className="mb-3">
+                  <div className="mb-5 text-xl">
                     <label
                       htmlFor="githubVerify"
                       className="block font-semibold mb-1"
@@ -223,7 +223,7 @@ const Account = () => {
                   <div className="mb-5">
                     <button
                       type="submit"
-                      className="form-btn w-full py-2 tracking-wide text-white rounded-lg text-xl"
+                      className="form-btn w-full py-2 tracking-wide text-white rounded-lg text-2xl"
                       id="requestVerify"
                     >
                       Request Verification
@@ -241,7 +241,7 @@ const Account = () => {
             <div className="grid content-start px-5">
               {/* delete or snooze account end */}
               <div className="hidden sm:contents">
-                <div className="font-semibold text-xl">
+                <div className="font-semibold text-2xl">
                   Update Proficiencies:
                 </div>
                 <ExpandSkills
@@ -252,14 +252,14 @@ const Account = () => {
                 ></ExpandAdd>
               </div>
               {/* delete or snooze account start */}
-              <div className="font-semibold mb-1 mt-1 text-xl">
+              <div className="font-semibold mb-2 mt-1 text-2xl">
                 Account Status:
               </div>
               <div className="">
-                <div className="font-semibold">Permanently delete</div>
+                <div className="font-semibold mb-2">Permanently delete?</div>
                 <button
                   type="submit"
-                  className="w-full py-2 tracking-wide text-white rounded-lg text-xl"
+                  className="form-btn w-full py-3 tracking-wide text-white rounded-lg text-2xl"
                   id="delete-btn"
                 >
                   Delete Account
