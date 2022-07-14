@@ -17,7 +17,7 @@ const ExpandSkills = ({ skills }) => {
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
-
+  console.log(skills)
 
  
   return (
@@ -29,9 +29,10 @@ const ExpandSkills = ({ skills }) => {
       <AccordionBody>
         <div className="select-none flex justify-center my-1">
           <ul className="list-disc list-outside grid grid-cols-3 font-normal">
-            {/* {!skills ? skills.map(userSkills => {
+            
+            {skills ? skills.map(userSkills => {
               return <li>{userSkills.skillName}</li>
-            }): <li>Add some skills!!</li>} */}
+            }): <li>Add some skills!!</li>}
             {/* <li>HTML</li>
             <li>CSS</li>
             <li>Tailwind</li>

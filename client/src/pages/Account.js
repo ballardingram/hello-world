@@ -17,6 +17,7 @@ const Account = () => {
     password: "",
   });
 
+  const [userSkillSet, setUserSkillSet] = useState([]);
   const [updateUser, { error }] = useMutation(UPDATE_USER);
   const { data } = useQuery(QUERY_USER, {
     variables: { email: Auth.getUserEmail() },
@@ -29,6 +30,7 @@ const Account = () => {
         displayName: userData.displayName,
         email: userData.email,
       });
+      setUserSkillSet([...userData.skills]);
     }
   }, [userData]);
   // update state based on form input changes
@@ -145,10 +147,11 @@ const Account = () => {
                   Update Proficiencies:
                 </div>
                 <ExpandSkills
-                skills={userData.skills}
+                skills={userSkillSet}
                 ></ExpandSkills>
                 <ExpandAdd
-                skills={userData.skills}
+                setUserSkillSet={setUserSkillSet}
+                skills={userSkillSet}
                 ></ExpandAdd>
               </div>
               {/* expand skills end*/}
