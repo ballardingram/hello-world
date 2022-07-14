@@ -216,8 +216,8 @@ const ProjectHub = (props) => {
     {/*md break column 3 */}
     <div className="grid content-start px-3 pb-5">
     <div>
-        <div className='font-semibold mb-2 text-xl px-2 lg:text-2xl'>Saved Projects</div>
-        {savedProjects.length>0?savedProjects.map(project => {return <div id={"saved"+project._id}> <Card projectContent={project}/></div>}):
+        <div className='font-semibold mb-2 text-xl px-2 lg:text-2xl'>My Projects</div>
+        {projects.length>0?projects.map(project => {return <div id={"own"+project._id}> <Card projectContent={project}/></div>}):
         <h3>There are no saved projects</h3>}
       </div>
 

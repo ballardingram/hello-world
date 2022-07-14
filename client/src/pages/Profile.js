@@ -117,7 +117,9 @@ const Profile = () => {
               {console.log(projectOpportunities)}
               {projectOpportunities.length > 0 && (
                 projectOpportunities.map((project) => {
+                  if(project.createdBy._id !== Auth.getUserID()){
                   return <div key={"opprtunity"+project._id} ><Card projectContent={project}/></div>
+                }
                 })
               )}
             </div>
