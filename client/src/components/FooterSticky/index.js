@@ -12,8 +12,8 @@ const FooterSticky = () => {
   <div>
     <div className='p-2 rounded-t-2xl'>
     <div className='hidden lg:contents text-xl font-semibold'>
-      <a href='/terms' className='mx-5 color-sY'>Terms</a>
-      <a href='about' className='mx-5 color-sY'>About</a>
+      <a href='/terms' className='mx-5 color-sY' id='terms'>Terms</a>
+      <a href='about' className='mx-5 color-sY' id='about'>About</a>
     </div>
     </div>
  
