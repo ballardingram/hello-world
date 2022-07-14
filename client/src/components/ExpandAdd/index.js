@@ -37,7 +37,7 @@ const ExpandAdd = (props) => {
     event.preventDefault();
     const tempUser = {
       _id: Auth.getUserID(),
-      skills: [{
+      skills: [...skills, {
         skillName : formState.skillName,
         expertiseLevel : formState.skillLevel
       }]
