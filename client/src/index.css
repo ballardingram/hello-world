@@ -66,7 +66,7 @@ body {
 }
 
 #content {
-  transform: skewY(3.48deg);
+  transform: skewY(-3.48deg);
 }
 
 #nav-home:hover,
@@ -159,6 +159,11 @@ input, textarea {
   background-color: rgba(178, 202, 224, 0.25);
 }
 /* profile end */
+
+/* footer nav large */
+#footer-img {
+  background-color: white;
+}
 
 
 
