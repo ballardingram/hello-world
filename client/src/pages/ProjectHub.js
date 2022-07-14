@@ -4,8 +4,7 @@ import { useMutation,useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_PROJECT } from '../utils/mutations';
 import { QUERY_USER } from '../utils/queries';
-
-
+import Layout from '../components/Layout';
 
 const ProjectHub = (props) => {
   const [formState, setFormState] = useState({
@@ -58,18 +57,13 @@ const ProjectHub = (props) => {
            colloborators: [Auth.getUserID()]},
       });
 
-      // if(data){
-        
-      //   const newProject = data.addProject;
-      //   console.log(newProject);
-      //   setProjects([...projects, newProject])
-      // }
-
-      // return data;
+      if(data){
+        const newProject = data.addProject;
+        setProjects([...projects, newProject])
+      }
     } catch (e) {
       console.error(e);
     }
-
     // clear form values
     setFormState({
       projectTitle: '',
@@ -83,7 +77,9 @@ const ProjectHub = (props) => {
 
   return (
  
-  <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3">
+    <Layout>
+  <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 lg:mt-56 mt-10 mb-8 md:mt-20 xl:mt-64 text-xl">
+
 
     {/*md break column 1 */}
     <div className="grid content-start px-5 mb-5">
@@ -142,19 +138,21 @@ const ProjectHub = (props) => {
           onChange={handleChange}
           />
 
+        <div className='flex w-full justify-start text-lg py-4 font-semibold'>
         <label
           htmlFor='helpRequired'
-          className='block'>
+          className=''>
             Help Required?
         </label>
         <input
           name='helpRequired'
           type='checkbox'
-          className='block w-full px-2 py-2 mb-2 border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
+          className='ml-8 px-2 w-4 border rounded-md'
           id='helpRequired'
           value={formState.helpRequired}
           onChange={handleChange}
           />
+          </div>
 
         <div className='mt-2'>
           <button
@@ -194,7 +192,6 @@ const ProjectHub = (props) => {
       }
       <div>
         <div className='font-semibold mb-2 text-xl px-2'>My Projects:</div>
-        {console.log("saved projects are "+JSON.stringify(savedProjects))}
         {savedProjects.length>0?savedProjects.map(project => {return <div id={"saved"+project._id}> <Card projectContent={project}/></div>}):
         <h3>
           there are no saved projects</h3>}
@@ -203,6 +200,7 @@ const ProjectHub = (props) => {
     </div>
 
   </main>
+  </Layout>
 
 );
 }

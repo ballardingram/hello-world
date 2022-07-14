@@ -57,8 +57,8 @@ const resolvers = {
       return project;
     },
     skillProjects: async (parent, args) => {
-      const {skillName} = args;
-      const project = await Project.find({skillsRequiredForHelp: skillName})
+      const {skills} = args;
+      const project = await Project.find({skillsRequiredForHelp: [...skills]})
         .select("-__v")
         .populate("createdBy")
         .populate("colloborators");

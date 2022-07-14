@@ -37,8 +37,8 @@ const Register = () => {
       const { data } = await addUser({
         variables: { ...formState },
       });
-
-      Auth.login(data.addUser.token);
+      console.log(data)
+      Auth.login(data.addLocalUser);
     } catch (e) {
       console.error(e);
     }

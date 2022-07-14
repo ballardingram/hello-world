@@ -12,6 +12,7 @@ import RedirectFederate from './pages/RedirectFederate'
 // import Home from './pages/Home'
 import Auth from './utils/auth';
 import Profile from './pages/Profile';
+import PublicProfile from './pages/PublicProfile';
 import Navigation from './components/Navigation';
 import FooterSticky from './components/FooterSticky';
 
@@ -31,50 +32,55 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  link: httpLink,
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
 function App() {
   
     return (
-    <ApolloProvider client={client}>
-      <Router>
-        <div class="flex flex-col h-screen justify-between">
-          <Navigation></Navigation>
-              {/* NEED TO RENDER BASED ON PAGE */}
-              <h1 className='font-bold text-center lg:mx-5 mt-2 text-2xl lg:text-3xl lg:mt-36'>Page</h1>
-          <div>
+      <ApolloProvider client={client}>
+        <>
+        {Auth.loggedIn() ? (
+          <Router>
+                <Routes>
+
+                  <Route
+                    path="/about"
+                    element={<About />}
+                  />
+                  <Route
+                    path="/publicprofile"
+                    element={<PublicProfile />}
+                  />
+
+                  <Route 
+                    path="/account"
+                    element={<Account />}
+                  />
+                  <Route 
+                    path="/terms"
+                    element={<Terms />}
+                  />
+                  <Route
+                    path="/"
+                    element={<Profile />}
+                  />
+                  <Route
+                    path='/projecthub'
+                    element={<ProjectHub />}
+                  />
+                  <Route
+                    path='*'
+                    element={<NoMatch />}
+                  />
+                </Routes>
+          </Router>
+        ) : (
+          <Router>
+          
             <Routes>
-            {Auth.loggedIn() ? (
-            <>
-            <Route
-              path="/about"
-              element={<About />}
-            />
-            <Route
-              path="/account/"
-              element={<Account />}
-            />
-            <Route
-              path="/terms"
-              element={<Terms />}
-            />
-            <Route
-              path="/"
-              element={<Profile />}
-            />
-            <Route
-              path='/projecthub'
-              element={<ProjectHub />}
-            />
-            <Route
-              path='*'
-              element={<NoMatch />}
-            />
-            </>
-            ) : (
-            <>
+
             <Route
               path="/"
               element={<Login />}
@@ -100,15 +106,90 @@ function App() {
               element={<NoMatch />}
             />
 
-            </>
-            )
-            }
-            </Routes> 
-          </div>
-          <FooterSticky></FooterSticky>
-        </div>
-      </Router>
-    </ApolloProvider>
+            </Routes>
+          </Router>
+        )}
+        </>
+      </ApolloProvider>
+
+
+
+
+
+
+
+
+  //   <ApolloProvider client={client}>
+  //     <Router>
+  //       <div class="flex flex-col h-screen justify-between">
+  //         <Navigation></Navigation>
+  //             {/* NEED TO RENDER BASED ON PAGE */}
+  //             <h1 className='font-bold text-center lg:mx-5 mt-2 text-2xl lg:text-3xl lg:mt-36'>Page</h1>
+  //         <div>
+  //           <Routes>
+  //           {Auth.loggedIn() ? (
+  //           <>
+  //           <Route
+  //             path="/about"
+  //             element={<About />}
+  //           />
+  //           <Route
+  //             path="/account/"
+  //             element={<Account />}
+  //           />
+  //           <Route
+  //             path="/terms"
+  //             element={<Terms />}
+  //           />
+  //           <Route
+  //             path="/"
+  //             element={<Profile />}
+  //           />
+  //           <Route
+  //             path='/projecthub'
+  //             element={<ProjectHub />}
+  //           />
+  //           <Route
+  //             path='*'
+  //             element={<NoMatch />}
+  //           />
+  //           </>
+  //           ) : (
+  //           <>
+  //           <Route
+  //             path="/"
+  //             element={<Login />}
+  //           />
+  //           <Route
+  //             path="/terms"
+  //             element={<Terms />}
+  //           />
+  //           <Route
+  //             path="/register"
+  //             element={<Register />}
+  //           />
+  //           <Route
+  //             path='/about'
+  //             element={<About />}
+  //           />
+  //           <Route
+  //             path='/redirectFederateUser'
+  //             element={<RedirectFederate />}
+  //           />
+  //           <Route
+  //             path='*'
+  //             element={<NoMatch />}
+  //           />
+
+  //           </>
+  //           )
+  //           }
+  //           </Routes>
+  //           <FooterSticky></FooterSticky>
+  //         </div>
+  //       </div>
+  //     </Router>
+  //   </ApolloProvider>
   );
 }
 
