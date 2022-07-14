@@ -113,6 +113,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+
     addFBUser: async (parent, args) => {
       const { displayName, email } = args;
       const user = await registrations.createFBUser(displayName, email);

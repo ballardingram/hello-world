@@ -3,7 +3,7 @@ import Card from '../components/Card';
 import { useMutation,useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_PROJECT } from '../utils/mutations';
-import { QUERY_USER } from '../utils/queries';
+import { QUERY_USER, GET_ALL_USERS } from '../utils/queries';
 import Layout from '../components/Layout';
 
 const ProjectHub = (props) => {
@@ -12,17 +12,26 @@ const ProjectHub = (props) => {
     projectSub: '',
     projectDetails: '',
     helpRequired: false,
-    skillsRequired:''
+    skillsRequired:'',
+    colloboratorsInput: ''
   });
-  const [colloborationProjectsCount, setColloborationProjectsCount] = useState(0);
-
-  const [addProject, { error }] = useMutation(ADD_PROJECT);
-  
+    const [addProject, { error }] = useMutation(ADD_PROJECT);
   const [projects, setProjects] = useState([]);
   const [savedProjects, setsavedProjects] = useState([]);
+  const [allColloboratorUsers, setAllColloboratorUsers] = useState([]);
   const { data } = useQuery(QUERY_USER, {
     variables: { email: Auth.getUserEmail() },
   });
+  
+  const {data:users} = useQuery(GET_ALL_USERS);
+  const allUsers = users&&users.users;
+
+  useEffect(() => {
+    if(allUsers){
+      setAllColloboratorUsers(allUsers.filter(au => au._id !== Auth.getUserID()));
+    }
+  },[allUsers]);
+
   
   const userData = data ? data.user : "";
   useEffect(() => {
@@ -55,7 +64,7 @@ const ProjectHub = (props) => {
            helpRequired: formState.helpRequired.valueOf, 
            skillsRequired:formState.skillsRequired.split(','),
            createdBy: Auth.getUserID(),
-           colloborators: [Auth.getUserID()]},
+           colloborators: [Auth.getUserID(), formState.colloboratorsInput!=="NA"&&formState.colloboratorsInput ]},
       });
 
       if(data){
@@ -71,7 +80,8 @@ const ProjectHub = (props) => {
       projectSub: '',
       projectDetails: '',
       helpRequired: false,
-      skillsRequired: ''
+      skillsRequired: '',
+      colloboratorsInput: ''
     });
   }
 
@@ -125,7 +135,16 @@ const ProjectHub = (props) => {
           value={formState.projectDetails}
           onChange={handleChange}>
         </textarea>
-        <label
+        <label id="demo-multiple-name-label">Colloborator Name : </label>
+        <select id="colloboratorsInput" name="colloboratorsInput" onChange={handleChange}>
+          <option value="NA">"select colloborator" </option>
+            {
+                allColloboratorUsers.map(collob => {
+                 return  <option value={collob._id}>{collob.displayName}</option> 
+                })      
+            }
+        </select>
+       <label
           htmlFor='skillsRequired'
           className='block'>
         </label>
@@ -189,13 +208,11 @@ const ProjectHub = (props) => {
           projects.map(project => {
             return project.colloborators.map((colloborator) => {
               if(colloborator._id === userData._id && userData._id !== project.createdBy._id){
-                setColloborationProjectsCount(colloborationProjectsCount+1)
                 return <div id={"collob"+project._id}> <Card projectContent={project}/></div>
               }
             })
           })
       }
-      {colloborationProjectsCount===0&&<h2>You don't have any colloborations<br/></h2>}
       <div>
         <div className='font-semibold mb-2 text-xl px-2'>My Projects:</div>
        {projects.length>0?projects.map(project => {return <div id={project._id}> <Card projectContent={project}/></div>}):<h2>No Projects created yet</h2>}
