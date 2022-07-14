@@ -1,0 +1,36 @@
+{
+  "devDependencies": {
+    "@iconify/icons-bi": "^1.2.5",
+    "@iconify/icons-bx": "^1.2.4",
+    "@iconify/icons-fa": "^1.2.2",
+    "@iconify/icons-fluent": "^1.2.14",
+    "@iconify/icons-gg": "^1.2.2",
+    "@iconify/react": "^3.2.2",
+    "concurrently": "^7.2.2"
+  },
+  "name": "hello-world",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && run npm seed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CassDoes/hello-world.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CassDoes/hello-world/issues"
+  },
+  "homepage": "https://github.com/CassDoes/hello-world#readme",
+  "dependencies": {
+    "stripe": "^9.12.0",
+    "uuid": "^8.3.2"
+  }
+}
