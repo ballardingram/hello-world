@@ -7,6 +7,11 @@ export const QUERY_USER = gql`
       displayName
       email
       friends {_id, displayName}
+      friendCount
+      skills {
+        skillName,
+        expertiseLevel
+      }
       projects {
         _id,
         title,
@@ -61,23 +66,46 @@ export const QUERY_USER_WITH_TOKEN = gql`
   }
 `;
 
+export const GET_ALL_PROJECTS = gql`
+query projects{
+  projects{
+    _id,
+    title,
+    description,
+    content,
+    skillsRequiredForHelp,
+    helpRequired,
+    createdAt
+    createdBy {
+      _id,
+      displayName
+    },
+    colloborators {
+      _id,
+      displayName
+    }
+  }
+}
+`;
 
-// export const QUERY_ME = gql`
-//   {
-//     me {
-//       _id
-//       displayName
-//       email
-//       friendCount
-//       friends {
-//         _id
-//         displayName
-//       }
-//       blockedUsers {
-//         _id
-//         displayName
-//       }
-//       accountSource
-//     }
-//   }
-// `
+export const GET_PROJECT_OPPORTUNITIES = gql`
+query skillProjects($skills : [String]!){
+  skillProjects(skills : $skills){
+    _id,
+    title,
+    description,
+    content,
+    skillsRequiredForHelp,
+    helpRequired,
+    createdAt
+    createdBy {
+      _id,
+      displayName
+    },
+    colloborators {
+      _id,
+      displayName
+    }
+  }
+}
+`;
