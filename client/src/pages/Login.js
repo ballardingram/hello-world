@@ -5,6 +5,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import Auth from "../utils/auth";
 import { LOGIN_USER } from "../utils/mutations";
 import { GET_ALL_PROJECTS } from "../utils/queries";
+import { FooterSticky } from "../components/FooterSticky";
 
 const Login = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -118,7 +119,7 @@ const Login = () => {
         </div>
       </div>
       <footer className="color-pY fixed bottom-0 2xl:w-full">
-        <a href="/">About HelloWorld</a>
+      <a href="/">About HelloWorld</a>
       </footer>
     </div>
   );
