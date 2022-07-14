@@ -8,6 +8,7 @@ import boltIcon from "@iconify/icons-fxemoji/bolt";
 import { UPDATE_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { QUERY_USER } from "../utils/queries";
+import Layout from "../components/Layout";
 
 const Account = () => {
   const [formState, setFormState] = useState({
@@ -17,6 +18,7 @@ const Account = () => {
     password: "",
   });
 
+  const [userSkillSet, setUserSkillSet] = useState([]);
   const [updateUser, { error }] = useMutation(UPDATE_USER);
   const { data } = useQuery(QUERY_USER, {
     variables: { email: Auth.getUserEmail() },
@@ -29,6 +31,7 @@ const Account = () => {
         displayName: userData.displayName,
         email: userData.email,
       });
+      setUserSkillSet([...userData.skills]);
     }
   }, [userData]);
   // update state based on form input changes
@@ -58,7 +61,9 @@ const Account = () => {
     <>
       {/* <> */}
       {formState && (
-          <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 md:mt-40 lg:mt-56">
+
+        <Layout>
+          <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 lg:mt-56 mt-10 mb-8 md:mt-16 xl:mt-64">
             {/*md break column 1 */}
             <div className="grid content-start px-5">
               {/* update account form start*/}
@@ -145,10 +150,11 @@ const Account = () => {
                   Update Proficiencies:
                 </div>
                 <ExpandSkills
-                skills={userData.skills}
+                skills={userSkillSet}
                 ></ExpandSkills>
                 <ExpandAdd
-                skills={userData.skills}
+                setUserSkillSet={setUserSkillSet}
+                skills={userSkillSet}
                 ></ExpandAdd>
               </div>
               {/* expand skills end*/}
@@ -261,6 +267,7 @@ const Account = () => {
               </div>
             </div>
           </main>
+          </Layout>
       )}
     </>
   );

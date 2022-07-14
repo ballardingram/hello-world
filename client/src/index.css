@@ -66,7 +66,7 @@ body {
 }
 
 #content {
-  transform: skewY(3.48deg);
+  transform: skewY(-3.48deg);
 }
 
 #nav-home:hover,
@@ -85,6 +85,10 @@ body {
   font-weight: 500;
 }
 
+#terms:hover, #about:hover {
+  color: var(--primaryBlue);
+}
+
 #about-height {
   line-height: 1.25em;
 }
@@ -98,6 +102,9 @@ body {
 
 #logout {
   background-color: rgba(252, 170, 50, 0.7);
+}
+#logout:hover {
+  background-color: var(--secondaryYellow);
 }
 /* mobile navigation end */
 
@@ -159,6 +166,11 @@ input, textarea {
   background-color: rgba(178, 202, 224, 0.25);
 }
 /* profile end */
+
+/* footer nav large */
+#footer-img {
+  background-color: white;
+}
 
 
 
