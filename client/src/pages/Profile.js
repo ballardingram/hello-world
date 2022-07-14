@@ -1,15 +1,9 @@
 import React from 'react';
-import NavSm from '../components/NavSm';
-import NavLg from '../components/NavLg';
-import FooterSticky from '../components/FooterSticky';
-import FooterBody from '../components/FooterBody';
 import Card from '../components/Card';
 import { QUERY_USER } from '../utils/queries';
 import { useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
 import defaultPic from '../assets/orange-pug-256.png'
-
-
 
 
 const Profile = () => {
@@ -20,20 +14,14 @@ const Profile = () => {
   console.log(userData);
 
 
+
+
   return (
     <>
     {userData && (
-  <div className="flex flex-col h-screen justify-start">
-    {/* navigation header start */}
-    <header>
-      <NavLg></NavLg>
-      <NavSm></NavSm>
-    </header>
-    {/* navigation header end */}
-    <h1 className='font-bold mb-1 text-2xl lg:text-xl px-4 pt-4 md:pt-0 w-screen md:text-right md:pr-9 lg:pb-5'>Dashboard</h1>
-    
-    {/* body start */}
-    <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 mx-4 text-lg">
+  
+  
+    <main className="sm:grid sm:grid-cols-2 h-full lg:grid-cols-3 mx-4 text-lg lg:mt-56">
     {/*md break column 1 */}
     <div className="pt-1 sm:px-2 rounded-lg w-sm lg:max-w-sm">
       <h2 className='font-semibold text-xl'>Friends</h2>
@@ -65,13 +53,7 @@ const Profile = () => {
       </div>
     </div>
   </main>
-    {/* body end */}
 
-  {/* footer start */}
-  <FooterBody></FooterBody>
-  <FooterSticky></FooterSticky>
-  {/* footer end */}
-  </div>
     )}
     </>
   );
