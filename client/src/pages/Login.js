@@ -103,6 +103,7 @@ const Login = () => {
           </a>
           {error && <div>Login failed</div>}
         </div>
+
       </div>
 
       <div className="px-5 hidden 2xl:contents overflow-hidden">

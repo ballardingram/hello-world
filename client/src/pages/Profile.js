@@ -4,6 +4,9 @@ import { QUERY_USER, GET_PROJECT_OPPORTUNITIES } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import Auth from "../utils/auth";
 import defaultPic from "../assets/orange-pug-256.png";
+import Layout from '../components/Layout';
+import { Icon } from '@iconify/react';
+import sadButRelievedFace from '@iconify/icons-emojione-monotone/sad-but-relieved-face';
 
 const Profile = () => {
   const { data } = useQuery(QUERY_USER, {
@@ -35,22 +38,18 @@ const Profile = () => {
 
   return (
     <>
+    
+  
       {userInfo && (
-        <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 mx-4 text-lg">
-          {/*md break column 1 */}
-          <div
-            id=";diunsapduchoijopij"
-            className="pt-1 sm:px-2 rounded-lg w-sm lg:max-w-sm"
-          >
-            <h2 className="font-semibold text-xl">Friends</h2>
-            <h3 className="font-normal mb-1 text-lg">
-              {userInfo.friendCount} friends
-            </h3>
-            <div
-              className="grid grid-cols-4 gap-1 w-sm mb-5 rounded-2xl"
-              id="friends"
-            >
-              {userInfo.friendCount > 0 ? (
+      <Layout>
+ <main className="sm:grid sm:grid-cols-2 h-full lg:grid-cols-3 mx-4 text-lg lg:mt-56 mt-12 mb-8 md:mt-16 xl:mt-64">
+        {/* <div className='w-full text-right text-2xl pr-5 font-bold'>Dashboard</div> */}
+    {/*md break column 1 */}
+    <div className="pt-1 sm:px-2 rounded-lg w-sm lg:max-w-sm h-full">
+      <div className='font-semibold text-2xl'>Friends</div>
+      <div className='font-normal mb-1 text-lg'>5 friends</div>
+        <div className='grid grid-cols-4 gap-1 w-sm mb-5 rounded-2xl' id='friends'>
+          {userInfo.friendCount > 0 ? (
                 userInfo.friends.map((friend) => {
                   return (
                     <div
@@ -73,13 +72,11 @@ const Profile = () => {
               ) : (
                 <div>Make some friends!!</div>
               )}
-            </div>
-            <div className="hidden sm:contents">
-              <h2 className="font-semibold text-xl mb-1 pt-2">
-                Message Center
-              </h2>
-              <div className="flex flex-col justify-center text-lg md:text-xl tracking-wide font-semibold">
-                {userInfo.friendCount > 0 ? (
+        </div>
+      <div className='hidden sm:contents'>
+      <div className='font-semibold text-2xl mb-1 pt-2 text-center'>Message Center</div>
+        <div className='flex flex-col justify-center text-lg md:text-xl tracking-wide font-semibold'>
+       {userInfo.friendCount > 0 ? (
                   userInfo.friends.map((friend) => {
                     return (
                       <div
@@ -110,10 +107,10 @@ const Profile = () => {
                 ) : (
                   <div>You have no friends to message 😭</div>
                 )}
-              </div>
-            </div>
-          </div>
-          {/*md break column 2 */}
+        </div>
+      </div>
+    </div>
+    {/*md break column 2 */}
           <div className="pt-1 sm:px-2 rounded-lg min-w-md">
             <div className="flex flex-col justify-between">
               {console.log(projectOpportunities)}
@@ -125,8 +122,10 @@ const Profile = () => {
               )}
             </div>
           </div>
-        </main>
+  </main>
+  </Layout>
       )}
+
     </>
   );
 };
