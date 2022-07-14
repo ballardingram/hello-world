@@ -103,6 +103,9 @@ body {
 #logout {
   background-color: rgba(252, 170, 50, 0.7);
 }
+#logout:hover {
+  background-color: var(--secondaryYellow);
+}
 /* mobile navigation end */
 
 /* form start */

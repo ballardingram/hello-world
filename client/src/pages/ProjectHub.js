@@ -85,7 +85,7 @@ const ProjectHub = (props) => {
   return (
  
     <Layout>
-  <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 lg:mt-56 mt-10 mb-8 md:mt-20 xl:mt-64">
+  <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 lg:mt-56 mt-10 mb-8 md:mt-20 xl:mt-64 text-xl">
 
 
     {/*md break column 1 */}
@@ -145,19 +145,21 @@ const ProjectHub = (props) => {
           onChange={handleChange}
           />
 
+        <div className='flex w-full justify-start text-lg py-4 font-semibold'>
         <label
           htmlFor='helpRequired'
-          className='block'>
+          className=''>
             Help Required?
         </label>
         <input
           name='helpRequired'
           type='checkbox'
-          className='block w-full px-2 py-2 mb-2 border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
+          className='ml-8 px-2 w-4 border rounded-md'
           id='helpRequired'
           value={formState.helpRequired}
           onChange={handleChange}
           />
+          </div>
 
         <div className='mt-2'>
           <button

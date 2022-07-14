@@ -3,7 +3,7 @@ import FooterSticky from "../FooterSticky"
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col justify-between h-screen">
+    <div className="flex flex-col justify-between h-screen text-xl">
     <Navigation />
     <main className="mb-auto">{children}</main>
     <FooterSticky />
