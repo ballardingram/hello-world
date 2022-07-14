@@ -6,8 +6,6 @@ import { ADD_PROJECT } from '../utils/mutations';
 import { QUERY_USER } from '../utils/queries';
 import Layout from '../components/Layout';
 
-
-
 const ProjectHub = (props) => {
   const [formState, setFormState] = useState({
     projectTitle: '',
@@ -60,17 +58,12 @@ const ProjectHub = (props) => {
       });
 
       if(data){
-        
         const newProject = data.addProject;
-        console.log(newProject);
-        // setProjects([...projects, newProject])
+        setProjects([...projects, newProject])
       }
-
-      return data;
     } catch (e) {
       console.error(e);
     }
-
     // clear form values
     setFormState({
       projectTitle: '',
@@ -199,7 +192,6 @@ const ProjectHub = (props) => {
       }
       <div>
         <div className='font-semibold mb-2 text-xl px-2'>My Projects:</div>
-        {console.log("saved projects are "+JSON.stringify(savedProjects))}
         {savedProjects.length>0?savedProjects.map(project => {return <div id={"saved"+project._id}> <Card projectContent={project}/></div>}):
         <h3>
           there are no saved projects</h3>}
