@@ -83,7 +83,7 @@ const ProjectHub = (props) => {
 
   return (
  
-  <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3">
+  <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:mt-4 md:mt-8 lg:mt-52">
 
     {/*md break column 1 */}
     <div className="grid content-start px-5 mb-5">
