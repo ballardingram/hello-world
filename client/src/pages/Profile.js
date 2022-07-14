@@ -20,7 +20,8 @@ const Profile = () => {
     <>
     {userData && (
   
-    <main className="mb-auto sm:grid sm:grid-cols-2 lg:grid-cols-3 mx-4 text-lg">
+  
+    <main className="sm:grid sm:grid-cols-2 h-full lg:grid-cols-3 mx-4 text-lg lg:mt-56">
     {/*md break column 1 */}
     <div className="pt-1 sm:px-2 rounded-lg w-sm lg:max-w-sm">
       <h2 className='font-semibold text-xl'>Friends</h2>

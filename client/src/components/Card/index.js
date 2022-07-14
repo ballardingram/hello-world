@@ -31,7 +31,11 @@ const Card = (props) => {
         </p>
       <div className='mt-2 flex justify-between'>
         <Icon icon={messageCircleOutline} color="black" height="40" />
-        <Icon icon={bookmarkStar} color="black" height="40" />
+        <button
+          type="submit">
+          <Icon icon={bookmarkStar} color="black" height="40" />
+        </button>
+        
       </div>
     </div>
   ));

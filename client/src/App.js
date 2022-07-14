@@ -44,10 +44,10 @@ function App() {
         <>
         {Auth.loggedIn() ? (
           <Router>
-            <div className="flex flex-col h-screen justify-between">
+            <div className="flex flex-col h-screen">
             <Navigation></Navigation>
               {/* NEED TO RENDER BASED ON PAGE */}
-              <h1 className='font-bold text-center lg:mx-5 mt-2 text-2xl lg:text-3xl lg:mt-36'>Page</h1>
+              {/* <h1 className='font-bold text-center lg:mx-5 mt-2 text-2xl lg:text-3xl lg:mt-36'>Page</h1> */}
               <div>
                 <Routes>
 
