@@ -51,8 +51,28 @@ body {
 /* icons end */
 
 /* desktop navigation bar start */
+#box-nav {
+  border-bottom: 10px solid red;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  transform: skewY(-3.48deg);
+  margin-bottom: 60px;
+}
+
+#line-dv {
+  width: calc(1.414 * 200px);
+  transform: rotate(45deg);
+  transform-origin: top left;
+  border-top: 1px solid blue;
+  position: absolute;
+  top: -2px;
+  left: -1px;
+  box-sizing: border-box;
+}
+
 #border {
-  padding-top: 5%;
+  padding-top: 3%;
   padding-bottom: .7%;
   border-bottom: 5px solid var(--primaryYellow);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

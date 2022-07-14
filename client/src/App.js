@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Account from './pages/Account';
 import ProjectHub from './pages/ProjectHub';
 import NoMatch from './pages/NoMatch';
+import PublicProfile from './pages/PublicProfile';
 import RedirectFederate from './pages/RedirectFederate'
 // import Home from './pages/Home'
 import Auth from './utils/auth';
@@ -90,6 +91,10 @@ function App() {
             <Route
               path="/"
               element={<Login />}
+            />
+            <Route
+              path="/publicprofile"
+              element={<PublicProfile />}
             />
             <Route
               path="/terms"
