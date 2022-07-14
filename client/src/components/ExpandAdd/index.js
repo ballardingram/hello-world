@@ -64,7 +64,7 @@ const ExpandAdd = (props) => {
         <AccordionHeader><span className="flex ml-1 text-xlg font-semibold">Add Skills</span></AccordionHeader>
         </div>
       <AccordionBody>
-        <div className="select-none flex justify-center text-lg md:text-lg my-1">
+        <div className="select-none w-full flex justify-center text-lg md:text-lg my-1">
         <form onSubmit={handleFormSubmit} className="">
           <div className="">
             <input

@@ -259,7 +259,7 @@ const Account = () => {
                 <div className="font-semibold mb-2">Permanently delete?</div>
                 <button
                   type="submit"
-                  className="w-full py-3 tracking-wide text-white rounded-lg text-2xl"
+                  className="form-btn w-full py-3 tracking-wide text-white rounded-lg text-2xl"
                   id="delete-btn"
                 >
                   Delete Account
