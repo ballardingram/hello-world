@@ -1,7 +1,9 @@
 import React from 'react';
+import Layout from '../components/Layout';
 
 const Terms = () => {
   return (
+    <Layout>
 
   <div className='grid grid-cols-12 md:mt-10 lg:mt-40 mb-20'>
     <div className='col-start-3 col-span-8 font-bold'>
@@ -67,6 +69,7 @@ const Terms = () => {
       sed risus ultricies tristique. Amet luctus venenatis lectus magna fringilla urna porttitor. 
     </p>
   </div>
+  </Layout>
 );
 };
 

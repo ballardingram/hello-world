@@ -1,11 +1,12 @@
 import React from 'react';
+import Layout from '../components/Layout';
 import aboutImg1 from '../../src/assets/thats-how-it-works.jpg';
 import aboutImg2 from '../../src/assets/make-it-happen.jpg';
 
 const About = () => {
   return (
-    <div>
-      <div class="select-none container mx-auto md:mt-5 lg:mt-44 mb-14">
+    <Layout>
+      <div class="select-none lg:mt-36">
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 font-thin">
           <p class="p-6 xl:text-5xl lg:text-4xl md:text-2xl sm:text-xl text-4xl text-end tracking-wide" id='about-height'>
             Coder to Coder<br></br>
@@ -23,7 +24,7 @@ const About = () => {
           </p>
         </div>
       </div>
-    </div>
+  </Layout>
   );
 };
 
