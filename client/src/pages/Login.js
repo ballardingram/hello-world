@@ -43,9 +43,7 @@ const Login = () => {
 
   return (
 
-<div className="grid 2xl:grid-cols-2 h-screen justify-items-center items-center" id='close'>
-
-
+<div className="grid mx-6 2xl:grid-cols-2 h-screen justify-items-center items-center" id='close'>
 
     <div className='max-w-2xl '>
     <LogoLg></LogoLg>
