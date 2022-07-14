@@ -4,6 +4,7 @@ import { useMutation,useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_PROJECT } from '../utils/mutations';
 import { QUERY_USER } from '../utils/queries';
+import Layout from '../components/Layout';
 
 
 
@@ -83,7 +84,8 @@ const ProjectHub = (props) => {
 
   return (
  
-  <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3">
+    <Layout>
+  <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 lg:mt-56 mt-10 mb-8 md:mt-16">
 
     {/*md break column 1 */}
     <div className="grid content-start px-5 mb-5">
@@ -203,6 +205,7 @@ const ProjectHub = (props) => {
     </div>
 
   </main>
+  </Layout>
 
 );
 }

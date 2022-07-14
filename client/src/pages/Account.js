@@ -8,6 +8,7 @@ import boltIcon from "@iconify/icons-fxemoji/bolt";
 import { UPDATE_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { QUERY_USER } from "../utils/queries";
+import Layout from "../components/Layout";
 
 const Account = () => {
   const [formState, setFormState] = useState({
@@ -58,7 +59,8 @@ const Account = () => {
     <>
       {/* <> */}
       {formState && (
-          <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3">
+        <Layout>
+          <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 lg:mt-56 mt-10 mb-8 md:mt-16">
             {/*md break column 1 */}
             <div className="grid content-start px-5">
               {/* update account form start*/}
@@ -261,6 +263,7 @@ const Account = () => {
               </div>
             </div>
           </main>
+          </Layout>
       )}
     </>
   );

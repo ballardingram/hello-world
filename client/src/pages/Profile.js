@@ -4,6 +4,7 @@ import { QUERY_USER } from '../utils/queries';
 import { useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
 import defaultPic from '../assets/orange-pug-256.png'
+import Layout from '../components/Layout';
 
 
 const Profile = () => {
@@ -20,8 +21,8 @@ const Profile = () => {
     <>
     {userData && (
   
-  
-    <main className="sm:grid sm:grid-cols-2 h-screen lg:grid-cols-3 mx-4 text-lg lg:mt-56">
+  <Layout>
+    <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 mx-4 text-lg lg:mt-56 mt-10 mb-8 md:mt-16">
     {/*md break column 1 */}
     <div className="pt-1 sm:px-2 rounded-lg w-sm lg:max-w-sm">
       <h2 className='font-semibold text-xl'>Friends</h2>
@@ -53,7 +54,7 @@ const Profile = () => {
       </div>
     </div>
   </main>
-
+  </Layout>
     )}
     </>
   );
