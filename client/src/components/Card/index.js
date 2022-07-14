@@ -33,13 +33,13 @@ const Card = (props) => {
   }
   return (projectContent&&(
     
-    <div className="p-2 mb-5 rounded-lg" id='card-container'> 
+    <div className="p-2 mb-5 rounded-md shadow-lg" id='card-container'> 
       <div>
-        <div className='select-none font-semibold tracking-wide mb-2 text-xl'>
+        <div className='select-none font-semibold tracking-wide mb-2 text-2xl'>
              {projectContent.title}
         </div>
         <div 
-          className='select-none font-light text-lg text-justify leading-5 mb-1'>
+          className='select-none font-normal text-lg text-justify leading-5 mb-2'>
           {projectContent.description}
         </div>
         <ExpandProject projectContentBody={projectContent.content}></ExpandProject>
@@ -56,9 +56,9 @@ const Card = (props) => {
         </p>
       <div className='mt-2 flex justify-between'>
         <Icon icon={messageCircleOutline} color="black" height="40" />
-        <button
+        <button id="bookmark"
            onClick={() => handleBookMark(projectContent)}>
-          <Icon icon={bookmarkStar} color="black" height="40" />
+          <Icon icon={bookmarkStar} color="black" height="40"/>
         </button>
         
       </div>
