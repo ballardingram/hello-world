@@ -14,9 +14,10 @@ const ProjectHub = (props) => {
     helpRequired: false,
     skillsRequired:''
   });
+  const [colloborationProjectsCount, setColloborationProjectsCount] = useState(0);
 
   const [addProject, { error }] = useMutation(ADD_PROJECT);
-
+  
   const [projects, setProjects] = useState([]);
   const [savedProjects, setsavedProjects] = useState([]);
   const { data } = useQuery(QUERY_USER, {
@@ -172,10 +173,13 @@ const ProjectHub = (props) => {
 
     {/*md break column 2 */}
     <div className="grid content-start md:grid-col-2 px-3 pb-5">
-      <div>
-        <div className='font-semibold mb-2 text-xl px-2'>My Projects:</div>
-       {projects.length>0?projects.map(project => {return <div id={project._id}> <Card projectContent={project}/></div>}):<h2>There are no projects</h2>}
+    <div>
+        <div className='font-semibold mb-2 text-xl px-2'>My Bookmarks:</div>
+        {savedProjects.length>0?savedProjects.map(project => {return <div id={"saved"+project._id}> <Card projectContent={project}/></div>}):
+        <h3>
+          there are no saved projects</h3>}
       </div>
+      
     </div>
 
     {/*md break column 3 */}
@@ -185,19 +189,19 @@ const ProjectHub = (props) => {
           projects.map(project => {
             return project.colloborators.map((colloborator) => {
               if(colloborator._id === userData._id && userData._id !== project.createdBy._id){
+                setColloborationProjectsCount(colloborationProjectsCount+1)
                 return <div id={"collob"+project._id}> <Card projectContent={project}/></div>
               }
             })
           })
       }
+      {colloborationProjectsCount===0&&<h2>You don't have any colloborations<br/></h2>}
       <div>
         <div className='font-semibold mb-2 text-xl px-2'>My Projects:</div>
-        {savedProjects.length>0?savedProjects.map(project => {return <div id={"saved"+project._id}> <Card projectContent={project}/></div>}):
-        <h3>
-          there are no saved projects</h3>}
-      </div>
-
+       {projects.length>0?projects.map(project => {return <div id={project._id}> <Card projectContent={project}/></div>}):<h2>No Projects created yet</h2>}
     </div>
+    </div>
+
 
   </main>
   </Layout>
