@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import NavLg from '../components/NavLg';
-import NavSm from '../components/NavSm';
 import Card from '../components/Card';
 import { useMutation,useQuery } from '@apollo/client';
-import FooterSticky from '../components/FooterSticky';
-import FooterBody from '../components/FooterBody';
 import Auth from '../utils/auth';
 import { ADD_PROJECT } from '../utils/mutations';
 import { QUERY_USER } from '../utils/queries';
@@ -86,19 +82,8 @@ const ProjectHub = (props) => {
 
 
   return (
-  <div className="flex flex-col h-screen justify-start text-lg" id='close'>
-  {/* navigation header start */}
-  <header>
-    <NavLg></NavLg>
-    <NavSm></NavSm>
-  </header>
-  {/* navigation header end */}
-  <div className='w-screen px-5 my-5 md:pt-0 md:pr-9 font-bold text-2xl lg:text-3xl 2xl:text-4xl md:text-right'>
-    Project Hub
-  </div>
-
-  {/* body start */}
-  <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3">
+ 
+  <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:mt-4 md:mt-8 lg:mt-52">
 
     {/*md break column 1 */}
     <div className="grid content-start px-5 mb-5">
@@ -218,12 +203,7 @@ const ProjectHub = (props) => {
     </div>
 
   </main>
-  {/* body end */}
-  {/* footer start */}
-  <FooterBody></FooterBody>
-  <FooterSticky></FooterSticky>
-  {/* footer end */}
-  </div>
+
 );
 }
 
