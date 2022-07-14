@@ -58,14 +58,14 @@ const ProjectHub = (props) => {
            colloborators: [Auth.getUserID()]},
       });
 
-      // if(data){
+      if(data){
         
-      //   const newProject = data.addProject;
-      //   console.log(newProject);
-      //   setProjects([...projects, newProject])
-      // }
+        const newProject = data.addProject;
+        console.log(newProject);
+        // setProjects([...projects, newProject])
+      }
 
-      // return data;
+      return data;
     } catch (e) {
       console.error(e);
     }
