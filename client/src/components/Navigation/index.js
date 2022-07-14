@@ -5,8 +5,22 @@ import boltIcon from '@iconify/icons-fxemoji/bolt';
 import codeIcon from '@iconify/icons-fa/code';
 import homeIcon from '@iconify/icons-iconoir/home';
 import accountIcon from '@iconify/icons-codicon/account';
+import { QUERY_USER } from '../../utils/queries';
+import { useQuery } from '@apollo/client';
+import Auth from '../../utils/auth';
 
 const Navigation = () => {
+
+  const { data } = useQuery(QUERY_USER, {  variables: { email: Auth.getUserEmail() }});
+
+  const userData = data;
+  console.log(userData);
+
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
+
   return (
     <div className="h-36 rounded-b-2xl display-contents text-lg lg:fixed lg:w-full" id="mobile-nav">
       <div className="flex justify-between w-full h-36">
@@ -20,7 +34,7 @@ const Navigation = () => {
           <div className="flex flex-col justify-end ml-2 mb-3 text-lg">
             <div className="flex">
               {/* DISPLAY NAME */}
-              <div className="font-bold text-xl sm:text-2xl">Kevin Puggles</div>
+              <div className="font-bold text-xl sm:text-2xl">{userData ? userData.user.displayName : 'user'}</div>
               {/* VERIFICATION ICON */}
               <div className="ml-1"><Icon icon={boltIcon} height="22"/></div>
             </div>
@@ -33,6 +47,7 @@ const Navigation = () => {
             <div className="flex mt-2">
               <button
                   type="submit"
+                  onClick={logout}
                   className="form-btn px-2 rounded-md w-3/4"
                   id="logout">
                   Log Out
