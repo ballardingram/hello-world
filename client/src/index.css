@@ -85,6 +85,10 @@ body {
   font-weight: 500;
 }
 
+#terms:hover, #about:hover {
+  color: var(--primaryBlue);
+}
+
 #about-height {
   line-height: 1.25em;
 }
