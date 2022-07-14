@@ -22,7 +22,7 @@ const Navigation = () => {
   };
 
   return (
-    <div className="h-36 rounded-b-2xl lg:w-full text-lg lg:fixed mb-10" id="mobile-nav">
+    <div className="h-36 rounded-b-2xl lg:w-full text-lg lg:fixed" id="mobile-nav">
       <div className="flex justify-between w-full h-36">
         <div className="flex justify-center font-semibold">
 
