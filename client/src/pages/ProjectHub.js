@@ -135,18 +135,9 @@ const ProjectHub = (props) => {
           value={formState.projectDetails}
           onChange={handleChange}>
         </textarea>
-        <label id="demo-multiple-name-label">Colloborator Name : </label>
-        <select id="colloboratorsInput" name="colloboratorsInput" onChange={handleChange}>
-          <option value="NA">"select colloborator" </option>
-            {
-                allColloboratorUsers.map(collob => {
-                 return  <option value={collob._id}>{collob.displayName}</option> 
-                })      
-            }
-        </select>
-       <label
+        <label
           htmlFor='skillsRequired'
-          className='block'>
+          className='block mt-4'>
         </label>
         <input
           name='skillsRequired'
@@ -157,12 +148,22 @@ const ProjectHub = (props) => {
           value={formState.skillsRequired}
           onChange={handleChange}
           />
+        <label id="demo-multiple-name-label" className='text-sm  mb-4 flex font-semibold'></label>
+        <select id="colloboratorsInput" name="colloboratorsInput" className='text-xl font-semibold pr-2' onChange={handleChange}>
+          <option value="NA">Add a collaborator to your project</option>
+            {
+                allColloboratorUsers.map(collob => {
+                 return  <option value={collob._id}>{collob.displayName}</option> 
+                })      
+            }
+        </select>
+
 
         <div className='flex w-full justify-start text-lg py-4 font-semibold'>
         <label
           htmlFor='helpRequired'
           className=''>
-            Help Required?
+            Additional Help Required?
         </label>
         <input
           name='helpRequired'
@@ -193,21 +194,11 @@ const ProjectHub = (props) => {
 
     {/*md break column 2 */}
     <div className="grid content-start md:grid-col-2 px-3 pb-5">
-    <div>
-        <div className='font-semibold mb-2 text-xl px-2'>My Bookmarks:</div>
+      <div>
+        <div className='font-semibold mb-2 text-xl lg:text-2xl px-2'>My Bookmarks:</div>
         {savedProjects.length>0?savedProjects.map(project => {return <div id={"saved"+project._id}> <Card projectContent={project}/></div>}):
         <h3>
           there are no saved projects</h3>}
-      </div>
-      
-    </div>
-
-    {/*md break column 3 */}
-    <div className="grid content-start px-3 pb-5">
-    <div>
-        <div className='font-semibold mb-2 text-xl px-2 lg:text-2xl'>Saved Projects</div>
-        {savedProjects.length>0?savedProjects.map(project => {return <div id={"saved"+project._id}> <Card projectContent={project}/></div>}):
-        <h3>There are no saved projects</h3>}
       </div>
       <div className='font-semibold mb-2 text-xl px-2 lg:text-2xl'>My Collaborations:</div>
       {
@@ -219,10 +210,17 @@ const ProjectHub = (props) => {
             })
           })
       }
-      <div>
-        <div className='font-semibold mb-2 text-xl px-2'>My Projects:</div>
-       {projects.length>0?projects.map(project => {return <div id={project._id}> <Card projectContent={project}/></div>}):<h2>No Projects created yet</h2>}
+      
     </div>
+
+    {/*md break column 3 */}
+    <div className="grid content-start px-3 pb-5">
+    <div>
+        <div className='font-semibold mb-2 text-xl px-2 lg:text-2xl'>Saved Projects</div>
+        {savedProjects.length>0?savedProjects.map(project => {return <div id={"saved"+project._id}> <Card projectContent={project}/></div>}):
+        <h3>There are no saved projects</h3>}
+      </div>
+
     </div>
 
 
