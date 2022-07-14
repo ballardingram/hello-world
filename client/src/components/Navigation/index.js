@@ -11,10 +11,10 @@ import Auth from '../../utils/auth';
 
 const Navigation = () => {
 
-  const { data } = useQuery(QUERY_USER, {  variables: { email: Auth.getUserEmail() }});
+  // const { data } = useQuery(QUERY_USER, {  variables: { email: Auth.getUserEmail() }});
 
-  const userData = data;
-  console.log(userData);
+  // const userData = data;
+  // console.log(userData);
 
   const logout = event => {
     event.preventDefault();
@@ -34,7 +34,7 @@ const Navigation = () => {
           <div className="flex flex-col justify-end ml-2 mb-3 text-lg">
             <div className="flex">
               {/* DISPLAY NAME */}
-              <div className="font-bold text-xl sm:text-2xl">{userData ? userData.user.displayName : 'user'}</div>
+              {/* <div className="font-bold text-xl sm:text-2xl">{userData ? userData.user.displayName : 'user'}</div> */}
               {/* VERIFICATION ICON */}
               <div className="ml-1"><Icon icon={boltIcon} height="22"/></div>
             </div>
