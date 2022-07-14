@@ -47,7 +47,7 @@ const Profile = () => {
     {/*md break column 1 */}
     <div className="pt-1 sm:px-2 rounded-lg w-sm lg:max-w-sm h-full">
       <div className='font-semibold text-2xl'>Friends</div>
-      <div className='font-normal mb-1 text-lg'>5 friends</div>
+      <div className='font-normal mb-1 text-lg'>{userInfo.friendCount} friends</div>
         <div className='grid grid-cols-4 gap-1 w-sm mb-5 rounded-2xl' id='friends'>
           {userInfo.friendCount > 0 ? (
                 userInfo.friends.map((friend) => {
