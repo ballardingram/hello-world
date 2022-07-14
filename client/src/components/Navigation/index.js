@@ -8,19 +8,19 @@ import accountIcon from '@iconify/icons-codicon/account';
 
 const Navigation = () => {
   return (
-    <div className="h-36 rounded-b-2xl display-contents text-lg lg:fixed lg:w-full" id="mobile-nav">
+    <div className="h-36 rounded-b-2xl lg:w-full text-lg lg:fixed" id="mobile-nav">
       <div className="flex justify-between w-full h-36">
         <div className="flex justify-center font-semibold">
 
           {/* USER IMAGE AND CONTENT ROUTES HERE */}
-          <div className="my-2 ml-5 object-center overflow-visible h-40 w-40 sm:h-44 sm:w-44 md:h-48 md:w-48">
+          <div className="my-2 ml-2 object-center overflow-visible h-40 w-40 sm:h-44 sm:w-44 md:h-48 md:w-48">
             {/* IMAGE */}
             <a href="/profile"><UserImage></UserImage></a>
           </div>
           <div className="flex flex-col justify-end ml-2 mb-3 text-lg">
             <div className="flex">
               {/* DISPLAY NAME */}
-              <div className="font-bold text-xl sm:text-2xl">Kevin Puggles</div>
+              <div className="font-bold text-xl md:text-2xl">Kevin Puggles</div>
               {/* VERIFICATION ICON */}
               <div className="ml-1"><Icon icon={boltIcon} height="22"/></div>
             </div>

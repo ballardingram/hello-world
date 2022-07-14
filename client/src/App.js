@@ -44,9 +44,9 @@ function App() {
       <Router>
         <div class="flex flex-col h-screen justify-between">
           <Navigation></Navigation>
-              {/* NEED TO RENDER BASED ON PAGE */}
-              <h1 className='font-bold text-center lg:mx-5 mt-2 text-2xl lg:text-3xl lg:mt-36'>Page</h1>
-          <div>
+            {/* NEED TO RENDER BASED ON PAGE */}
+            <h1 className='font-bold text-center lg:mx-5 mt-2 text-2xl lg:text-3xl lg:mt-36'>Page</h1>
+            <div>
             <Routes>
             {Auth.loggedIn() ? (
             <>
@@ -106,8 +106,8 @@ function App() {
             )
             }
             </Routes>
-            <FooterSticky></FooterSticky>
           </div>
+          <FooterSticky></FooterSticky>
         </div>
       </Router>
     </ApolloProvider>
