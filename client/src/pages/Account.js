@@ -61,7 +61,7 @@ const Account = () => {
       {formState && (
 
         <Layout>
-          <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 lg:mt-56 mt-10 mb-8 md:mt-16">
+          <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 lg:mt-56 mt-10 mb-8 md:mt-16 xl:mt-64">
             {/*md break column 1 */}
             <div className="grid content-start px-5">
               {/* update account form start*/}

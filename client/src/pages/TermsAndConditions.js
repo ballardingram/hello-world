@@ -5,7 +5,7 @@ const Terms = () => {
   return (
     <Layout>
 
-  <div className='grid grid-cols-12 md:mt-10 lg:mt-40 mb-20'>
+  <div className='grid grid-cols-12 mt-10 md:mt-12 lg:mt-48 mb-20'>
     <div className='col-start-3 col-span-8 font-bold'>
       Hello World's Terms of Service
     </div>
