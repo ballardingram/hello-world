@@ -29,6 +29,7 @@ const Profile = () => {
     variables: { skills: userSkills },
   });
   const opportunitiesData = skillProjects ? skillProjects.skillProjects : "";
+  console.log(skillProjects);
 
   useEffect(() => {
     if (opportunitiesData) {
@@ -115,10 +116,9 @@ const Profile = () => {
             <div className="flex flex-col justify-between">
               {console.log(projectOpportunities)}
               {projectOpportunities.length > 0 && (
-                // projectOpportunities.map((project) => {
-                //   return <div key={"opprtunity"+project._id} ><Card projectContent={project}/></div>
-                // })}
-                <Card projectContent={projectOpportunities[0]} />
+                projectOpportunities.map((project) => {
+                  return <div key={"opprtunity"+project._id} ><Card projectContent={project}/></div>
+                })
               )}
             </div>
           </div>
