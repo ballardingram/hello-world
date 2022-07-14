@@ -13,7 +13,7 @@ const Navigation = () => {
         <div className="flex justify-center font-semibold">
 
           {/* USER IMAGE AND CONTENT ROUTES HERE */}
-          <div className="my-2 ml-5 object-center overflow-visible h-40 w-40 sm:h-44 sm:w-44 md:h-48 md:w-48">
+          <div className="my-2 object-center overflow-visible h-40 w-40 sm:h-44 sm:w-44 md:h-48 md:w-48">
             {/* IMAGE */}
             <a href="/profile"><UserImage></UserImage></a>
           </div>
@@ -42,7 +42,7 @@ const Navigation = () => {
         </div>
 
         {/* Dashboard RIGHT content, some content visible at small but all large breakpoint */}
-        <div className="hidden md:contents">
+        <div className="hidden sm:contents">
           <div className="grid grid-cols-5 text-2xl justify-items-center content-end w-1/2 lg:w-2/5 xl:w-1/3 mb-1">
             <a href="/about" id="nav-about" className="invisible lg:visible grid content-end px-1">About</a>
             <a href="/terms" id="nav-terms" className="invisible lg:visible grid content-end px-1">Terms</a>
