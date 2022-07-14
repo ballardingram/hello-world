@@ -50,7 +50,7 @@ const typeDefs = gql`
         userFromToken(idtoken: String!) : Auth
         project(projectID : ID!) : Project
         projects : [Project]
-        skillProjects(skillName: String!) : [Project]
+        skillProjects(skills: [String]!) : [Project]
         checkout(inputString:String!): User
       }
       type Mutation {

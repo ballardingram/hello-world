@@ -1,20 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '../components/Card';
 import LogoLg from '../components/LogoLg';
 import FooterLg from '../components/FooterLg';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
 import { LOGIN_USER } from '../utils/mutations';
+import {GET_ALL_PROJECTS} from '../utils/queries';
 
 const Login = () => {
 
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN_USER);
+  const [projects, setProjects] = useState([]);
+  // get the projects sorted by latest
+
+  const {data} = useQuery(GET_ALL_PROJECTS);
+  const localProjects = data?data.projects:'';
+  useEffect(() => {
+    if (localProjects) {
+      console.log("setting user projects");
+      setProjects([...localProjects]);
+    }
+  }, [localProjects]);
 
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     setFormState({
       ...formState,
       [name]: value,
@@ -115,6 +126,8 @@ const Login = () => {
       </div>
       <div>
         <div className="flex flex-col overflow-y-scroll overflow-hidden hidden lg:contents">
+          {console.log(projects)}
+          {projects.map(project => {return <div id={project._id}> <Card projectContent={project}/></div>})}
           <div>
             <Card></Card>
           </div>
