@@ -48,10 +48,12 @@ body {
   transform: translateY(-3px);
   border-radius: 50%;
 }
+
+
 /* icons end */
 
 /* desktop navigation bar start */
-#border {
+/* #border {
   padding-top: 5%;
   padding-bottom: .7%;
   border-bottom: 5px solid var(--primaryYellow);
@@ -67,7 +69,7 @@ body {
 
 #content {
   transform: skewY(-3.48deg);
-}
+} */
 
 #nav-home:hover,
 #nav-account:hover,

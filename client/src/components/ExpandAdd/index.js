@@ -60,16 +60,16 @@ const ExpandAdd = (props) => {
   return (
     <Fragment>
       <Accordion open={open === 1} >
-        <div className="flex items-center my-2"><Icon icon={circlePlusFill} onClick={() => handleOpen(1)} height="20" />
-        <AccordionHeader><span className="flex ml-1 text-sm md:text-lg font-semibold">Add Skills</span></AccordionHeader>
+        <div className="flex items-center"><Icon icon={circlePlusFill} onClick={() => handleOpen(1)} height="20" />
+        <AccordionHeader><span className="flex ml-1 text-xlg font-semibold">Add Skills</span></AccordionHeader>
         </div>
       <AccordionBody>
-        <div className="select-none flex justify-center text-sm md:text-lg my-1">
-        <form onSubmit={handleFormSubmit} className="mt-6">
-          <div className="mb-3">
+        <div className="select-none flex justify-center text-lg md:text-lg my-1">
+        <form onSubmit={handleFormSubmit} className="">
+          <div className="">
             <input
               type="text"
-              className=" text-xl w-full px-4 py-3 mt-2 border rounded-lg focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              className="text-xl w-full px-2 py-3 mb-5 border rounded-lg"
               placeholder="Enter skill name"
               id="skillName"
               name="skillName"
@@ -82,7 +82,7 @@ const ExpandAdd = (props) => {
               <option value='EXPERT'>Expert</option>
             </select>
             <button
-              className="form-btn w-full py-2 tracking-wide text-white rounded-lg text-2xl"
+              className="form-btn mt-10 w-full py-2 font-semibold tracking-wider text-white rounded-lg text-2xl"
               id="login-btn"
               type="submit"
             >

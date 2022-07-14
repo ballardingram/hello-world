@@ -31,29 +31,18 @@ const Navigation = () => {
             {/* IMAGE */}
             <a href="/"><UserImage></UserImage></a>
           </div>
-          <div className="flex flex-col justify-end ml-2 mb-3 text-lg">
-            <div className="flex">
+          <div className="flex flex-col justify-end ml-2 mb-1 text-lg tracking-wide overflow-visible">
+            <div className="flex items-center mb-2">
               {/* DISPLAY NAME */}
-              <div className="font-bold text-xl md:text-2xl">{userData ? userData.user.displayName : 'user'}</div>
+              <div className="font-bold text-3xl lg:text-4xl">{userData ? userData.user.displayName : 'user'}</div>
               {/* VERIFICATION ICON */}
-              <div className="ml-1"><Icon icon={boltIcon} height="22"/></div>
+              <div className="ml-1"><Icon icon={boltIcon} height="32"/></div>
             </div>
-            <div className="flex flex-col flex-wrap text-base">
-              {/* ACCOUNT CREATED */}
-              <div className="mr-1">Connected: July 2022</div>
+            <div className="flex flex-col flex-nowrap">
               {/* VERIFICATION STATUS */}
-              <div className="italic">Verified Member</div>
-            </div>
-            <div className="flex mt-2">
-
-              {/* LOG OUT ROUTE NEEDED */}
-              <button
-                  type="submit"
-                  onClick={logout}
-                  className="form-btn px-2 rounded-md w-3/4"
-                  id="logout">
-                  Log Out
-              </button>
+              <div className="italic text-base md:text-xl lg:text-xl">Verified Member</div>
+              {/* ACCOUNT CREATED */}
+              <div className="text-base pb-1 flex-nowrap lg:text-lg xl:text-2xl">Connected: July 2022</div>
             </div>
           </div>
         </div>

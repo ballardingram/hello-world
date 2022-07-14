@@ -13,8 +13,6 @@ import RedirectFederate from './pages/RedirectFederate'
 import Auth from './utils/auth';
 import Profile from './pages/Profile';
 import PublicProfile from './pages/PublicProfile';
-import Navigation from './components/Navigation';
-import FooterSticky from './components/FooterSticky';
 
 
 const httpLink = createHttpLink({
