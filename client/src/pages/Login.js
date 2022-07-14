@@ -16,7 +16,6 @@ const Login = () => {
   const localProjects = data ? data.projects : "";
   useEffect(() => {
     if (localProjects) {
-      console.log("setting user projects");
       setProjects([...localProjects]);
     }
   }, [localProjects]);
@@ -108,7 +107,7 @@ const Login = () => {
 
       <div className="px-5 hidden 2xl:contents overflow-hidden">
         <div className="max-w-xl flex flex-col absolute inset-y-0 right-10">
-          {projects.map((project) => {
+          {projects.length>0&&projects.map((project) => {
             return (
               <div id={project._id}>
                 {" "}

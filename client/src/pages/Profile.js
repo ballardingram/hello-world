@@ -29,6 +29,7 @@ const Profile = () => {
     variables: { skills: userSkills },
   });
   const opportunitiesData = skillProjects ? skillProjects.skillProjects : "";
+  console.log(skillProjects);
 
   useEffect(() => {
     if (opportunitiesData) {
@@ -47,7 +48,7 @@ const Profile = () => {
     {/*md break column 1 */}
     <div className="pt-1 sm:px-2 rounded-lg w-sm lg:max-w-sm h-full">
       <div className='font-semibold text-2xl'>Friends</div>
-      <div className='font-semibold mb-1 text-lg'>5 friends</div>
+      <div className='font-normal mb-1 text-lg'>{userInfo.friendCount} friends</div>
         <div className='grid grid-cols-4 gap-1 w-sm mb-5 rounded-2xl' id='friends'>
           {userInfo.friendCount > 0 ? (
                 userInfo.friends.map((friend) => {
@@ -115,10 +116,9 @@ const Profile = () => {
             <div className="flex flex-col justify-between">
               {console.log(projectOpportunities)}
               {projectOpportunities.length > 0 && (
-                // projectOpportunities.map((project) => {
-                //   return <div key={"opprtunity"+project._id} ><Card projectContent={project}/></div>
-                // })}
-                <Card projectContent={projectOpportunities[0]} />
+                projectOpportunities.map((project) => {
+                  return <div key={"opprtunity"+project._id} ><Card projectContent={project}/></div>
+                })
               )}
             </div>
           </div>
