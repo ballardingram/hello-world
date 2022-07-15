@@ -5,7 +5,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import Auth from "../utils/auth";
 import { LOGIN_USER } from "../utils/mutations";
 import { GET_ALL_PROJECTS } from "../utils/queries";
-import { FooterSticky } from "../components/FooterSticky";
+
 
 const Login = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -52,13 +52,17 @@ const Login = () => {
   };
 
   return (
-    <div
-      className="grid 2xl:grid-cols-2 h-screen justify-items-center items-center"
-      id="close"
-    >
-      <div className="max-w-2xl ">
-        <LogoLg></LogoLg>
-        {/* login form start */}
+
+    
+    <div className="flex flex-col justify-center items-center h-screen text-xl px-10">
+    
+
+      
+        <div className="grid grid-col justify-center object-none overflow-visible">
+          <LogoLg></LogoLg>
+        </div>
+
+      <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
         <form onSubmit={handleFormSubmit} className="mt-6">
           <div className="mb-3">
             <label htmlFor="email" className="block"></label>
@@ -102,11 +106,16 @@ const Login = () => {
             Register Here!
           </a>
           {error && <div>Login failed</div>}
+       
         </div>
+        </div>
+     
 
-      </div>
 
-      <div className="px-5 hidden 2xl:contents overflow-hidden">
+
+      
+
+      <div className="px-5 hidden overflow-hidden">
         <div className="max-w-xl flex flex-col absolute inset-y-0 right-10">
           {projects.length>0&&projects.map((project) => {
             return (
@@ -118,10 +127,12 @@ const Login = () => {
           })}
         </div>
       </div>
-      <footer className="color-pY fixed bottom-0 2xl:w-full">
-      <a href="/">About HelloWorld</a>
+      <footer className="color-pY fixed bottom-0 w-full p-4 text-lg font-semibold">
+        <a href="/">About HelloWorld</a>
       </footer>
     </div>
+  
+    
   );
 };
 export default Login;

@@ -71,7 +71,7 @@ const Profile = () => {
                   );
                 })
               ) : (
-                <div>Make some friends!!</div>
+                <div className="col-span-4 py-4 px-2 text-xl text-center">You have no friends!</div>
               )}
         </div>
       <div className='hidden sm:contents'>
@@ -106,7 +106,7 @@ const Profile = () => {
                     );
                   })
                 ) : (
-                  <div>You have no friends to message 😭</div>
+                  <div className="flex text-xl font-semibold w-full justify-center">You have no messages<Icon icon={sadButRelievedFace} color="black" height="30" className="ml-3"/></div>
                 )}
         </div>
       </div>

@@ -5,8 +5,13 @@ import chatText from '@iconify/icons-bi/chat-text';
 import homeIcon from '@iconify/icons-iconoir/home';
 import codeIcon from '@iconify/icons-fa/code';
 import searchLoading from '@iconify/icons-gg/search-loading';
+import Auth from '../../utils/auth';
 
 const FooterSticky = () => {
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
     
   <div>
@@ -14,6 +19,7 @@ const FooterSticky = () => {
     <div className='hidden lg:contents text-xl font-semibold'>
       <a href='/terms' className='mx-5 color-sY' id='terms'>Terms</a>
       <a href='about' className='mx-5 color-sY' id='about'>About</a>
+      <a href='/' onClick={logout} className='mx-5 color-sY' id='about'>Log Out</a>
     </div>
     </div>
  

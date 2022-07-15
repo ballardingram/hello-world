@@ -89,13 +89,13 @@ const ProjectHub = (props) => {
   return (
  
     <Layout>
-  <main className="sm:grid sm:grid-cols-2 lg:grid-cols-3 lg:mt-56 mt-10 mb-8 md:mt-20 xl:mt-64 text-xl">
+  <main className="sm:grid md:grid-cols-2 lg:grid-cols-3 lg:mt-56 mt-10 mb-8 md:mt-20 xl:mt-64 text-xl">
 
 
     {/*md break column 1 */}
     <div className="grid content-start px-5 mb-5">
       {/* submit project form start */}
-      <div className='font-semibold mb-2 text-xl'>Submit a New Project:</div>
+      <div className='font-semibold mb-2 text-xl lg:text-2xl'>Submit a New Project:</div>
       <form onSubmit={handleFormSubmit}>
         <label
           htmlFor='projectTitle'
@@ -135,34 +135,35 @@ const ProjectHub = (props) => {
           value={formState.projectDetails}
           onChange={handleChange}>
         </textarea>
-        <label id="demo-multiple-name-label">Colloborator Name : </label>
-        <select id="colloboratorsInput" name="colloboratorsInput" onChange={handleChange}>
-          <option value="NA">"select colloborator" </option>
+        <label
+          htmlFor='skillsRequired'
+          className='block mt-4'>
+        </label>
+        <input
+          name='skillsRequired'
+          type='text'
+          className='block w-full px-2 py-2 mb-2 border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
+          placeholder='Enter skill requirements'
+          id='projectSub'
+          value={formState.skillsRequired}
+          onChange={handleChange}
+          />
+        <label id="demo-multiple-name-label" className='text-sm  mb-4 flex font-semibold'></label>
+        <select id="colloboratorsInput" name="colloboratorsInput" className='text-xl font-semibold pr-2' onChange={handleChange}>
+          <option value="NA">Add a collaborator to your project</option>
             {
                 allColloboratorUsers.map(collob => {
                  return  <option value={collob._id}>{collob.displayName}</option> 
                 })      
             }
         </select>
-       <label
-          htmlFor='skillsRequired'
-          className='block'>
-        </label>
-        <input
-          name='skillsRequired'
-          type='text'
-          className='block w-full px-2 py-2 mb-2 border rounded-lg focus:border-blue-400 focus:ring-current-300 focus:outline-none focus:ring focus:ring-opacity-40'
-          placeholder='Enter the skills required, enter multiple skills with separated by comma(,)'
-          id='projectSub'
-          value={formState.skillsRequired}
-          onChange={handleChange}
-          />
+
 
         <div className='flex w-full justify-start text-lg py-4 font-semibold'>
         <label
           htmlFor='helpRequired'
           className=''>
-            Help Required?
+            Additional Help Required?
         </label>
         <input
           name='helpRequired'
@@ -177,7 +178,7 @@ const ProjectHub = (props) => {
         <div className='mt-2'>
           <button
               type='submit' 
-              className='form-btn w-full py-2 mb-2 text-white tracking-wide rounded-lg text-xl'
+              className='form-btn w-full py-2 mb-2 text-white tracking-wide rounded-lg text-2xl'
               id='projectSubmit'>
               Submit Project
           </button>
@@ -190,20 +191,16 @@ const ProjectHub = (props) => {
     {error && <div>something went wrong</div>}
     </div>
 
+
     {/*md break column 2 */}
     <div className="grid content-start md:grid-col-2 px-3 pb-5">
-    <div>
-        <div className='font-semibold mb-2 text-xl px-2'>My Bookmarks:</div>
+      <div>
+        <div className='font-semibold mb-2 text-xl lg:text-2xl px-2'>My Bookmarks:</div>
         {savedProjects.length>0?savedProjects.map(project => {return <div id={"saved"+project._id}> <Card projectContent={project}/></div>}):
         <h3>
           there are no saved projects</h3>}
       </div>
-      
-    </div>
-
-    {/*md break column 3 */}
-    <div className="grid content-start px-3 pb-5">
-      <div className='font-semibold mb-2 text-xl px-2'>My Collaborations:</div>
+      <div className='font-semibold mb-2 text-xl px-2 lg:text-2xl'>My Collaborations:</div>
       {
           projects.map(project => {
             return project.colloborators.map((colloborator) => {
@@ -213,10 +210,17 @@ const ProjectHub = (props) => {
             })
           })
       }
-      <div>
-        <div className='font-semibold mb-2 text-xl px-2'>My Projects:</div>
-       {projects.length>0?projects.map(project => {return <div id={project._id}> <Card projectContent={project}/></div>}):<h2>No Projects created yet</h2>}
+      
     </div>
+
+    {/*md break column 3 */}
+    <div className="grid content-start px-3 pb-5">
+    <div>
+        <div className='font-semibold mb-2 text-xl px-2 lg:text-2xl'>Saved Projects</div>
+        {savedProjects.length>0?savedProjects.map(project => {return <div id={"saved"+project._id}> <Card projectContent={project}/></div>}):
+        <h3>There are no saved projects</h3>}
+      </div>
+
     </div>
 
 

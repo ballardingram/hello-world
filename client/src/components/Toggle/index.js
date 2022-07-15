@@ -7,7 +7,7 @@ function Switch() {
     <>
       <div className="flex flex-col justify-center">
         <div
-          className="w-10 h-5 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer"
+          className="w-12 h-6 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer"
           onClick={() => {
             setToggle(!toggle);
           }}>
