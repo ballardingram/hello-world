@@ -101,13 +101,13 @@ const Register = () => {
                   </button>
               </div>
               <p className='text-center mt-5 font-semibold underline'>or</p>
-              <div className='mt-2'>
+              {/* <div className='mt-2'>
                 <p className="text-sm mr-2 font-semibold text-center mb-2 tracking-wider">Sign up with:</p>
                 <div className='flex justify-center'>
                   <a href='http://localhost:3001/api/auth/facebook' className='facebook mx-3'><Icon icon={facebookIcon} height="30" /></a>
                   <a href='/' className='github mx-3'><Icon icon={githubFill} height="30" /></a>
                 </div>
-              </div>
+              </div> */}
               <div className='mt-10 flex content-center justify-between' id='terms-label'>
                 <div className='inline-block ml-4 text-sm h-full content-center'>
                   Agree to<Link to='/terms'> terms & conditions</Link>

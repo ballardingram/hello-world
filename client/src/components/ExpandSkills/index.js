@@ -34,7 +34,7 @@ const ExpandSkills = ({ skills }) => {
               return <li>{userSkills.skillName}</li>
             }): <li>Add some skills!!</li>}
             
-            <li>HTML</li>
+            {/* <li>HTML</li>
             <li>CSS</li>
             <li>Tailwind</li>
             <li>React</li>
@@ -43,7 +43,7 @@ const ExpandSkills = ({ skills }) => {
             <li>Oauth</li>
             <li>NoSQL</li>
             <li>Express.JS</li>
-            <li>Heroku</li>
+            <li>Heroku</li> */}
 
           </ul>
         </div>
