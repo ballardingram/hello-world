@@ -15,11 +15,9 @@ import Profile from './pages/Profile';
 import PublicProfile from './pages/PublicProfile';
 
 
-const uri = process.env.graphQLServer ? process.env.graphQLServer: "http://localhost";
-const uriport = process.env.port ?process.env.port : 3001
-const graphQLURL = uri+":"+uriport+"/graphql"
+
 const httpLink = createHttpLink({
-  uri:  graphQLURL,
+  uri:  '/graphql',
 });
 
 
