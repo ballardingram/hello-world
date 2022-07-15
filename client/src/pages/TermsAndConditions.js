@@ -49,7 +49,7 @@ const Terms = () => {
       Users are not permitted to create another account using alternative communication methods to avoid this action.
       Users are not permitted to misrepresent themselves on the site.
       Users must be 18 years of age or older.
-      <br></br>
+      <br/>
       <br></br>
       The 'Donation Center' is a non-functioning part of the academic site.
       It is not going to release funds or accept deposits.
