@@ -1,6 +1,5 @@
 require('dotenv').config()
 const express = require("express");
-const passport = require("passport");
 const { ApolloServer } = require("apollo-server-express");
 const path = require('path');
 const {
@@ -8,26 +7,25 @@ const {
 } = require("apollo-server-core");
 const { typeDefs, resolvers } = require("./graphQL");
 const db = require("./config/connection");
-const routes = require('./userAuthentication/registration/routes');
 const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
   typeDefs,
-  resolvers,
-  plugins: [ApolloServerPluginLandingPageGraphQLPlayground({ embed: true })],
-  playground: true,
+  resolvers
 });
 
 const app = express();
-const cors = require('cors');
-app.use(cors());
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 // Serve up static assets
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
-app.use(passport.initialize());
-app.use(routes);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();

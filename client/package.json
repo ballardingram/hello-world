@@ -17,7 +17,22 @@
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@iconify/icons-akar-icons": "^1.2.8",
+    "@iconify/icons-bi": "^1.2.5",
+    "@iconify/icons-codicon": "^1.2.12",
+    "@iconify/icons-emojione-monotone": "^1.2.3",
+    "@iconify/icons-ep": "^1.2.7",
+    "@iconify/icons-eva": "^1.2.3",
+    "@iconify/icons-fa": "^1.2.2",
+    "@iconify/icons-fa-solid": "^1.2.3",
+    "@iconify/icons-fxemoji": "^1.2.2",
+    "@iconify/icons-iconoir": "^1.2.8",
+    "@iconify/icons-ph": "^1.2.2",
+    "@iconify/react": "^3.2.2",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,22 +57,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@iconify/icons-akar-icons": "^1.2.8",
-    "@iconify/icons-bi": "^1.2.5",
-    "@iconify/icons-codicon": "^1.2.12",
-    "@iconify/icons-emojione-monotone": "^1.2.3",
-    "@iconify/icons-ep": "^1.2.7",
-    "@iconify/icons-eva": "^1.2.3",
-    "@iconify/icons-fa": "^1.2.2",
-    "@iconify/icons-fa-solid": "^1.2.3",
-    "@iconify/icons-fxemoji": "^1.2.2",
-    "@iconify/icons-iconoir": "^1.2.8",
-    "@iconify/icons-ph": "^1.2.2",
-    "@iconify/react": "^3.2.2",
-    "autoprefixer": "^10.4.7",
-    "postcss": "^8.4.14",
-    "tailwindcss": "^3.1.4"
   }
 }
