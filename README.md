@@ -16,9 +16,8 @@ This is our third group project for Challenge 24: Interactive MERN SPA.
 5. [Process and Roles](#Process-and-Roles)
 6. [Technology Library](#Technology-Library)
 7. [Wins and Opportunities](#Wins-and-Opportunities)
-8. [Application Demo](#Application-Demo)
-9. [Future Dev](#Future-Dev)
-10. [Heroku](#Heroku)
+8. [Future Dev](#Future-Dev)
+9. [Heroku](#Heroku)
 <pre>
 </pre>  
 # <a name="Authors"> Authors </a>
@@ -141,7 +140,21 @@ Components
 Flow
 - Creating a polished UX/UI that met the needs and wants of the entire group.
 
+<pre>
+</pre>
+# <a name="Future-Dev"> Future Development </a>
+---
+Paid Collaboration
+Users can charge for their collaborations and expertise.
 
+Spotlight Projects
+Allow users to promote projects to the main page.
+
+<pre>
+</pre>
+# <a name="Heroku"> Heroku </a>
+---
+https://ut-hello-world.herokuapp.com/
 
 
 
